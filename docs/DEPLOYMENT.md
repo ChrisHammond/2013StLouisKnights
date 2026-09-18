@@ -1,5 +1,14 @@
 # GitHub and Netlify
 
+## Deployed project
+
+- Public site: https://2013-st-louis-knights.netlify.app/
+- GitHub: https://github.com/ChrisHammond/2013StLouisKnights
+- Netlify project ID: `d9eb6d9b-26a9-4453-b143-3a2bbd08ab2d`
+- Branch `main`, build `npm run build`, publish `dist`.
+- Continuous deployment is connected with a repository-specific read-only deploy key and push webhook. The scheduled-update build hook is stored as the `NETLIFY_BUILD_HOOK` GitHub secret.
+- Created under the existing Christoc account without changing its plan or enabling paid add-ons.
+
 ## Initial deployment
 
 The project uses a static Astro build: `npm ci`, `npm run build`, publish `dist`, Node 24. `netlify.toml` provides these settings and security headers.

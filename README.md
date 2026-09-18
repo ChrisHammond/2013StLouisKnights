@@ -2,6 +2,9 @@
 
 An independent CSDHL 13U season portal built with Astro and TypeScript. Static Netlify hosting, versioned JSON observations, and GitHub Actions. No database, login, analytics, or player information is required.
 
+- Live portal: https://2013-st-louis-knights.netlify.app/
+- Repository: https://github.com/ChrisHammond/2013StLouisKnights
+
 ## Run locally
 
 Use Node 24 (minimum supported: 22.12).
@@ -16,6 +19,7 @@ Open http://127.0.0.1:4321/. `npm run build` generates `dist/`.
 ```sh
 npm test
 npm run check
+npm run format:check
 npm run build
 node scripts/check-built-site.mjs
 ```
@@ -48,6 +52,7 @@ tests/fixtures/             Synthetic test-only data, never production observati
 
 - Edit identity/source mappings in `data/teams.json`; preserve internal IDs. Verify new memberships against the actual season division before changing the roster. Snapshot imports fail if any team is missing, duplicated, or unknown.
 - Keep historical observations. Correct a release by importing a new observation for the same release date; the display chooses the latest revision without deleting the original.
+- To inspect the populated chart locally, open `/dev-preview/ratings/` while `npm run dev` is running. This synthetic test route produces no production page; `scripts/check-built-site.mjs` checks built HTML for fixture leakage.
 - Use JSON imports from an authorized source. Never put secrets, provider credentials, personal contact details, or player rosters in committed data.
 - Check failed GitHub Actions runs. Invalid updates leave the last good snapshot intact and publish a failure state. Public freshness is based on the original observation date, not the deployment date.
 - Standings use regulation W/L and separate OTW/OTL fields. The overview record combines regulation and overtime outcomes and labels this explicitly. Official points and ordering are retained rather than recalculated.

@@ -2,8 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import Ratings from '../components/Ratings.astro';
 ---
+
 <Layout title="Weekly rating history">
-  <div class="page-heading"><div><span class="eyebrow">2026–27 · MYHOCKEYRANKINGS</span><h1>Follow the progress.</h1><p>Weekly numeric ratings for every team in the CSDHL 13U division.</p></div></div>
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">2026–27 · MYHOCKEYRANKINGS</span>
+      <h1>Follow the progress.</h1>
+      <p>Weekly numeric ratings for every team in the CSDHL 13U division.</p>
+    </div>
+  </div>
   <Ratings />
-  <section class="panel explainer"><h2>Rating and rank tell different stories</h2><p>A rating is a numeric measure of a team's results. A rank is its position within a particular comparison group. This chart follows ratings; the data table identifies the category for any captured ranks.</p><p>Weekly changes compare consecutive releases seven days apart within the same category. Unrated teams and missed weeks remain empty. Earlier weeks will only appear if a verified, authorized historical source becomes available.</p><a href="/sources/">How updates work →</a></section>
+  <section class="panel explainer">
+    <h2>Rating and rank tell different stories</h2>
+    <p>
+      A rating is a numeric measure of a team's results. A rank is its position within a particular comparison
+      group. This chart follows ratings; the data table identifies the category for any captured ranks.
+    </p>
+    <p>
+      Weekly changes compare consecutive releases seven days apart within the same category. Unrated teams and
+      missed weeks remain empty. Earlier weeks will only appear if a verified, authorized historical source
+      becomes available.
+    </p>
+    <a href="/sources/">How updates work →</a>
+  </section>
 </Layout>

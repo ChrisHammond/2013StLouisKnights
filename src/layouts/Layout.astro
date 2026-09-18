@@ -1,10 +1,22 @@
 ---
 import '../styles/global.css';
-interface Props { title: string; description?: string }
-const { title, description = 'Follow the 2013 St. Louis Knights through the 2026–27 CSDHL 13U season. League standings, team links, and weekly rating history.' } = Astro.props;
-const links = [['/','Overview'],['/standings/','Standings'],['/ratings/','Rating history'],['/teams/','Teams']];
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = 'Follow the 2013 St. Louis Knights through the 2026–27 CSDHL 13U season. League standings, team links, and weekly rating history.',
+} = Astro.props;
+const links = [
+  ['/', 'Overview'],
+  ['/standings/', 'Standings'],
+  ['/ratings/', 'Rating history'],
+  ['/teams/', 'Teams'],
+];
 const path = Astro.url.pathname;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,31 +29,55 @@ const path = Astro.url.pathname;
     <title>{title} · Knights 13U</title>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/" aria-label="Knights 13U home">
           <img src="/knights-logo.png" width="44" height="51" alt="" />
-          <span><strong>ST. LOUIS KNIGHTS</strong><small>2013 · 13U HOCKEY</small></span>
+          <span>
+            <strong>ST. LOUIS KNIGHTS</strong>
+            <small>2013 · 13U HOCKEY</small>
+          </span>
         </a>
         <nav aria-label="Main navigation">
-          {links.map(([href,label]) => <a href={href} aria-current={(href === '/' ? path === href : path.startsWith(href)) ? 'page' : undefined}>{label}</a>)}
+          {links.map(([href, label]) => (
+            <a
+              href={href}
+              aria-current={(href === '/' ? path === href : path.startsWith(href)) ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
-        <span class="season-label">2026—27 <span>SEASON</span></span>
+        <span class="season-label">
+          2026—27 <span>SEASON</span>
+        </span>
       </div>
     </header>
-    <main id="main" class="page" tabindex="-1"><slot /></main>
+    <main id="main" class="page" tabindex="-1">
+      <slot />
+    </main>
     <footer class="site-footer">
-      <div><strong>KNIGHTS 13U</strong><p>An independent team-following portal. Not an official league or club website.</p></div>
-      <div class="footer-links"><a href="/sources/">Sources & updates</a><a href="https://www.stlknightshockey.com/team/244514">Knights club page ↗</a><a href="https://hockey.chrishammond.com/">2025–26 Falcons archive ↗</a></div>
+      <div>
+        <strong>KNIGHTS 13U</strong>
+        <p>An independent team-following portal. Not an official league or club website.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/sources/">Sources & updates</a>
+        <a href="https://www.stlknightshockey.com/team/244514">Knights club page ↗</a>
+        <a href="https://hockey.chrishammond.com/">2025–26 Falcons archive ↗</a>
+      </div>
     </footer>
     <script>
       // A static deploy must not keep calling old data fresh as days pass.
-      document.querySelectorAll<HTMLElement>('[data-freshness]').forEach(element => {
+      document.querySelectorAll<HTMLElement>('[data-freshness]').forEach((element) => {
         const date = element.dataset.freshness;
         const maxHours = Number(element.dataset.maxHours || 48);
         if (date && Date.now() - Date.parse(date) > maxHours * 3600000) {
-          element.textContent = 'Update overdue'; element.classList.add('warning');
+          element.textContent = 'Update overdue';
+          element.classList.add('warning');
         }
       });
     </script>

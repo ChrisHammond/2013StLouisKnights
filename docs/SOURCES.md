@@ -12,21 +12,21 @@ Verified September 17–18, 2026. Data files retain exact UTC observation times;
 
 The normal browser completed its own initial security check without interaction. The source division contained 13 teams, all with GP/W/L/T/OTW/OTL/PTS/GF/GA equal to zero. These facts were captured as a dated browser observation. Source publication time is not supplied and remains null. Official row order is retained but labeled as preseason source order, not competitive rank.
 
-| GameSheet team | Portal team | GameSheet ID | MHR ID |
-|---|---|---|---|
-| Blues | Chicago Blues | 528177 | 2031 |
-| Eagles | St. Louis Eagles | 528178 | 27569 |
-| Express | Northern Express | 528179 | 2146 |
-| Hawks | Chicago Hawks | 528180 | 2011 |
-| Falcons | Highland Park Falcons | 528181 | 2012 |
-| Knights | St. Louis Knights | 528182 | 2035 |
-| Chargers | Northwest Chargers | 528183 | 22799 |
-| Ice Dogs | Vernon Hills Ice Dogs | 528184 | 18862 |
-| Sting | St. Louis Sting | 528185 | 22800 |
-| Sabres | Naperville Sabres | 528186 | 2013 |
-| Vipers | Lake County Vipers | 528187 | 2788 |
-| Winnetka | Winnetka Warriors | 528188 | 17210 |
-| Wilmette | Wilmette Jr. Trevians | 528189 | 3579 |
+| GameSheet team | Portal team           | GameSheet ID | MHR ID |
+| -------------- | --------------------- | ------------ | ------ |
+| Blues          | Chicago Blues         | 528177       | 2031   |
+| Eagles         | St. Louis Eagles      | 528178       | 27569  |
+| Express        | Northern Express      | 528179       | 2146   |
+| Hawks          | Chicago Hawks         | 528180       | 2011   |
+| Falcons        | Highland Park Falcons | 528181       | 2012   |
+| Knights        | St. Louis Knights     | 528182       | 2035   |
+| Chargers       | Northwest Chargers    | 528183       | 22799  |
+| Ice Dogs       | Vernon Hills Ice Dogs | 528184       | 18862  |
+| Sting          | St. Louis Sting       | 528185       | 22800  |
+| Sabres         | Naperville Sabres     | 528186       | 2013   |
+| Vipers         | Lake County Vipers    | 528187       | 2788   |
+| Winnetka       | Winnetka Warriors     | 528188       | 17210  |
+| Wilmette       | Wilmette Jr. Trevians | 528189       | 3579   |
 
 GameSheet documents embedding on any website: https://help.gamesheet.app/article/10-scores-schedule-standings-stats-embed-tool . The live embed is supported independently of the snapshot importer. No public supported automation API has been established. Direct HTTP requests returned 403; there is no challenge-bypass implementation.
 

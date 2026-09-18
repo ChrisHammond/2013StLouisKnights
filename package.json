@@ -14,7 +14,9 @@
     "test": "tsx --test tests/*.test.ts",
     "import:standings": "tsx scripts/import.ts standings",
     "import:ratings": "tsx scripts/import.ts ratings",
-    "validate": "tsx scripts/validate.ts"
+    "validate": "tsx scripts/validate.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
@@ -23,5 +25,9 @@
     "tsx": "^4.23.13",
     "typescript": "^6.0.3",
     "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.8",
+    "prettier-plugin-astro": "^1.0.1"
   }
 }

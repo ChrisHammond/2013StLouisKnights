@@ -5,19 +5,59 @@ import Ratings from '../components/Ratings.astro';
 import TeamLinks from '../components/TeamLinks.astro';
 import { knights, standings, latestRatings, releases, teams, preseason } from '../lib/data';
 import { weeklyChange } from '../lib/history';
-const record = standings?.rows.find(row=>row.teamId===knights.id);
-const rating = latestRatings?.rows.find(row=>row.teamId===knights.id)?.rating;
-const delta = weeklyChange(releases,knights.id);
+const record = standings?.rows.find((row) => row.teamId === knights.id);
+const rating = latestRatings?.rows.find((row) => row.teamId === knights.id)?.rating;
+const delta = weeklyChange(releases, knights.id);
 ---
+
 <Layout title="Season overview">
-  <div class="page-heading"><div><span class="eyebrow">2013 BIRTH YEAR · CSDHL 13U</span><h1>One team. A whole season.</h1><p>Your home for the Knights and the teams across the division.</p></div><span class="season-chip">2026–27</span></div>
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">2013 BIRTH YEAR · CSDHL 13U</span>
+      <h1>One team. A whole season.</h1>
+      <p>Your home for the Knights and the teams across the division.</p>
+    </div>
+    <span class="season-chip">2026–27</span>
+  </div>
   <section class="knights-banner" aria-label="Knights season overview">
-    <div class="banner-identity"><img src="/knights-logo.png" width="100" height="116" alt="St. Louis Knights crest" /><div><span class="eyebrow">OUR TEAM</span><h2>St. Louis Knights</h2><p>13U · Bantam Minor</p><a href="/teams/st-louis-knights/">Team profile <span aria-hidden="true">→</span></a></div></div>
-    <div class="banner-stat"><span>League record</span><strong>{record ? `${record.w + record.otw}–${record.l + record.otl}–${record.t}` : '—'}</strong><small>Wins–losses–ties · includes OT</small></div>
-    <div class="banner-stat"><span>League position</span><strong>{preseason ? 'Preseason' : record ? `${record.position} / ${teams.length}` : '—'}</strong><small>{record?.gp ?? 0} regular-season games</small></div>
-    <div class="banner-stat"><span>MHR rating</span><strong>{rating?.toFixed(2) ?? '—'}</strong><small>{delta !== null ? `${delta > 0 ? '+' : ''}${delta.toFixed(2)} since last week` : 'Weekly history pending'}</small></div>
+    <div class="banner-identity">
+      <img src="/knights-logo.png" width="100" height="116" alt="St. Louis Knights crest" />
+      <div>
+        <span class="eyebrow">OUR TEAM</span>
+        <h2>St. Louis Knights</h2>
+        <p>13U · Bantam Minor</p>
+        <a href="/teams/st-louis-knights/">
+          Team profile <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+    <div class="banner-stat">
+      <span>League record</span>
+      <strong>{record ? `${record.w + record.otw}–${record.l + record.otl}–${record.t}` : '—'}</strong>
+      <small>Wins–losses–ties · includes OT</small>
+    </div>
+    <div class="banner-stat">
+      <span>League position</span>
+      <strong>{preseason ? 'Preseason' : record ? `${record.position} / ${teams.length}` : '—'}</strong>
+      <small>{record?.gp ?? 0} regular-season games</small>
+    </div>
+    <div class="banner-stat">
+      <span>MHR rating</span>
+      <strong>{rating?.toFixed(2) ?? '—'}</strong>
+      <small>
+        {delta !== null
+          ? `${delta > 0 ? '+' : ''}${delta.toFixed(2)} since last week`
+          : 'Weekly history pending'}
+      </small>
+    </div>
   </section>
-  <div class="overview-links"><span>Follow the Knights</span><TeamLinks team={knights}/><a class="text-link directory-link" href="/teams/">Explore all {teams.length} teams →</a></div>
+  <div class="overview-links">
+    <span>Follow the Knights</span>
+    <TeamLinks team={knights} />
+    <a class="text-link directory-link" href="/teams/">
+      Explore all {teams.length} teams →
+    </a>
+  </div>
   <Ratings />
   <Standings compact />
 </Layout>

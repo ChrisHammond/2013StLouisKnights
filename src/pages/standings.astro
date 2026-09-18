@@ -3,9 +3,40 @@ import Layout from '../layouts/Layout.astro';
 import Standings from '../components/Standings.astro';
 import { sources } from '../lib/data';
 ---
+
 <Layout title="League standings">
-  <div class="page-heading"><div><span class="eyebrow">2026–27 · REGULAR SEASON</span><h1>The division at a glance.</h1><p>Official CSDHL 13U standings, with the Knights always easy to find.</p></div></div>
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">2026–27 · REGULAR SEASON</span>
+      <h1>The division at a glance.</h1>
+      <p>Official CSDHL 13U standings, with the Knights always easy to find.</p>
+    </div>
+  </div>
   <Standings />
-  <section class="panel explainer"><h2>Reading the table</h2><p><strong>W / L</strong> are regulation results. <strong>OTW / OTL</strong> are overtime results. <strong>T</strong> means ties, <strong>PTS</strong> league points, and <strong>GF / GA</strong> goals for and against. The table preserves GameSheet's order and points rather than recalculating league tiebreakers.</p><p>These are league games only. MyHockeyRankings may include additional games and show a different overall record.</p></section>
-  <details class="panel official-embed"><summary>Open the live official GameSheet standings</summary><p>This live view is provided by GameSheet. If it does not load, <a href={sources.standings.sourceUrl}>open the standings directly</a>.</p><iframe title="Live official CSDHL 13U regular-season standings" src={sources.standings.sourceUrl} loading="lazy" height="1050"></iframe></details>
+  <section class="panel explainer">
+    <h2>Reading the table</h2>
+    <p>
+      <strong>W / L</strong> are regulation results. <strong>OTW / OTL</strong> are overtime results.{' '}
+      <strong>T</strong> means ties, <strong>PTS</strong> league points, and <strong>GF / GA</strong> goals
+      for and against. The table preserves GameSheet's order and points rather than recalculating league
+      tiebreakers.
+    </p>
+    <p>
+      These are league games only. MyHockeyRankings may include additional games and show a different overall
+      record.
+    </p>
+  </section>
+  <details class="panel official-embed">
+    <summary>Open the live official GameSheet standings</summary>
+    <p>
+      This live view is provided by GameSheet. If it does not load,{' '}
+      <a href={sources.standings.sourceUrl}>open the standings directly</a>.
+    </p>
+    <iframe
+      title="Live official CSDHL 13U regular-season standings"
+      src={sources.standings.sourceUrl}
+      loading="lazy"
+      height="1050"
+    ></iframe>
+  </details>
 </Layout>

@@ -2,23 +2,127 @@
 import { standings, teamMap, sources, status, preseason } from '../lib/data';
 import { formatTimestamp, freshness } from '../lib/history';
 import TeamMark from './TeamMark.astro';
-interface Props { compact?: boolean }
+interface Props {
+  compact?: boolean;
+}
 const { compact = false } = Astro.props;
-const old = freshness(standings?.observedAt ?? null,48) === 'stale';
+const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
 ---
+
 <section class="panel standings-panel" aria-labelledby="standings-heading">
-  <div class="panel-heading"><div><span class="eyebrow">CSDHL · BANTAM MINOR</span><h2 id="standings-heading">League standings</h2></div><a class="text-link" href={sources.standings.sourceUrl}>Official standings ↗</a></div>
-  {preseason && <p class="notice">No regular-season games are recorded in this snapshot. Rows follow the official source order; they do not indicate competitive rank yet.</p>}
-  {status.standings.state === 'error' && <p class="notice warning">The latest refresh failed. Showing the last verified standings.</p>}
-  {standings ? <div class="table-scroll" role="region" aria-label="League standings table, scroll horizontally for all statistics" tabindex="0">
-    <table class="standings-table">
-      <caption class="sr-only">2026–27 CSDHL 13U regular-season standings. W and L exclude overtime results. Official source order.</caption>
-      <thead><tr><th scope="col">{preseason ? 'Order' : 'Pos'}</th><th scope="col">Team</th><th scope="col"><abbr title="Games played">GP</abbr></th><th scope="col"><abbr title="Regulation wins">W</abbr></th><th scope="col"><abbr title="Regulation losses">L</abbr></th><th scope="col"><abbr title="Ties">T</abbr></th><th scope="col"><abbr title="Overtime wins">OTW</abbr></th><th scope="col"><abbr title="Overtime losses">OTL</abbr></th><th scope="col">PTS</th>{!compact && <><th scope="col">GF</th><th scope="col">GA</th></>}</tr></thead>
-      <tbody>{standings.rows.map(row => { const team = teamMap.get(row.teamId)!; return <tr class:list={{'knights-row':team.id === 'st-louis-knights'}}>
-        <td class="position">{row.position}</td><th scope="row"><a class="team-name" href={`/teams/${team.id}/`}><TeamMark team={team} /><span>{team.name}{team.id === 'st-louis-knights' && <small class="home-tag">OUR TEAM</small>}</span></a></th>
-        <td>{row.gp}</td><td>{row.w}</td><td>{row.l}</td><td>{row.t}</td><td>{row.otw}</td><td>{row.otl}</td><td class="points">{row.points}</td>{!compact && <><td>{row.gf}</td><td>{row.ga}</td></>}
-      </tr>; })}</tbody>
-    </table>
-  </div> : <div class="empty-state"><h3>Standings are not available yet</h3><p>Visit the official league source for the latest results.</p></div>}
-  <div class="panel-foot"><span>Source: <a href={sources.leagueUrl}>CSDHL / GameSheet</a> · Regular season only</span><span>Observed {formatTimestamp(standings?.observedAt ?? null)} · <span class:list={['status-text',{warning:old}]} data-freshness={standings?.observedAt} data-max-hours="48">{old ? 'Update overdue' : status.standings.state === 'manual' ? 'Manual snapshot' : 'Source checked'}</span></span></div>
+  <div class="panel-heading">
+    <div>
+      <span class="eyebrow">CSDHL · BANTAM MINOR</span>
+      <h2 id="standings-heading">League standings</h2>
+    </div>
+    <a class="text-link" href={sources.standings.sourceUrl}>
+      Official standings ↗
+    </a>
+  </div>
+  {preseason && (
+    <p class="notice">
+      No regular-season games are recorded in this snapshot. Rows follow the official source order; they do
+      not indicate competitive rank yet.
+    </p>
+  )}
+  {status.standings.state === 'error' && (
+    <p class="notice warning">The latest refresh failed. Showing the last verified standings.</p>
+  )}
+  {standings ? (
+    <div
+      class="table-scroll"
+      role="region"
+      aria-label="League standings table, scroll horizontally for all statistics"
+      tabindex="0"
+    >
+      <table class="standings-table">
+        <caption class="sr-only">
+          2026–27 CSDHL 13U regular-season standings. W and L exclude overtime results. Official source order.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">{preseason ? 'Order' : 'Pos'}</th>
+            <th scope="col">Team</th>
+            <th scope="col">
+              <abbr title="Games played">GP</abbr>
+            </th>
+            <th scope="col">
+              <abbr title="Regulation wins">W</abbr>
+            </th>
+            <th scope="col">
+              <abbr title="Regulation losses">L</abbr>
+            </th>
+            <th scope="col">
+              <abbr title="Ties">T</abbr>
+            </th>
+            <th scope="col">
+              <abbr title="Overtime wins">OTW</abbr>
+            </th>
+            <th scope="col">
+              <abbr title="Overtime losses">OTL</abbr>
+            </th>
+            <th scope="col">PTS</th>
+            {!compact && (
+              <>
+                <th scope="col">GF</th>
+                <th scope="col">GA</th>
+              </>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {standings.rows.map((row) => {
+            const team = teamMap.get(row.teamId)!;
+            return (
+              <tr class:list={{ 'knights-row': team.id === 'st-louis-knights' }}>
+                <td class="position">{row.position}</td>
+                <th scope="row">
+                  <a class="team-name" href={`/teams/${team.id}/`}>
+                    <TeamMark team={team} />
+                    <span>
+                      {team.name}
+                      {team.id === 'st-louis-knights' && <small class="home-tag">OUR TEAM</small>}
+                    </span>
+                  </a>
+                </th>
+                <td>{row.gp}</td>
+                <td>{row.w}</td>
+                <td>{row.l}</td>
+                <td>{row.t}</td>
+                <td>{row.otw}</td>
+                <td>{row.otl}</td>
+                <td class="points">{row.points}</td>
+                {!compact && (
+                  <>
+                    <td>{row.gf}</td>
+                    <td>{row.ga}</td>
+                  </>
+                )}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <div class="empty-state">
+      <h3>Standings are not available yet</h3>
+      <p>Visit the official league source for the latest results.</p>
+    </div>
+  )}
+  <div class="panel-foot">
+    <span>
+      Source: <a href={sources.leagueUrl}>CSDHL / GameSheet</a> · Regular season only
+    </span>
+    <span>
+      Observed {formatTimestamp(standings?.observedAt ?? null)} ·{' '}
+      <span
+        class:list={['status-text', { warning: old }]}
+        data-freshness={standings?.observedAt}
+        data-max-hours="48"
+      >
+        {old ? 'Update overdue' : status.standings.state === 'manual' ? 'Manual snapshot' : 'Source checked'}
+      </span>
+    </span>
+  </div>
 </section>

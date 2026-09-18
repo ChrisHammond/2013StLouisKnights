@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Ratings from '../../components/Ratings.astro';
+export async function getStaticPaths() {
+  if (!import.meta.env.DEV) return [];
+  const { ratingsFixture } = await import('../../../tests/fixtures/data');
+  const dates = ['2026-09-23', '2026-09-30', '2026-10-07', '2026-10-21'];
+  const releases = dates.map((date, index) => {
+    const release = ratingsFixture(date);
+    release.rows[0].teamId = 'st-louis-knights';
+    release.rows[0].rating = 85 + index * 0.35;
+    release.rows[1].teamId = 'test-opponent';
+    release.rows[1].rating = index === 1 ? null : 87 - index * 0.25;
+    if (index === 1) release.rows[1].rank = null;
+    return release;
+  });
+  return [
+    {
+      params: { scenario: 'ratings' },
+      props: {
+        previewData: {
+          teams: [
+            { id: 'st-louis-knights', name: 'TEST ONLY Knights' },
+            { id: 'test-opponent', name: 'TEST ONLY Opponent' },
+          ],
+          releases,
+        },
+      },
+    },
+  ];
+}
+const { previewData } = Astro.props;
+---
+
+<Layout title="Development chart test">
+  <h1>TEST ONLY · Synthetic chart observations</h1>
+  <p>This development route is excluded from production builds.</p>
+  <Ratings previewData={previewData} />
+</Layout>

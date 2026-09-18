@@ -1,8 +1,16 @@
 ---
 import type { Team } from '../lib/schema';
-interface Props { team: Team; large?: boolean }
+interface Props {
+  team: Team;
+  large?: boolean;
+}
 const { team, large = false } = Astro.props;
 ---
-<span class:list={['team-mark',{large,home:team.id === 'st-louis-knights'}]} aria-hidden="true">
-  {team.id === 'st-louis-knights' ? <img src="/knights-logo.png" width={large ? 90 : 28} height={large ? 104 : 32} alt="" /> : team.abbr}
+
+<span class:list={['team-mark', { large, home: team.id === 'st-louis-knights' }]} aria-hidden="true">
+  {team.id === 'st-louis-knights' ? (
+    <img src="/knights-logo.png" width={large ? 90 : 28} height={large ? 104 : 32} alt="" />
+  ) : (
+    team.abbr
+  )}
 </span>
