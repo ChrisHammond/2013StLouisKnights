@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Standings from '../components/Standings.astro';
 import Ratings from '../components/Ratings.astro';
 import NextGame from '../components/NextGame.astro';
+import PhotoLinks from '../components/PhotoLinks.astro';
 import TeamLinks from '../components/TeamLinks.astro';
 import { knights, standings, latestRatings, releases, teams, preseason } from '../lib/data';
 import { weeklyChange } from '../lib/history';
@@ -60,6 +61,7 @@ const delta = weeklyChange(releases, knights.id);
     </a>
   </div>
   <NextGame />
+  <PhotoLinks />
   <Ratings />
   <Standings compact />
 </Layout>

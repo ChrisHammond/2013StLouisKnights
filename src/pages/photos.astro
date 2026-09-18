@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PhotoLinks from '../components/PhotoLinks.astro';
+import { photos } from '../lib/photos';
+import { formatDate } from '../lib/history';
+const galleries = [...photos.galleries].sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Layout title="Game photos" description="St. Louis Knights game photo galleries by RainbowMarks Photography.">
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">2013 ST. LOUIS KNIGHTS</span>
+      <h1>Behind every game, a moment.</h1>
+      <p>Game galleries by RainbowMarks Photography.</p>
+    </div>
+  </div>
+  <PhotoLinks />
+  <h2>Published game galleries</h2>
+  <p class="directory-note">
+    The collection above is the best place to check for newly published galleries. Verified game links are
+    listed below and added to matching schedule cards.
+  </p>
+  <div class="photo-grid">
+    {galleries.map((gallery) => (
+      <article class="panel photo-gallery">
+        <time datetime={gallery.date}>{formatDate(gallery.date)}</time>
+        <h2>{gallery.title}</h2>
+        <p>{gallery.gameId ? 'CSDHL regular season' : 'Additional Knights gallery'}</p>
+        <a href={gallery.url}>View gallery at RainbowMarks ↗</a>
+      </article>
+    ))}
+  </div>
+  <p class="schedule-source">
+    Gallery links last verified {formatDate(photos.verifiedAt)}. Photos are hosted by RainbowMarks
+    Photography.
+  </p>
+</Layout>

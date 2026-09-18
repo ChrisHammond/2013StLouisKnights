@@ -47,6 +47,8 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 
 ## Research
 
+- [x] Added RainbowMarks collection links, a Photos page with three verified August galleries, and explicit postgame gallery mappings. Gallery discovery is curated; see `docs/PHOTOS.md`.
+
 - Existing reference: https://hockey.chrishammond.com/
 - Reference repository: https://github.com/ChrisHammond/2025-26-12UA1-Scouting
 - League: https://www.csdhl.org/recruiting/standings-major-minor-2026-27/181347

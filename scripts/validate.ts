@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { validateTeams, validateSnapshot, type Kind } from '../src/lib/schema';
 import { validateSchedule } from '../src/lib/schedule';
+import '../src/lib/photos';
 const read = async (name: string) => JSON.parse(await readFile(`data/${name}.json`, 'utf8'));
 const teams = validateTeams(await read('teams'));
 const sources = await read('sources');

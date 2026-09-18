@@ -1,6 +1,7 @@
 ---
 import { teamMap } from '../lib/data';
 import TeamMark from './TeamMark.astro';
+import { gameGalleries } from '../lib/photos';
 import { gameDate, gameTime, type Game } from '../lib/schedule';
 interface Props {
   game: Game;
@@ -10,6 +11,7 @@ interface Props {
 const { game, teamId, hidden = false } = Astro.props;
 const home = teamMap.get(game.homeTeamId)!;
 const away = teamMap.get(game.awayTeamId)!;
+const galleries = gameGalleries(game);
 const isKnights = home.id === 'st-louis-knights' || away.id === 'st-louis-knights';
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
   new Date(`${game.date}T12:00:00Z`),
@@ -65,5 +67,10 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
       <time datetime={game.startsAt ?? game.date}>{gameTime(game)}</time>
     </strong>
     <a href={`https://gamesheetstats.com/seasons/15220/games/${game.id}`}>Game details ↗</a>
+    {galleries.map((gallery) => (
+      <a class="game-photo-link" href={gallery.url}>
+        Photos · RainbowMarks ↗
+      </a>
+    ))}
   </div>
 </article>

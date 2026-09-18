@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import TeamMark from '../../components/TeamMark.astro';
 import TeamLinks from '../../components/TeamLinks.astro';
 import Ratings from '../../components/Ratings.astro';
+import PhotoLinks from '../../components/PhotoLinks.astro';
 import { teams, standings, latestRatings, preseason } from '../../lib/data';
 import { formatTimestamp } from '../../lib/history';
 export function getStaticPaths() {
@@ -52,4 +53,5 @@ const rating = latestRatings?.rows.find((row) => row.teamId === team.id);
     <a href="/standings/">View full standings →</a>
   </p>
   <Ratings teamId={team.id} />
+  {team.id === 'st-louis-knights' && <PhotoLinks />}
 </Layout>
