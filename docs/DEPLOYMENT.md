@@ -2,7 +2,9 @@
 
 ## Deployed project
 
-- Public site: https://2013-st-louis-knights.netlify.app/
+- Public site: https://hockey.chrishammond.com/
+- Netlify address: https://2013-st-louis-knights.netlify.app/
+- Previous Falcons site: https://chesterfield12ua1.netlify.app/
 - GitHub: https://github.com/ChrisHammond/2013StLouisKnights
 - Netlify project ID: `d9eb6d9b-26a9-4453-b143-3a2bbd08ab2d`
 - Branch `main`, build `npm run build`, publish `dist`.
@@ -24,7 +26,9 @@ npx netlify-cli init
 
 For a site already created, use `npx netlify-cli link` rather than creating another site. `npx netlify-cli deploy --dir=dist --prod --no-build` publishes a previously verified local build. For reproducible automation, pin the CLI version in any workflow that invokes it.
 
-Canonical URLs use Netlify's `URL` environment variable with `https://2013-st-louis-knights.netlify.app` as a fallback. Set the production URL when using a different site name or domain.
+Canonical URLs use Netlify's `URL` environment variable with `https://hockey.chrishammond.com` as a fallback. Set the production URL when using a different site name or domain.
+
+On September 18, 2026, `hockey.chrishammond.com` was reassigned from Netlify site `a27fe8b5-4c70-4251-952c-058e1b67d9a5` (Falcons) to this project. The existing Cloudflare-proxied DNS continued routing to Netlify; HTTPS served the Knights site after the reassignment without a DNS change. The Falcons deployment remains available at its Netlify address. If DNS is changed later, point the hockey subdomain to `2013-st-louis-knights.netlify.app`.
 
 ## Continuous delivery
 

@@ -2,7 +2,7 @@
 
 An independent CSDHL 13U season portal built with Astro and TypeScript. Static Netlify hosting, versioned JSON observations, and GitHub Actions. No database, login, analytics, or player information is required.
 
-- Live portal: https://2013-st-louis-knights.netlify.app/
+- Live portal: https://hockey.chrishammond.com/
 - Repository: https://github.com/ChrisHammond/2013StLouisKnights
 
 ## Run locally
@@ -60,4 +60,4 @@ tests/fixtures/             Synthetic test-only data, never production observati
 
 ## Branding and reference
 
-The Knights crest is sourced from the official club website and remains the club's property. This is an independent fan/team-following portal. The existing Falcons portal at https://hockey.chrishammond.com/ was inspected as a reference and is unchanged.
+The Knights crest is sourced from the official club website and remains the club's property. This is an independent fan/team-following portal. The existing Falcons portal is preserved at https://chesterfield12ua1.netlify.app/. Its former custom domain now serves this Knights portal.

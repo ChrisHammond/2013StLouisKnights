@@ -29,6 +29,8 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 
 ## Delivery
 
+- [x] Reassigned https://hockey.chrishammond.com/ to the Knights app; verified HTTPS and preserved the Falcons site at https://chesterfield12ua1.netlify.app/.
+
 - [x] Added live division and 13 individual team schedules, with navigation from team profiles and the overview. Verified dedicated Knights schedule route and mobile layout; schedules are displayed directly from GameSheet.
 
 - Repository: https://github.com/ChrisHammond/2013StLouisKnights
