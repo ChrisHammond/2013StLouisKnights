@@ -1,0 +1,13 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TeamMark from '../../components/TeamMark.astro';
+import TeamLinks from '../../components/TeamLinks.astro';
+import { teams, sources } from '../../lib/data';
+import { formatDate } from '../../lib/history';
+const sorted = [...teams].sort((a,b)=>a.name.localeCompare(b.name));
+---
+<Layout title="Division teams">
+  <div class="page-heading"><div><span class="eyebrow">CSDHL 13U · BANTAM MINOR</span><h1>Meet the division.</h1><p>All {teams.length} teams. The right links for the 2026–27 season.</p></div><span class="season-chip">13 TEAMS</span></div>
+  <p class="directory-note">Membership verified {formatDate(sources.membershipVerifiedAt)} against the <a href={sources.standings.sourceUrl}>official league division</a>. “Club site” indicates a club homepage rather than a season-specific team page.</p>
+  <div class="team-grid">{sorted.map(team=><article class:list={['panel team-card',{'home-card':team.id==='st-louis-knights'}]}><div class="team-card-header"><TeamMark team={team} large/><div>{team.id==='st-louis-knights'&&<span class="eyebrow">OUR TEAM</span>}<h2><a href={`/teams/${team.id}/`}>{team.name}</a></h2><p>13U · 2013 · 2026–27</p></div></div><TeamLinks team={team}/><a class="profile-link" href={`/teams/${team.id}/`}>Team profile & history <span aria-hidden="true">→</span></a></article>)}</div>
+</Layout>

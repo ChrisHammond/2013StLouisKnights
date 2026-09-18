@@ -1,0 +1,10 @@
+---
+import type { Team } from '../lib/schema';
+interface Props { team: Team }
+const { team } = Astro.props;
+---
+<div class="team-links">
+  <a href={team.leagueUrl} aria-label={`${team.name} CSDHL GameSheet page`}>CSDHL ↗</a>
+  <a href={team.clubUrl} aria-label={`${team.name} ${team.clubLinkType} website`}>{team.clubLinkType === 'team' ? 'Team site' : 'Club site'} ↗</a>
+  <a href={team.mhrUrl} aria-label={`${team.name} MyHockeyRankings 2026–27 page`}>MHR ↗</a>
+</div>

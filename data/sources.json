@@ -1,0 +1,23 @@
+{
+  "season": "2026-27",
+  "division": "csdhl-13u",
+  "divisionLabel": "CSDHL 13U · Bantam Minor",
+  "birthYear": 2013,
+  "membershipVerifiedAt": "2026-09-18T04:50:21.818Z",
+  "leagueUrl": "https://www.csdhl.org/recruiting/standings-major-minor-2026-27/181347",
+  "standings": {
+    "sourceUrl": "https://gamesheetstats.com/seasons/15220/standings?filter%5Bdivision%5D=81589&filter%5Btype%5D=regular_season",
+    "seasonId": "15220",
+    "divisionId": "81589",
+    "mode": "manual-export",
+    "note": "Official browser observation available. Automated feed pending; public HTTP requests return 403. GameSheet supports embedding and CSV export."
+  },
+  "ratings": {
+    "sourceUrl": "https://www.myhockeyrankings.com/division-info?d=202&y=2026",
+    "access": "pending",
+    "authorizationReference": null,
+    "publicationWeekday": 3,
+    "publicationScheduleVerified": false,
+    "note": "Weekly ratings await permission for collection, storage, and display plus an approved feed. No ratings have been imported."
+  }
+}

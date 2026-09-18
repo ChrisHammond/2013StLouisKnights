@@ -1,0 +1,79 @@
+name: Refresh season data
+on:
+  schedule:
+    # Standings daily; MHR release check Wednesday with two later publication retries.
+    # UTC scheduling is intentional. 2026–27 release schedule must be verified before activation.
+    - cron: '17 12 * * *'
+    - cron: '23 20 * * 3'
+    - cron: '23 2,14 * * 4'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Source to refresh
+        type: choice
+        options: [both, standings, ratings]
+        default: both
+permissions:
+  contents: write
+concurrency:
+  group: season-data-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Refresh standings
+        id: standings
+        if: github.event_name == 'workflow_dispatch' && inputs.source != 'ratings' || github.event.schedule == '17 12 * * *'
+        continue-on-error: true
+        env:
+          STANDINGS_FEED_URL: ${{ secrets.STANDINGS_FEED_URL }}
+          STANDINGS_FEED_TOKEN: ${{ secrets.STANDINGS_FEED_TOKEN }}
+        run: npm run import:standings -- --scheduled
+      - name: Refresh ratings
+        id: ratings
+        if: github.event_name == 'workflow_dispatch' && inputs.source != 'standings' || github.event.schedule != '17 12 * * *' && github.event_name == 'schedule'
+        continue-on-error: true
+        env:
+          MHR_FEED_URL: ${{ secrets.MHR_FEED_URL }}
+          MHR_FEED_TOKEN: ${{ secrets.MHR_FEED_TOKEN }}
+        run: npm run import:ratings -- --scheduled
+      - name: Validate retained data and build
+        run: |
+          npm run validate
+          npm test
+          npm run build
+      - name: Commit source changes and health status
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if ! git diff --cached --quiet; then
+            git commit -m "Update season snapshots and source status"
+            git pull --rebase origin main
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Trigger Netlify after bot commit
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -n "$NETLIFY_BUILD_HOOK" ]; then
+            curl --fail --silent --show-error -X POST "$NETLIFY_BUILD_HOOK" > /dev/null
+          else
+            echo "No build hook configured. Ensure Netlify builds repository pushes."
+          fi
+      - name: Report failed imports after retaining and publishing health state
+        if: steps.standings.outcome == 'failure' || steps.ratings.outcome == 'failure'
+        run: |
+          echo "A source import failed. Last valid data retained; inspect source access and schema."
+          exit 1

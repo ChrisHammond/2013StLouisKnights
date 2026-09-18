@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TeamMark from '../../components/TeamMark.astro';
+import TeamLinks from '../../components/TeamLinks.astro';
+import Ratings from '../../components/Ratings.astro';
+import { teams, standings, latestRatings, preseason } from '../../lib/data';
+import { formatTimestamp } from '../../lib/history';
+export function getStaticPaths() { return teams.map(team=>({params:{id:team.id},props:{team}})); }
+const { team } = Astro.props;
+const row = standings?.rows.find(row=>row.teamId===team.id);
+const rating = latestRatings?.rows.find(row=>row.teamId===team.id);
+---
+<Layout title={team.name}>
+  <a class="back-link" href="/teams/">← All division teams</a>
+  <div class="page-heading team-profile-heading"><TeamMark team={team} large/><div><span class="eyebrow">2026–27 · CSDHL 13U</span><h1>{team.name}</h1><p>2013 birth year · Bantam Minor</p><TeamLinks team={team}/></div></div>
+  <div class="profile-stats"><div class="panel"><span class="eyebrow">LEAGUE RECORD</span><strong>{row?`${row.w+row.otw}–${row.l+row.otl}–${row.t}`:'—'}</strong><p>Wins–losses–ties, including OT</p></div><div class="panel"><span class="eyebrow">LEAGUE POINTS</span><strong>{row?.points??'—'}</strong><p>{preseason?'Preseason':`Position ${row?.position??'—'} of ${teams.length}`}</p></div><div class="panel"><span class="eyebrow">MHR RATING</span><strong>{rating?.rating?.toFixed(2)??'—'}</strong><p>{rating?.rank?`Rank ${rating.rank} · ${latestRatings?.category}`:'Authorized weekly history pending'}</p></div></div>
+  <p class="directory-note">League snapshot observed {formatTimestamp(standings?.observedAt??null)}. <a href="/standings/">View full standings →</a></p>
+  <Ratings teamId={team.id}/>
+</Layout>

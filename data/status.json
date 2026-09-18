@@ -1,0 +1,14 @@
+{
+  "standings": {
+    "state": "manual",
+    "lastAttemptAt": "2026-09-18T04:50:21.818Z",
+    "lastSuccessAt": "2026-09-18T04:50:21.818Z",
+    "message": "Verified from the official standings page. Automatic refresh awaits a supported feed."
+  },
+  "ratings": {
+    "state": "pending",
+    "lastAttemptAt": null,
+    "lastSuccessAt": null,
+    "message": "Rating history awaits an authorized data source."
+  }
+}

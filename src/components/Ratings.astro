@@ -1,0 +1,104 @@
+---
+import { teams as realTeams, releases as realReleases, sources, status } from '../lib/data';
+import type { RatingsSnapshot } from '../lib/schema';
+import { formatTimestamp } from '../lib/history';
+interface Props { teamId?: string; previewData?: {teams: {id:string;name:string}[];releases:RatingsSnapshot[]} }
+const { teamId = 'st-louis-knights' } = Astro.props;
+const previewData = import.meta.env.DEV ? Astro.props.previewData : undefined;
+const teams = previewData?.teams ?? realTeams;
+const releases = previewData?.releases ?? realReleases;
+---
+<section class="panel ratings-panel" aria-labelledby="ratings-heading" data-ratings data-payload={JSON.stringify({teams:teams.map(({id,name})=>({id,name})),releases,initial:teamId})}>
+  <div class="panel-heading"><div><span class="eyebrow">MYHOCKEYRANKINGS</span><h2 id="ratings-heading">The season, week by week</h2></div><span class="badge">Numeric rating</span></div>
+  <p class="section-intro">Compare each team's rating over the season. Higher ratings indicate stronger results; rank is a separate position within a named category.</p>
+  <div class="chart-toolbar"><div><button type="button" data-selection="home">Knights only</button><button type="button" data-selection="all">All teams</button><button type="button" data-selection="none">Clear</button></div><details class="team-selector"><summary>Choose teams <span data-selected-count></span></summary><fieldset><legend class="sr-only">Teams to compare</legend>{teams.map(team => <label><input type="checkbox" value={team.id} checked={team.id === teamId} /><span>{team.name}</span></label>)}</fieldset></details></div>
+  <div data-chart aria-label="Weekly rating chart"></div>
+  <div class="empty-state chart-empty" data-chart-empty>
+    <span class="eyebrow">RATING HISTORY</span><h3>{sources.ratings.access === 'approved' ? 'Waiting for the first captured release' : 'Weekly ratings are not connected yet'}</h3>
+    <p>{sources.ratings.access === 'approved' ? 'Verified weekly observations will appear here as they become available.' : 'Team links are ready. Rating history will begin when an authorized MyHockeyRankings data source is connected.'}</p>
+    <a class="text-link" href={sources.ratings.sourceUrl}>View the 13U division on MHR ↗</a>
+  </div>
+  <p class="chart-help">Each point represents a published weekly release. Missing weeks remain gaps. Hover, tap, or focus a point for its details.</p>
+  <p data-chart-message role="status" class="sr-only" aria-live="polite"></p>
+  <div data-chart-legend class="chart-legend"></div>
+  <div data-tooltip class="chart-tooltip" hidden></div>
+  <details class="history-details"><summary>Weekly values & changes</summary><div class="table-scroll" tabindex="0" role="region" aria-label="Weekly rating values"><table><caption class="sr-only">Weekly ratings for selected teams</caption><thead><tr><th scope="col">Release</th><th scope="col">Team</th><th scope="col">Rating</th><th scope="col">Weekly Δ</th><th scope="col">Rank</th><th scope="col">Category</th></tr></thead><tbody data-rating-rows></tbody></table><p data-history-empty>No authorized rating observations have been captured.</p></div></details>
+  <noscript><p>Enable JavaScript for team selection and chart interaction.</p>{releases.length > 0 && <table><caption>Captured weekly ratings</caption><thead><tr><th>Release</th><th>Team</th><th>Rating</th><th>Category</th></tr></thead><tbody>{releases.flatMap(release=>release.rows.map(row=><tr><td>{release.releaseDate}</td><td>{teams.find(team=>team.id===row.teamId)?.name}</td><td>{row.rating ?? 'Unrated'}</td><td>{release.category}</td></tr>))}</tbody></table>}</noscript>
+  <div class="panel-foot"><span>Source: <a href={sources.ratings.sourceUrl}>MyHockeyRankings</a></span><span>Last successful check: {formatTimestamp(status.ratings.lastSuccessAt)}</span></div>
+</section>
+<script>
+  import { chartModel, chartColors } from '../lib/chart';
+  import { formatDate, weeklyChange } from '../lib/history';
+  import type { RatingsSnapshot } from '../lib/schema';
+  document.querySelectorAll<HTMLElement>('[data-ratings]').forEach(root => {
+    const {teams,releases,initial} = JSON.parse(root.dataset.payload!) as {teams:{id:string;name:string}[];releases:RatingsSnapshot[];initial:string};
+    const checkboxes = [...root.querySelectorAll<HTMLInputElement>('input[type=checkbox]')];
+    const chart = root.querySelector<HTMLElement>('[data-chart]')!;
+    const empty = root.querySelector<HTMLElement>('[data-chart-empty]')!;
+    const tbody = root.querySelector<HTMLTableSectionElement>('[data-rating-rows]')!;
+    const tooltip = root.querySelector<HTMLElement>('[data-tooltip]')!;
+    const ns = 'http://www.w3.org/2000/svg';
+    function svgNode(name: string, attrs: Record<string,string|number>, text?: string) {
+      const node = document.createElementNS(ns,name);
+      Object.entries(attrs).forEach(([key,value])=>node.setAttribute(key,String(value)));
+      if(text) node.textContent = text;
+      return node;
+    }
+    const color = (id:string) => id === 'st-louis-knights' ? chartColors[0] : chartColors[1 + teams.filter(t=>t.id!=='st-louis-knights').findIndex(t=>t.id===id) % (chartColors.length-1)];
+    function render() {
+      const selected = checkboxes.filter(input=>input.checked).map(input=>input.value);
+      root.querySelector('[data-selected-count]')!.textContent = `(${selected.length})`;
+      root.querySelector('[data-chart-message]')!.textContent = `${selected.length} teams selected. ${releases.length} captured releases.`;
+      chart.replaceChildren(); tbody.replaceChildren(); tooltip.hidden = true;
+      const legend = root.querySelector('[data-chart-legend]')!; legend.replaceChildren();
+      const model = chartModel(releases,selected);
+      empty.hidden = !!model;
+      if (releases.length && !model) {
+        empty.querySelector('h3')!.textContent = selected.length ? 'No ratings for the selected teams' : 'Choose a team to compare';
+        empty.querySelector('p')!.textContent = 'Use the team selector above to explore captured releases.';
+      }
+      if (model) {
+        const svg = svgNode('svg',{viewBox:'0 0 900 310',role:'group','aria-label':'Weekly MHR numeric ratings; values also appear in the table below'});
+        for(let i=0;i<=4;i++) {
+          const value = model.min+(model.max-model.min)*i/4;
+          const y = model.y(value);
+          svg.append(svgNode('line',{x1:64,x2:844,y1:y,y2:y,stroke:'#e1e3e7'}),svgNode('text',{x:49,y:y+4,'text-anchor':'end',class:'axis-label'},value.toFixed(1)));
+        }
+        const labelIndices = [...new Set([0,Math.floor((releases.length-1)/2),releases.length-1])];
+        labelIndices.forEach(i=>svg.append(svgNode('text',{x:model.x(releases[i].releaseDate),y:285,'text-anchor':'middle',class:'axis-label'},formatDate(releases[i].releaseDate))));
+        model.series.forEach(series=>{
+          const name = teams.find(team=>team.id===series.teamId)!.name;
+          series.segments.forEach(segment=>{
+            svg.append(svgNode('polyline',{points:segment.map(p=>`${p.x},${p.y}`).join(' '),fill:'none',stroke:color(series.teamId),'stroke-width':series.teamId === 'st-louis-knights' ? 3.5 : 2.2}));
+            segment.forEach(point=>{
+              const description = `${name} · ${formatDate(point.date)} · Rating ${point.value.toFixed(2)} · Weekly change ${point.delta === null ? 'unavailable' : (point.delta>0?'+':'')+point.delta.toFixed(2)} · Rank ${point.rank ?? 'unavailable'} (${point.category})`;
+              const dot = svgNode('circle',{cx:point.x,cy:point.y,r:5,fill:color(series.teamId),tabindex:0,role:'img','aria-label':description});
+              dot.append(svgNode('title',{},description));
+              const show = ()=>{tooltip.textContent=description;tooltip.hidden=false;};
+              dot.addEventListener('mouseenter',show);dot.addEventListener('focus',show);dot.addEventListener('click',show);
+              dot.addEventListener('keydown',event=>{if((event as KeyboardEvent).key==='Escape') tooltip.hidden=true;});
+              svg.append(dot);
+            });
+          });
+          const item = document.createElement('span'); const swatch=document.createElement('i');swatch.style.background=color(series.teamId);item.append(swatch,document.createTextNode(name));legend.append(item);
+        });
+        chart.append(svg);
+      }
+      releases.forEach((release,index)=>release.rows.filter(row=>selected.includes(row.teamId)).forEach(row=>{
+        const delta=weeklyChange(releases,row.teamId,index);
+        const tr=document.createElement('tr');
+        [formatDate(release.releaseDate),teams.find(team=>team.id===row.teamId)!.name,row.rating?.toFixed(2) ?? 'Unrated',delta===null?'—':`${delta>0?'+':''}${delta.toFixed(2)}`,row.rank===null?'—':String(row.rank),release.category].forEach(value=>{const td=document.createElement('td');td.textContent=value;tr.append(td);});
+        tbody.append(tr);
+      }));
+      const historyEmpty = root.querySelector<HTMLElement>('[data-history-empty]')!;
+      historyEmpty.hidden=!!tbody.children.length;
+      if(releases.length) historyEmpty.textContent='No values for the selected teams.';
+    }
+    root.querySelectorAll<HTMLButtonElement>('[data-selection]').forEach(button=>button.addEventListener('click',()=>{
+      checkboxes.forEach(input=>{input.checked=button.dataset.selection==='all'||(button.dataset.selection==='home'&&input.value==='st-louis-knights');});render();
+    }));
+    checkboxes.forEach(input=>input.addEventListener('change',render));
+    checkboxes.forEach(input=>{input.checked=input.value===initial;});
+    render();
+  });
+</script>
