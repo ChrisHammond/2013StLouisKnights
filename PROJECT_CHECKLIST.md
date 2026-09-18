@@ -29,6 +29,8 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 
 ## Delivery
 
+- [x] Added live division and 13 individual team schedules, with navigation from team profiles and the overview. Verified dedicated Knights schedule route and mobile layout; schedules are displayed directly from GameSheet.
+
 - Repository: https://github.com/ChrisHammond/2013StLouisKnights
 - Netlify: https://2013-st-louis-knights.netlify.app/
 - Netlify project: `d9eb6d9b-26a9-4453-b143-3a2bbd08ab2d`, existing Christoc account; no plan upgrades or add-ons.

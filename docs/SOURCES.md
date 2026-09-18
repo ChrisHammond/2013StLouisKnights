@@ -53,3 +53,9 @@ Required before activation: written consent or licensing that covers collection,
 MHR describes a usual Wednesday release cadence, but the specific season timing is not yet verified. Three bounded weekly workflow opportunities are configured provisionally. They remain inactive until both permission and schedule verification are recorded in `data/sources.json`.
 
 No backfill is assumed. Historic weeks can only be added from a verified authorized historical source.
+
+# Live schedules
+
+Added September 18, 2026. The division schedule embeds the official season 15220 games page, filtered to division 81589 and regular-season games. Each team uses its mapped GameSheet team URL plus `/schedule`. The Knights route was verified through GameSheet's Schedule tab, including upcoming September 19 games.
+
+GameSheet's documented `filter[team]` parameter on the general games page did not restrict results in browser verification, so it is deliberately not used. Dedicated team schedule routes keep team scope accurate. Schedules load directly from GameSheet and are not scraped, cached, or claimed as locally refreshed data. GameSheet supports iframe embedding: https://help.gamesheet.app/article/10-scores-schedule-standings-stats-embed-tool.

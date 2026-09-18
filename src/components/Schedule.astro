@@ -1,0 +1,89 @@
+---
+import { teams, sources } from '../lib/data';
+import type { Team } from '../lib/schema';
+interface Props {
+  team?: Team;
+}
+const { team } = Astro.props;
+const sourceUrl = team
+  ? `${team.leagueUrl}/schedule`
+  : `https://gamesheetstats.com/seasons/${sources.standings.seasonId}/games?filter%5Bdivision%5D=${sources.standings.divisionId}&filter%5Btype%5D=regular_season`;
+const label = team ? team.name : 'All CSDHL 13U teams';
+---
+
+<section class="panel official-embed schedule-panel" aria-labelledby="schedule-heading">
+  <span class="eyebrow">2026–27 · LIVE FROM GAMESHEET</span>
+  <h2 id="schedule-heading">{label}</h2>
+  <nav class="schedule-navigation" aria-label="Schedule views">
+    <a href="/schedules/" aria-current={!team ? 'page' : undefined}>
+      All division games
+    </a>
+    <a
+      href="/schedules/st-louis-knights/"
+      aria-current={team?.id === 'st-louis-knights' ? 'page' : undefined}
+    >
+      Knights schedule
+    </a>
+    <details>
+      <summary>Choose another team</summary>
+      <ul>
+        {teams.map((item) => (
+          <li>
+            <a href={`/schedules/${item.id}/`} aria-current={team?.id === item.id ? 'page' : undefined}>
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  </nav>
+  <p>
+    Upcoming games and results are displayed directly by GameSheet, including opponents, dates, times, and
+    venues. Use its date and status filters when available. Confirm game times and any changes with your team
+    before travelling.
+  </p>
+  <p>
+    <a href={sourceUrl}>Open {team ? `${team.name}' schedule` : 'the division schedule'} on GameSheet ↗</a>
+  </p>
+  <iframe
+    title={`Official 2026–27 schedule: ${label}`}
+    src={sourceUrl}
+    height="1100"
+    loading="eager"
+  ></iframe>
+  <p class="directory-note">
+    Source: <a href={sources.leagueUrl}>CSDHL / GameSheet</a>. Loaded live when you open this view; no locally
+    stored schedule snapshot. The division view includes regular-season league games. Team views show games
+    listed by GameSheet for this season and may not include tournaments, friendlies, or practices. If the
+    embedded view is unavailable, use the direct link above.
+  </p>
+</section>
+
+<style>
+  .schedule-panel h2 {
+    margin: 12px 0 20px;
+  }
+  .schedule-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 16px 24px;
+  }
+  .schedule-navigation > a {
+    font-weight: 650;
+  }
+  .schedule-navigation [aria-current='page'] {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .schedule-navigation ul {
+    display: grid;
+    gap: 12px;
+    padding-left: 20px;
+  }
+  iframe {
+    display: block;
+    background: white;
+  }
+</style>

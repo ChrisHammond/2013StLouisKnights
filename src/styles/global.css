@@ -878,6 +878,8 @@ dd {
   }
   .site-header nav {
     flex-basis: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
     justify-content: space-between;
     gap: 10px;
     height: 44px;

@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Schedule from '../../components/Schedule.astro';
+import { teams } from '../../lib/data';
+export function getStaticPaths() {
+  return teams.map((team) => ({ params: { id: team.id }, props: { team } }));
+}
+const { team } = Astro.props;
+---
+
+<Layout title={`${team.name} schedule`}>
+  <a class="back-link" href={`/teams/${team.id}/`}>
+    ← {team.name} profile
+  </a>
+  <div class="page-heading">
+    <div>
+      <span class="eyebrow">2026–27 · CSDHL 13U</span>
+      <h1>Game schedule.</h1>
+      <p>Follow {team.name} throughout the season.</p>
+    </div>
+  </div>
+  <Schedule team={team} />
+</Layout>

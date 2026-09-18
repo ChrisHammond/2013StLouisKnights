@@ -7,6 +7,9 @@ const { team } = Astro.props;
 ---
 
 <div class="team-links">
+  <a href={`/schedules/${team.id}/`} aria-label={`${team.name} schedule`}>
+    Schedule →
+  </a>
   <a href={team.leagueUrl} aria-label={`${team.name} CSDHL GameSheet page`}>
     CSDHL ↗
   </a>
