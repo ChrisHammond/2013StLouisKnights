@@ -1,5 +1,6 @@
 ---
 import { teamMap } from '../lib/data';
+import TeamMark from './TeamMark.astro';
 import { gameDate, gameTime, type Game } from '../lib/schedule';
 interface Props {
   game: Game;
@@ -41,12 +42,20 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
       {game.status !== 'scheduled' && <strong>{game.status}</strong>}
     </div>
     <div class="matchup-names">
-      <a class:list={{ 'our-team': away.id === 'st-louis-knights' }} href={`/teams/${away.id}/`}>
-        {away.name}
+      <a
+        class:list={['team-with-logo', { 'our-team': away.id === 'st-louis-knights' }]}
+        href={`/teams/${away.id}/`}
+      >
+        <TeamMark team={away} />
+        <span>{away.name}</span>
       </a>
       <span class="versus">at</span>
-      <a class:list={{ 'our-team': home.id === 'st-louis-knights' }} href={`/teams/${home.id}/`}>
-        {home.name}
+      <a
+        class:list={['team-with-logo', { 'our-team': home.id === 'st-louis-knights' }]}
+        href={`/teams/${home.id}/`}
+      >
+        <TeamMark team={home} />
+        <span>{home.name}</span>
       </a>
     </div>
     <p class="game-location">{game.venue}</p>

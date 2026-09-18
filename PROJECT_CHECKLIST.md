@@ -29,6 +29,8 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 
 ## Delivery
 
+- [x] Added locally hosted logos for all 13 teams, verified against GameSheet team IDs, across directory, profiles, standings, schedule cards, and the homepage next game.
+
 - [x] Replaced schedule iframes with native cards for 156 GameSheet regular-season games (24 per team), added filters and the homepage next-game card. The source is a dated browser snapshot; unattended schedule refresh remains pending a supported feed.
 
 - [x] Reassigned https://hockey.chrishammond.com/ to the Knights app; verified HTTPS and preserved the Falcons site at https://chesterfield12ua1.netlify.app/.

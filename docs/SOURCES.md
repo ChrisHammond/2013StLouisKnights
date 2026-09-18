@@ -54,6 +54,10 @@ MHR describes a usual Wednesday release cadence, but the specific season timing 
 
 No backfill is assumed. Historic weeks can only be added from a verified authorized historical source.
 
+## Team logos
+
+All 13 club logos were verified against their corresponding team IDs in the official GameSheet season 15220 / Bantam Minor standings on September 18, 2026. The original CDN images are stored locally in `public/team-logos/` so rendering does not depend on third-party image requests. `data/team-logos.json` records the source page, original image URL, date, and dimensions for every asset. Logos remain the property of their respective clubs and are used only for team identification. The existing official Knights crest remains in the site header and overview banner.
+
 ## Native schedules
 
 On September 18, 2026, the embedded schedules were replaced with native game cards using a browser observation of GameSheet season 15220, division 81589, regular-season games. All 156 published games were collected from the visible public schedule, yielding exactly 24 per team. The original row values and venue dictionary are retained in `data/schedule-observations/2026-09-18.json`. The normalized, validated snapshot is in `data/schedule.json`.

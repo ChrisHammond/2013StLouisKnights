@@ -1,15 +1,17 @@
 ---
 import type { Team } from '../lib/schema';
+import logos from '../../data/team-logos.json';
 interface Props {
   team: Team;
   large?: boolean;
 }
 const { team, large = false } = Astro.props;
+const logo = logos.find((logo) => logo.teamId === team.id);
 ---
 
-<span class:list={['team-mark', { large, home: team.id === 'st-louis-knights' }]} aria-hidden="true">
-  {team.id === 'st-louis-knights' ? (
-    <img src="/knights-logo.png" width={large ? 90 : 28} height={large ? 104 : 32} alt="" />
+<span class:list={['team-mark', { large, 'has-logo': !!logo }]} aria-hidden="true">
+  {logo ? (
+    <img src={logo.path} width={logo.width} height={logo.height} alt="" loading="lazy" decoding="async" />
   ) : (
     team.abbr
   )}

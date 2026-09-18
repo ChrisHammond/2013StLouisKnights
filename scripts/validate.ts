@@ -17,6 +17,23 @@ for (const kind of ['standings', 'ratings'] as Kind[]) {
   console.log(`${kind}: ${data.snapshots.length} validated observations`);
 }
 console.log(`${teams.length} verified team mappings validated`);
+const logos = await read('team-logos');
+if (
+  logos.length !== teams.length ||
+  new Set(logos.map((logo: { teamId: string }) => logo.teamId)).size !== teams.length
+)
+  throw new Error('A unique logo mapping is required for every team');
+for (const team of teams) {
+  const logo = logos.find((item: { teamId: string }) => item.teamId === team.id);
+  if (
+    !logo ||
+    logo.sourcePage !== team.leagueUrl ||
+    !logo.path.startsWith(`/team-logos/${team.id}.`) ||
+    logo.path.includes('..')
+  )
+    throw new Error(`Invalid logo mapping for ${team.id}`);
+  await readFile(`public${logo.path}`);
+}
 for (const snapshot of (await read('schedule')).snapshots)
   validateSchedule(
     snapshot,

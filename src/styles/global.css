@@ -602,12 +602,14 @@ tbody th {
   color: #5b626c;
   flex-shrink: 0;
 }
-.team-mark.home {
+.team-mark.has-logo {
   background: transparent;
   border: 0;
 }
 .team-mark img {
   object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 .team-mark.large {
   width: 67px;
@@ -1284,6 +1286,16 @@ dd {
 }
 .matchup-names a:hover {
   text-decoration: underline;
+}
+.team-with-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+}
+.team-with-logo .team-mark {
+  width: 27px;
+  height: 29px;
 }
 .matchup-names .our-team {
   color: var(--red);
