@@ -1,89 +1,148 @@
 ---
-import { teams, sources } from '../lib/data';
+import { teams } from '../lib/data';
+import { games, schedule, scheduleStatus } from '../lib/schedule-data';
+import { formatTimestamp } from '../lib/history';
+import GameCard from './GameCard.astro';
 import type { Team } from '../lib/schema';
 interface Props {
   team?: Team;
 }
 const { team } = Astro.props;
-const sourceUrl = team
-  ? `${team.leagueUrl}/schedule`
-  : `https://gamesheetstats.com/seasons/${sources.standings.seasonId}/games?filter%5Bdivision%5D=${sources.standings.divisionId}&filter%5Btype%5D=regular_season`;
-const label = team ? team.name : 'All CSDHL 13U teams';
+const selectedGames = games.filter((g) => !team || g.homeTeamId === team.id || g.awayTeamId === team.id);
+const months = [...new Set(selectedGames.map((g) => g.date.slice(0, 7)))];
+const monthLabel = (month: string) =>
+  new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(
+    new Date(`${month}-01T12:00:00Z`),
+  );
 ---
 
-<section class="panel official-embed schedule-panel" aria-labelledby="schedule-heading">
-  <span class="eyebrow">2026–27 · LIVE FROM GAMESHEET</span>
-  <h2 id="schedule-heading">{label}</h2>
-  <nav class="schedule-navigation" aria-label="Schedule views">
-    <a href="/schedules/" aria-current={!team ? 'page' : undefined}>
-      All division games
-    </a>
-    <a
-      href="/schedules/st-louis-knights/"
-      aria-current={team?.id === 'st-louis-knights' ? 'page' : undefined}
-    >
-      Knights schedule
-    </a>
-    <details>
-      <summary>Choose another team</summary>
-      <ul>
-        {teams.map((item) => (
-          <li>
-            <a href={`/schedules/${item.id}/`} aria-current={team?.id === item.id ? 'page' : undefined}>
-              {item.name}
-            </a>
-          </li>
+<section data-native-schedule aria-label={team ? `${team.name} schedule` : 'Division schedule'}>
+  <div class="panel schedule-controls">
+    <label>
+      Team
+      <select data-team-picker aria-label="Schedule team">
+        <option value="/schedules/" selected={!team}>
+          All 13 teams
+        </option>
+        {teams.map((t) => (
+          <option value={`/schedules/${t.id}/`} selected={t.id === team?.id}>
+            {t.name}
+          </option>
         ))}
-      </ul>
-    </details>
-  </nav>
-  <p>
-    Upcoming games and results are displayed directly by GameSheet, including opponents, dates, times, and
-    venues. Use its date and status filters when available. Confirm game times and any changes with your team
-    before travelling.
+      </select>
+    </label>
+    <label>
+      When
+      <select data-period>
+        <option value="upcoming">Upcoming games</option>
+        <option value="all" selected>
+          Full season
+        </option>
+        <option value="past">Past game dates</option>
+      </select>
+    </label>
+    <label>
+      Month
+      <select data-month>
+        <option value="all">All months</option>
+        {months.map((month) => (
+          <option value={month}>{monthLabel(month)}</option>
+        ))}
+      </select>
+    </label>
+    {team && (
+      <label>
+        Location
+        <select data-side>
+          <option value="all">Home & away</option>
+          <option value="home">Home</option>
+          <option value="away">Away</option>
+        </select>
+      </label>
+    )}
+    <noscript>
+      <p>
+        Filters need JavaScript. <a href="/schedules/">All division games</a> ·{' '}
+        <a href="/schedules/st-louis-knights/">Knights schedule</a>
+      </p>
+    </noscript>
+  </div>
+  <div class="schedule-summary">
+    <p aria-live="polite" data-count>
+      {selectedGames.length} games
+    </p>
+    <span>Regular season · Times in Central time</span>
+  </div>
+  {scheduleStatus.error && (
+    <p class="panel schedule-empty" role="status">
+      The latest refresh failed. Showing the last verified schedule.
+    </p>
+  )}
+  {months.map((month) => (
+    <section class="schedule-month" data-month-group>
+      <h2>{monthLabel(month)}</h2>
+      <div class="game-list">
+        {selectedGames
+          .filter((g) => g.date.startsWith(month))
+          .map((game) => (
+            <GameCard game={game} teamId={team?.id} />
+          ))}
+      </div>
+    </section>
+  ))}
+  <p class="panel schedule-empty" data-no-games hidden>
+    No games match these filters. Try another month or choose the full season.
   </p>
-  <p>
-    <a href={sourceUrl}>Open {team ? `${team.name}' schedule` : 'the division schedule'} on GameSheet ↗</a>
-  </p>
-  <iframe
-    title={`Official 2026–27 schedule: ${label}`}
-    src={sourceUrl}
-    height="1100"
-    loading="eager"
-  ></iframe>
-  <p class="directory-note">
-    Source: <a href={sources.leagueUrl}>CSDHL / GameSheet</a>. Loaded live when you open this view; no locally
-    stored schedule snapshot. The division view includes regular-season league games. Team views show games
-    listed by GameSheet for this season and may not include tournaments, friendlies, or practices. If the
-    embedded view is unavailable, use the direct link above.
+  <p class="schedule-source">
+    Source: <a href={schedule.sourceUrl}>CSDHL / GameSheet ↗</a> · Collected{' '}
+    {formatTimestamp(schedule.collectedAt)} ·{' '}
+    <span data-freshness={schedule.collectedAt} data-max-hours="48">
+      Verified snapshot
+    </span>
+    <br />
+    This is a saved copy of the published league schedule. Automated source refresh is not connected yet. Past
+    dates do not imply completed games or verified scores. Tournament and exhibition games are not included.
   </p>
 </section>
-
-<style>
-  .schedule-panel h2 {
-    margin: 12px 0 20px;
-  }
-  .schedule-navigation {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 16px 24px;
-  }
-  .schedule-navigation > a {
-    font-weight: 650;
-  }
-  .schedule-navigation [aria-current='page'] {
-    color: var(--red);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .schedule-navigation ul {
-    display: grid;
-    gap: 12px;
-    padding-left: 20px;
-  }
-  iframe {
-    display: block;
-    background: white;
-  }
-</style>
+<script>
+  import { centralDate } from '../lib/schedule';
+  document.querySelectorAll<HTMLElement>('[data-native-schedule]').forEach((section) => {
+    section.querySelector<HTMLSelectElement>('[data-team-picker]')?.addEventListener('change', (event) => {
+      window.location.href = (event.target as HTMLSelectElement).value;
+    });
+    const period = section.querySelector<HTMLSelectElement>('[data-period]')!;
+    period.value = 'upcoming';
+    const update = () => {
+      const now = new Date();
+      const month = section.querySelector<HTMLSelectElement>('[data-month]')!.value;
+      const side = section.querySelector<HTMLSelectElement>('[data-side]')?.value ?? 'all';
+      let count = 0;
+      section.querySelectorAll<HTMLElement>('[data-game]').forEach((card) => {
+        const futureDate = card.dataset.start
+          ? Date.parse(card.dataset.start) > now.getTime()
+          : card.dataset.date! >= centralDate(now);
+        const periodMatch =
+          period.value === 'all' ||
+          (period.value === 'upcoming' ? futureDate && card.dataset.status === 'scheduled' : !futureDate);
+        card.hidden = !(
+          periodMatch &&
+          (month === 'all' || card.dataset.date!.startsWith(month)) &&
+          (side === 'all' || card.dataset.venueSide === side)
+        );
+        if (!card.hidden) count++;
+      });
+      section.querySelectorAll<HTMLElement>('[data-month-group]').forEach((group) => {
+        group.hidden = !group.querySelector('[data-game]:not([hidden])');
+      });
+      section.querySelector<HTMLElement>('[data-no-games]')!.hidden = count > 0;
+      section.querySelector<HTMLElement>('[data-count]')!.textContent =
+        `${count} ${count === 1 ? 'game' : 'games'}`;
+    };
+    section
+      .querySelectorAll('select:not([data-team-picker])')
+      .forEach((select) => select.addEventListener('change', update));
+    update();
+    setInterval(update, 60000);
+    document.addEventListener('visibilitychange', update);
+  });
+</script>

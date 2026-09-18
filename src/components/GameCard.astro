@@ -1,0 +1,60 @@
+---
+import { teamMap } from '../lib/data';
+import { gameDate, gameTime, type Game } from '../lib/schedule';
+interface Props {
+  game: Game;
+  teamId?: string;
+  hidden?: boolean;
+}
+const { game, teamId, hidden = false } = Astro.props;
+const home = teamMap.get(game.homeTeamId)!;
+const away = teamMap.get(game.awayTeamId)!;
+const isKnights = home.id === 'st-louis-knights' || away.id === 'st-louis-knights';
+const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
+  new Date(`${game.date}T12:00:00Z`),
+);
+---
+
+<article
+  class:list={['game-card', { 'knights-game': isKnights }]}
+  hidden={hidden}
+  data-game
+  data-id={game.id}
+  data-start={game.startsAt ?? ''}
+  data-date={game.date}
+  data-status={game.status}
+  data-venue-side={teamId ? (game.homeTeamId === teamId ? 'home' : 'away') : ''}
+>
+  <div class="game-date" aria-label={gameDate(game)}>
+    <span>{month}</span>
+    <strong>{game.date.slice(-2)}</strong>
+    <small>
+      {new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'UTC' }).format(
+        new Date(`${game.date}T12:00:00Z`),
+      )}
+    </small>
+  </div>
+  <div class="game-matchup">
+    <div class="game-meta">
+      <span>{teamId ? (game.homeTeamId === teamId ? 'HOME' : 'AWAY') : 'LEAGUE GAME'}</span>
+      <span>#{game.gameNumber}</span>
+      {game.status !== 'scheduled' && <strong>{game.status}</strong>}
+    </div>
+    <div class="matchup-names">
+      <a class:list={{ 'our-team': away.id === 'st-louis-knights' }} href={`/teams/${away.id}/`}>
+        {away.name}
+      </a>
+      <span class="versus">at</span>
+      <a class:list={{ 'our-team': home.id === 'st-louis-knights' }} href={`/teams/${home.id}/`}>
+        {home.name}
+      </a>
+    </div>
+    <p class="game-location">{game.venue}</p>
+  </div>
+  <div class="game-time">
+    <strong>
+      <time datetime={game.startsAt ?? game.date}>{gameTime(game)}</time>
+    </strong>
+    <a href={`https://gamesheetstats.com/seasons/15220/games/${game.id}`}>Game details ↗</a>
+  </div>
+</article>

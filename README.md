@@ -5,6 +5,8 @@ An independent CSDHL 13U season portal built with Astro and TypeScript. Static N
 - Live portal: https://hockey.chrishammond.com/
 - Repository: https://github.com/ChrisHammond/2013StLouisKnights
 
+Native schedule cards cover all 156 published CSDHL games, with team/month/home-away filters and the next Knights game on the homepage. See [schedule maintenance](docs/SCHEDULES.md) for snapshot imports and the outstanding automatic-feed dependency.
+
 ## Run locally
 
 Use Node 24 (minimum supported: 22.12).

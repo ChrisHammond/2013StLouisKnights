@@ -54,8 +54,10 @@ MHR describes a usual Wednesday release cadence, but the specific season timing 
 
 No backfill is assumed. Historic weeks can only be added from a verified authorized historical source.
 
-# Live schedules
+## Native schedules
 
-Added September 18, 2026. The division schedule embeds the official season 15220 games page, filtered to division 81589 and regular-season games. Each team uses its mapped GameSheet team URL plus `/schedule`. The Knights route was verified through GameSheet's Schedule tab, including upcoming September 19 games.
+On September 18, 2026, the embedded schedules were replaced with native game cards using a browser observation of GameSheet season 15220, division 81589, regular-season games. All 156 published games were collected from the visible public schedule, yielding exactly 24 per team. The original row values and venue dictionary are retained in `data/schedule-observations/2026-09-18.json`. The normalized, validated snapshot is in `data/schedule.json`.
 
-GameSheet's documented `filter[team]` parameter on the general games page did not restrict results in browser verification, so it is deliberately not used. Dedicated team schedule routes keep team scope accurate. Schedules load directly from GameSheet and are not scraped, cached, or claimed as locally refreshed data. GameSheet supports iframe embedding: https://help.gamesheet.app/article/10-scores-schedule-standings-stats-embed-tool.
+Team views now filter the snapshot by explicit home/away team IDs. Times were observed in Central time and normalized to UTC using America/Chicago with daylight saving. No club/Crossbar schedule data is used. No scores are inferred from elapsed dates. The initial next game is Knights at Express, September 19 at 11:20 AM CDT, Oakton Sports Complex, GameSheet ID 2951469.
+
+Automated collection remains unconnected. GameSheet HTTP access is challenged, and no supported feed credentials were supplied. A daily workflow can import a supported normalized JSON feed once configured; without it, it skips without advancing freshness. GameSheet documents team-staff calendar subscriptions through Crossbar's official help: https://help.crossbar.org/en/articles/8652540-importing-from-gamesheet-powered-leagues. Arrange a supported feed/export before enabling unattended collection; do not bypass access controls. The UI states that this is a dated snapshot.

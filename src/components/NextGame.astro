@@ -1,0 +1,55 @@
+---
+import { games, schedule } from '../lib/schedule-data';
+import { nextGame } from '../lib/schedule';
+import { formatTimestamp } from '../lib/history';
+import GameCard from './GameCard.astro';
+const knightsGames = games.filter(
+  (g) => g.homeTeamId === 'st-louis-knights' || g.awayTeamId === 'st-louis-knights',
+);
+const next = nextGame(knightsGames);
+---
+
+<section class="next-game-section" aria-labelledby="next-game-heading" data-next-game>
+  <div class="schedule-section-heading">
+    <div>
+      <span class="eyebrow">UP NEXT · KNIGHTS</span>
+      <h2 id="next-game-heading">Next scheduled game.</h2>
+    </div>
+    <a href="/schedules/st-louis-knights/">Full Knights schedule →</a>
+  </div>
+  <div aria-live="polite">
+    {knightsGames.map((game) => (
+      <GameCard game={game} teamId="st-louis-knights" hidden={game.id !== next?.id} />
+    ))}
+    <p class="panel schedule-empty" data-next-empty hidden={!!next}>
+      No upcoming Knights games in the current schedule.
+    </p>
+  </div>
+  <p class="schedule-source">
+    GameSheet snapshot · Collected {formatTimestamp(schedule.collectedAt)} ·{' '}
+    <span data-freshness={schedule.collectedAt} data-max-hours="48">
+      Check the official game link for changes.
+    </span>
+  </p>
+</section>
+<script>
+  import { centralDate } from '../lib/schedule';
+  const updateNext = () =>
+    document.querySelectorAll<HTMLElement>('[data-next-game]').forEach((section) => {
+      let found = false;
+      const now = new Date();
+      section.querySelectorAll<HTMLElement>('[data-game]').forEach((card) => {
+        const upcoming =
+          card.dataset.status === 'scheduled' &&
+          (card.dataset.start
+            ? Date.parse(card.dataset.start) > now.getTime()
+            : card.dataset.date! >= centralDate(now));
+        card.hidden = found || !upcoming;
+        if (!card.hidden) found = true;
+      });
+      section.querySelector<HTMLElement>('[data-next-empty]')!.hidden = found;
+    });
+  updateNext();
+  setInterval(updateNext, 60000);
+  document.addEventListener('visibilitychange', updateNext);
+</script>

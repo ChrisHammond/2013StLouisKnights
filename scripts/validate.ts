@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { validateTeams, validateSnapshot, type Kind } from '../src/lib/schema';
+import { validateSchedule } from '../src/lib/schedule';
 const read = async (name: string) => JSON.parse(await readFile(`data/${name}.json`, 'utf8'));
 const teams = validateTeams(await read('teams'));
 const sources = await read('sources');
@@ -16,3 +17,8 @@ for (const kind of ['standings', 'ratings'] as Kind[]) {
   console.log(`${kind}: ${data.snapshots.length} validated observations`);
 }
 console.log(`${teams.length} verified team mappings validated`);
+for (const snapshot of (await read('schedule')).snapshots)
+  validateSchedule(
+    snapshot,
+    teams.map((t) => t.id),
+  );

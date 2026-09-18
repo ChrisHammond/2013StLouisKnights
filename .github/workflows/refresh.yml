@@ -11,7 +11,7 @@ on:
       source:
         description: Source to refresh
         type: choice
-        options: [both, standings, ratings]
+        options: [both, standings, ratings, schedule]
         default: both
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
       - run: npm ci
       - name: Refresh standings
         id: standings
-        if: github.event_name == 'workflow_dispatch' && inputs.source != 'ratings' || github.event.schedule == '17 12 * * *'
+        if: github.event_name == 'workflow_dispatch' && (inputs.source == 'both' || inputs.source == 'standings') || github.event.schedule == '17 12 * * *'
         continue-on-error: true
         env:
           STANDINGS_FEED_URL: ${{ secrets.STANDINGS_FEED_URL }}
@@ -39,12 +39,20 @@ jobs:
         run: npm run import:standings -- --scheduled
       - name: Refresh ratings
         id: ratings
-        if: github.event_name == 'workflow_dispatch' && inputs.source != 'standings' || github.event.schedule != '17 12 * * *' && github.event_name == 'schedule'
+        if: github.event_name == 'workflow_dispatch' && (inputs.source == 'both' || inputs.source == 'ratings') || github.event.schedule != '17 12 * * *' && github.event_name == 'schedule'
         continue-on-error: true
         env:
           MHR_FEED_URL: ${{ secrets.MHR_FEED_URL }}
           MHR_FEED_TOKEN: ${{ secrets.MHR_FEED_TOKEN }}
         run: npm run import:ratings -- --scheduled
+      - name: Refresh schedule
+        id: schedule
+        if: github.event_name == 'workflow_dispatch' && (inputs.source == 'both' || inputs.source == 'schedule') || github.event.schedule == '17 12 * * *'
+        continue-on-error: true
+        env:
+          SCHEDULE_FEED_URL: ${{ secrets.SCHEDULE_FEED_URL }}
+          SCHEDULE_FEED_TOKEN: ${{ secrets.SCHEDULE_FEED_TOKEN }}
+        run: npm run import:schedule -- --scheduled
       - name: Validate retained data and build
         run: |
           npm run validate
@@ -73,7 +81,7 @@ jobs:
             echo "No build hook configured. Ensure Netlify builds repository pushes."
           fi
       - name: Report failed imports after retaining and publishing health state
-        if: steps.standings.outcome == 'failure' || steps.ratings.outcome == 'failure'
+        if: steps.standings.outcome == 'failure' || steps.ratings.outcome == 'failure' || steps.schedule.outcome == 'failure'
         run: |
           echo "A source import failed. Last valid data retained; inspect source access and schema."
           exit 1

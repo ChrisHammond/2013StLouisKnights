@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { sources, standings, status } from '../lib/data';
 import { formatTimestamp, formatDate } from '../lib/history';
+import { schedule, scheduleStatus } from '../lib/schedule-data';
 ---
 
 <Layout title="Sources and updates">
@@ -13,6 +14,27 @@ import { formatTimestamp, formatDate } from '../lib/history';
     </div>
   </div>
   <div class="source-grid">
+    <section class="panel explainer">
+      <span class="eyebrow">GAME SCHEDULE</span>
+      <h2>CSDHL / GameSheet</h2>
+      <p>
+        The native schedule contains {schedule.games.length} regular-season games across all 13 teams. Each
+        game links back to its official GameSheet page.
+      </p>
+      <dl>
+        <dt>Collected</dt>
+        <dd>{formatTimestamp(schedule.collectedAt)}</dd>
+        <dt>Source publication time</dt>
+        <dd>Not supplied by source</dd>
+        <dt>Update status</dt>
+        <dd>{scheduleStatus.error ?? 'Verified browser snapshot; automated feed pending'}</dd>
+      </dl>
+      <p>
+        The homepage advances to the next scheduled Knights game based on Central time. This does not fetch
+        changes from GameSheet; a new snapshot is required to reflect rescheduling or cancellation.
+      </p>
+      <a href={schedule.sourceUrl}>Official division schedule ↗</a>
+    </section>
     <section class="panel explainer">
       <span class="eyebrow">LEAGUE STANDINGS</span>
       <h2>CSDHL / GameSheet</h2>
