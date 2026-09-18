@@ -19,7 +19,7 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 - [x] Create GitHub repository and connect Netlify using a repository-only read key and push webhook.
 - [x] Store Netlify build hook as encrypted GitHub secret for scheduled snapshot commits.
 - [x] Initial GitHub CI and Netlify deployment succeeded.
-- [ ] Verify final deployed revision and scheduled workflow dry run.
+- [x] Verify deployed implementation revision `375a2c2` and scheduled workflow dry run.
 
 ## Known external dependencies
 
@@ -34,6 +34,8 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 - Netlify project: `d9eb6d9b-26a9-4453-b143-3a2bbd08ab2d`, existing Christoc account; no plan upgrades or add-ons.
 - 13 unit/integration tests pass; Astro check has no diagnostics; 19 production pages and 273 local links/assets verified.
 - Browser checks: 390px mobile layout fits, team selectors work, fixture chart has 7 points/5 segments/8 accessible rows, keyboard focus reveals the correct weekly value and delta. Fixture route is development-only.
+- Production GameSheet iframe verified with all 13 teams in the correct regular-season division.
+- GitHub validation run `35310197244` and refresh dry run `35310133242` succeeded. The dry run correctly skipped unconfigured feeds without changing source timestamps or inventing observations.
 
 ## Research
 
