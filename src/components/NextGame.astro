@@ -3,8 +3,9 @@ import { games, schedule } from '../lib/schedule-data';
 import { nextGame } from '../lib/schedule';
 import { formatTimestamp } from '../lib/history';
 import GameCard from './GameCard.astro';
+import { results } from '../lib/results';
 const knightsGames = games.filter(
-  (g) => g.homeTeamId === 'st-louis-knights' || g.awayTeamId === 'st-louis-knights',
+  (g) => !results.has(g.id) && (g.homeTeamId === 'st-louis-knights' || g.awayTeamId === 'st-louis-knights'),
 );
 const next = nextGame(knightsGames);
 ---

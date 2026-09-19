@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Standings from '../components/Standings.astro';
 import Ratings from '../components/Ratings.astro';
 import NextGame from '../components/NextGame.astro';
+import LatestResult from '../components/LatestResult.astro';
 import PhotoLinks from '../components/PhotoLinks.astro';
 import VideoLinks from '../components/VideoLinks.astro';
 import TeamLinks from '../components/TeamLinks.astro';
@@ -62,6 +63,7 @@ const delta = weeklyChange(releases, knights.id);
     </a>
   </div>
   <NextGame />
+  <LatestResult />
   <VideoLinks />
   <PhotoLinks />
   <Ratings />

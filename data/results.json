@@ -1,0 +1,17 @@
+{
+  "observations": [
+    {
+      "gameId": "2951469",
+      "status": "final",
+      "awayTeamId": "st-louis-knights",
+      "homeTeamId": "northern-express",
+      "awayScore": 1,
+      "homeScore": 4,
+      "awayShots": 21,
+      "homeShots": 33,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951469?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-19T18:00:00.000Z"
+    }
+  ]
+}

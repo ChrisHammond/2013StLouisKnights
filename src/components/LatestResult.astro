@@ -1,0 +1,21 @@
+---
+import { games } from '../lib/schedule-data';
+import { results } from '../lib/results';
+import GameCard from './GameCard.astro';
+const game = games
+  .filter((g) => results.has(g.id) && [g.homeTeamId, g.awayTeamId].includes('st-louis-knights'))
+  .at(-1);
+---
+
+{game && (
+  <section class="next-game-section" aria-labelledby="latest-result-heading">
+    <div class="schedule-section-heading">
+      <div>
+        <span class="eyebrow">LATEST RESULT · KNIGHTS</span>
+        <h2 id="latest-result-heading">Last game.</h2>
+      </div>
+      <a href="/schedules/st-louis-knights/">Full Knights schedule →</a>
+    </div>
+    <GameCard game={game} teamId="st-louis-knights" />
+  </section>
+)}

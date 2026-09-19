@@ -1,9 +1,9 @@
 {
   "standings": {
     "state": "manual",
-    "lastAttemptAt": "2026-09-18T04:50:21.818Z",
-    "lastSuccessAt": "2026-09-18T04:50:21.818Z",
-    "message": "Verified from the official standings page. Automatic refresh awaits a supported feed."
+    "lastAttemptAt": "2026-09-19T18:01:38.894Z",
+    "lastSuccessAt": "2026-09-19T18:01:38.894Z",
+    "message": "Validated source observation saved."
   },
   "ratings": {
     "state": "pending",

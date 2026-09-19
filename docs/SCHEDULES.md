@@ -1,5 +1,13 @@
 # Native schedule maintenance
 
+## Verified results
+
+`data/results.json` stores game-specific final box-score observations independently from the full schedule snapshot. This avoids claiming that all 156 schedule entries were refreshed when only one result was checked. Each observation must match the scheduled home/away teams and official box-score URL. Add a later dated observation for a correction; preserve the previous one. The latest observation per game is displayed, and finals are excluded from the next-game card. Builds validate scores, mappings, timestamps, and duplicate observations. Results are currently collected manually, not automatically.
+
+On September 19, 2026 at 18:00 UTC, GameSheet game 2951469 showed FINAL: visiting Knights 1, home Northern Express 4; shots 21–33. The official regular-season standings were separately checked for all 13 teams and imported in their displayed order: Express first and Knights thirteenth. The Knights record was 0–1–0. Box-score source: https://gamesheetstats.com/seasons/15220/games/2951469?tab=box-score. The original schedule start remains unchanged; the box score reported an 11:27 AM start.
+
+## Schedule snapshots
+
 The schedule and homepage next-game card use only the latest validated GameSheet snapshot in `data/schedule.json`. Source IDs map to the verified teams. A snapshot contains the entire division, not a partial team replacement. Game IDs stay stable when times or venues change; history retains previous revisions.
 
 To import a verified replacement snapshot:

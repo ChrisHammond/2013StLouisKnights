@@ -2,6 +2,8 @@
 import { teamMap } from '../lib/data';
 import TeamMark from './TeamMark.astro';
 import { gameGalleries } from '../lib/photos';
+import { results } from '../lib/results';
+import { formatTimestamp } from '../lib/history';
 import { gameDate, gameTime, type Game } from '../lib/schedule';
 interface Props {
   game: Game;
@@ -12,6 +14,7 @@ const { game, teamId, hidden = false } = Astro.props;
 const home = teamMap.get(game.homeTeamId)!;
 const away = teamMap.get(game.awayTeamId)!;
 const galleries = gameGalleries(game);
+const result = results.get(game.id);
 const isKnights = home.id === 'st-louis-knights' || away.id === 'st-louis-knights';
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
   new Date(`${game.date}T12:00:00Z`),
@@ -25,7 +28,7 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
   data-id={game.id}
   data-start={game.startsAt ?? ''}
   data-date={game.date}
-  data-status={game.status}
+  data-status={result?.status ?? game.status}
   data-venue-side={teamId ? (game.homeTeamId === teamId ? 'home' : 'away') : ''}
 >
   <div class="game-date" aria-label={gameDate(game)}>
@@ -41,7 +44,7 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     <div class="game-meta">
       <span>{teamId ? (game.homeTeamId === teamId ? 'HOME' : 'AWAY') : 'LEAGUE GAME'}</span>
       <span>#{game.gameNumber}</span>
-      {game.status !== 'scheduled' && <strong>{game.status}</strong>}
+      {result ? <strong>FINAL</strong> : game.status !== 'scheduled' && <strong>{game.status}</strong>}
     </div>
     <div class="matchup-names">
       <a
@@ -49,7 +52,10 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
         href={`/teams/${away.id}/`}
       >
         <TeamMark team={away} />
-        <span>{away.name}</span>
+        <span>
+          {away.name}
+          {result && <strong> · {result.awayScore}</strong>}
+        </span>
       </a>
       <span class="versus">at</span>
       <a
@@ -57,16 +63,25 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
         href={`/teams/${home.id}/`}
       >
         <TeamMark team={home} />
-        <span>{home.name}</span>
+        <span>
+          {home.name}
+          {result && <strong> · {result.homeScore}</strong>}
+        </span>
       </a>
     </div>
     <p class="game-location">{game.venue}</p>
+    {result && result.awayShots !== null && result.homeShots !== null && (
+      <p class="game-location">
+        Shots: {away.abbr} {result.awayShots} · {home.abbr} {result.homeShots}
+      </p>
+    )}
+    {result && <p class="game-location">GameSheet final · Verified {formatTimestamp(result.observedAt)}</p>}
   </div>
   <div class="game-time">
-    <strong>
-      <time datetime={game.startsAt ?? game.date}>{gameTime(game)}</time>
-    </strong>
-    <a href={`https://gamesheetstats.com/seasons/15220/games/${game.id}`}>Game details ↗</a>
+    <strong>{result ? 'Final' : <time datetime={game.startsAt ?? game.date}>{gameTime(game)}</time>}</strong>
+    <a href={result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`}>
+      {result ? 'Box score ↗' : 'Game details ↗'}
+    </a>
     {galleries.map((gallery) => (
       <a class="game-photo-link" href={gallery.url}>
         Photos · RainbowMarks ↗
