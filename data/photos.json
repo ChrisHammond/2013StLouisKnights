@@ -1,8 +1,14 @@
 {
   "collectionUrl": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights",
   "photographer": "RainbowMarks Photography",
-  "verifiedAt": "2026-09-18",
+  "verifiedAt": "2026-09-19",
   "galleries": [
+    {
+      "title": "Knights vs. Northern Express",
+      "date": "2026-09-19",
+      "gameId": "2951469",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/September/Vs-Northern-Express-9-19-2026"
+    },
     {
       "title": "Knights vs. St. Louis Eagles",
       "date": "2026-08-30",
