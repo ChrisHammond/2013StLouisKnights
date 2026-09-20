@@ -45,3 +45,5 @@ Results also support an explicitly observed in-progress score. These display the
 ## September 20 score update
 
 GameSheet confirmed Knights at Express, game 2951497, FINAL (OT) 1–1, shots 11–28. Official league record is 1–1–1, 3 points, third in source order; GF/GA 6/6. All 13 standing rows were refreshed. Also verified Vipers at Sting finals: September 19 0–5 (shots 10–26), September 20 2–2 after OT (shots 25–28). Knights at Blues 4–1 is now officially FINAL, replacing the owner-confirmed display while preserving that earlier observation. New observations retain their collection times in JSON; no source publication timestamps were supplied.
+
+September 20 afternoon check: game 2951503, Chargers at Sabres, officially FINAL 3–6; shots 29–31. Refreshed all 13 official standing rows: Sabres fourth, Vipers fifth, Chargers twelfth; Knights remain third. Hawks at Winnetka remains scheduled for 5:40 PM CDT, with no score published at this check.

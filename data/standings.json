@@ -904,6 +904,187 @@
           "ga": 4
         }
       ]
+    },
+    {
+      "season": "2026-27",
+      "division": "csdhl-13u",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/standings?filter%5Bdivision%5D=81589&filter%5Btype%5D=regular_season",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-20T20:43:27.118Z",
+      "collectedAt": "2026-09-20T20:43:27.118Z",
+      "source": "gamesheet",
+      "method": "browser-observation",
+      "rows": [
+        {
+          "teamId": "st-louis-sting",
+          "position": 1,
+          "gp": 2,
+          "w": 1,
+          "l": 0,
+          "t": 1,
+          "otw": 0,
+          "otl": 0,
+          "points": 3,
+          "gf": 7,
+          "ga": 2
+        },
+        {
+          "teamId": "northern-express",
+          "position": 2,
+          "gp": 2,
+          "w": 1,
+          "l": 0,
+          "t": 1,
+          "otw": 0,
+          "otl": 0,
+          "points": 3,
+          "gf": 5,
+          "ga": 2
+        },
+        {
+          "teamId": "st-louis-knights",
+          "position": 3,
+          "gp": 3,
+          "w": 1,
+          "l": 1,
+          "t": 1,
+          "otw": 0,
+          "otl": 0,
+          "points": 3,
+          "gf": 6,
+          "ga": 6
+        },
+        {
+          "teamId": "naperville-sabres",
+          "position": 4,
+          "gp": 1,
+          "w": 1,
+          "l": 0,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 2,
+          "gf": 6,
+          "ga": 3
+        },
+        {
+          "teamId": "lake-county-vipers",
+          "position": 5,
+          "gp": 2,
+          "w": 0,
+          "l": 1,
+          "t": 1,
+          "otw": 0,
+          "otl": 0,
+          "points": 1,
+          "gf": 2,
+          "ga": 7
+        },
+        {
+          "teamId": "st-louis-eagles",
+          "position": 6,
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        {
+          "teamId": "chicago-hawks",
+          "position": 7,
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        {
+          "teamId": "highland-park-falcons",
+          "position": 8,
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        {
+          "teamId": "vernon-hills-ice-dogs",
+          "position": 9,
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        {
+          "teamId": "winnetka-warriors",
+          "position": 10,
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        {
+          "teamId": "wilmette-jr-trevians",
+          "position": 11,
+          "gp": 0,
+          "w": 0,
+          "l": 0,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 0,
+          "ga": 0
+        },
+        {
+          "teamId": "northwest-chargers",
+          "position": 12,
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 3,
+          "ga": 6
+        },
+        {
+          "teamId": "chicago-blues",
+          "position": 13,
+          "gp": 1,
+          "w": 0,
+          "l": 1,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 0,
+          "gf": 1,
+          "ga": 4
+        }
+      ]
     }
   ]
 }

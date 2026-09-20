@@ -94,6 +94,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951488?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-20T16:22:26.881Z"
+    },
+    {
+      "gameId": "2951503",
+      "status": "final",
+      "awayTeamId": "northwest-chargers",
+      "homeTeamId": "naperville-sabres",
+      "awayScore": 3,
+      "homeScore": 6,
+      "awayShots": 29,
+      "homeShots": 31,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951503?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-20T20:43:27.118Z"
     }
   ]
 }
