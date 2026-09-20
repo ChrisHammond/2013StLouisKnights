@@ -5,6 +5,16 @@
 [build.environment]
   NODE_VERSION = "24"
 
+[[redirects]]
+  from = "/photos/*"
+  to = "/media/"
+  status = 301
+
+[[redirects]]
+  from = "/videos/*"
+  to = "/media/"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
