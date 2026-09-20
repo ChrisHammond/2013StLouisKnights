@@ -12,6 +12,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951469?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-19T18:00:00.000Z"
+    },
+    {
+      "gameId": "2951488",
+      "status": "in-progress",
+      "awayTeamId": "st-louis-knights",
+      "homeTeamId": "chicago-blues",
+      "awayScore": 4,
+      "homeScore": 1,
+      "awayShots": 37,
+      "homeShots": 30,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951488?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-20T00:07:15.342Z"
     }
   ]
 }

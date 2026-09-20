@@ -27,3 +27,5 @@ For automated updates, supply a supported GameSheet export/feed normalized to th
 The homepage selects the earliest scheduled future Knights game, skips cancelled/postponed games, and updates every minute and when the page becomes visible. TBD starts remain eligible through their Central calendar date. It stops showing a game at its scheduled start, without claiming that it was played. Empty schedules get a clear empty state. Without JavaScript, the build-time next game is shown and schedule pages show the full season.
 
 Snapshot ages are displayed on all schedule views and the homepage; after 48 hours they show Update overdue. The GameSheet details link remains available to verify last-minute changes.
+
+Results also support an explicitly observed in-progress score. These display the observation time and a final-pending notice, never a live-feed claim. On September 19 at about 7:07 PM CDT, game 2951488 showed Knights 4, Blues 1 (shots 37-30), still In Progress. The separately checked official standings had not yet counted this game. Add a later final observation when the source confirms it.

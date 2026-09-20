@@ -11,8 +11,10 @@ const game = games
   <section class="next-game-section" aria-labelledby="latest-result-heading">
     <div class="schedule-section-heading">
       <div>
-        <span class="eyebrow">LATEST RESULT · KNIGHTS</span>
-        <h2 id="latest-result-heading">Last game.</h2>
+        <span class="eyebrow">LATEST GAME · KNIGHTS</span>
+        <h2 id="latest-result-heading">
+          {results.get(game.id)?.status === 'final' ? 'Last game.' : 'Latest score update.'}
+        </h2>
       </div>
       <a href="/schedules/st-louis-knights/">Full Knights schedule →</a>
     </div>

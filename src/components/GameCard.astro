@@ -15,6 +15,7 @@ const home = teamMap.get(game.homeTeamId)!;
 const away = teamMap.get(game.awayTeamId)!;
 const galleries = gameGalleries(game);
 const result = results.get(game.id);
+const resultLabel = result?.status === 'final' ? 'Final' : 'In progress at last check';
 const isKnights = home.id === 'st-louis-knights' || away.id === 'st-louis-knights';
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
   new Date(`${game.date}T12:00:00Z`),
@@ -44,7 +45,11 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     <div class="game-meta">
       <span>{teamId ? (game.homeTeamId === teamId ? 'HOME' : 'AWAY') : 'LEAGUE GAME'}</span>
       <span>#{game.gameNumber}</span>
-      {result ? <strong>FINAL</strong> : game.status !== 'scheduled' && <strong>{game.status}</strong>}
+      {result ? (
+        <strong>{resultLabel}</strong>
+      ) : (
+        game.status !== 'scheduled' && <strong>{game.status}</strong>
+      )}
     </div>
     <div class="matchup-names">
       <a
@@ -75,10 +80,17 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
         Shots: {away.abbr} {result.awayShots} · {home.abbr} {result.homeShots}
       </p>
     )}
-    {result && <p class="game-location">GameSheet final · Verified {formatTimestamp(result.observedAt)}</p>}
+    {result && (
+      <p class="game-location">
+        GameSheet snapshot · Checked {formatTimestamp(result.observedAt)}
+        {result.status === 'in-progress' && ' · Not a live feed; final pending.'}
+      </p>
+    )}
   </div>
   <div class="game-time">
-    <strong>{result ? 'Final' : <time datetime={game.startsAt ?? game.date}>{gameTime(game)}</time>}</strong>
+    <strong>
+      {result ? resultLabel : <time datetime={game.startsAt ?? game.date}>{gameTime(game)}</time>}
+    </strong>
     <a href={result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`}>
       {result ? 'Box score ↗' : 'Game details ↗'}
     </a>

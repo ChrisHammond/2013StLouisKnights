@@ -5,7 +5,7 @@ const count = z.number().int().nonnegative();
 const schema = z
   .object({
     gameId: z.string(),
-    status: z.literal('final'),
+    status: z.enum(['final', 'in-progress']),
     awayTeamId: z.string(),
     homeTeamId: z.string(),
     awayScore: count,
