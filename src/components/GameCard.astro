@@ -82,7 +82,10 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     )}
     {result && (
       <p class="game-location">
-        GameSheet snapshot · Checked {formatTimestamp(result.observedAt)}
+        {result.finalConfirmedBy
+          ? 'GameSheet score · Final confirmed by site owner'
+          : 'GameSheet snapshot · Checked'}{' '}
+        {formatTimestamp(result.observedAt)}
         {result.status === 'in-progress' && ' · Not a live feed; final pending.'}
       </p>
     )}

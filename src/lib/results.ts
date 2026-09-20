@@ -15,6 +15,7 @@ const schema = z
     sourceUrl: z.url(),
     sourcePublishedAt: z.iso.datetime().nullable(),
     observedAt: z.iso.datetime(),
+    finalConfirmedBy: z.literal('site-owner').optional(),
   })
   .strict();
 export function validateResults(input: unknown) {
