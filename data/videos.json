@@ -1,0 +1,41 @@
+{
+  "verifiedAt": "2026-09-19",
+  "videos": [
+    {
+      "title": "Knights vs. Chicago Blues",
+      "date": "2026-09-19",
+      "gameId": "2951488",
+      "videoId": "lIZEI8XQJZs"
+    },
+    {
+      "title": "Knights at Northern Express",
+      "date": "2026-09-19",
+      "gameId": "2951469",
+      "videoId": "G2y7maxb8o0"
+    },
+    {
+      "title": "Knights vs. St. Louis Eagles · Practice game",
+      "date": "2026-08-30",
+      "gameId": null,
+      "videoId": "EtdKMEIiEGA"
+    },
+    {
+      "title": "Knights vs. St. Louis Sting · Part 1",
+      "date": "2026-08-16",
+      "gameId": null,
+      "videoId": "47brSPXnCM0"
+    },
+    {
+      "title": "Knights vs. St. Louis Sting · Part 2",
+      "date": "2026-08-16",
+      "gameId": null,
+      "videoId": "2M5jnJKx9AU"
+    },
+    {
+      "title": "Knights vs. St. Louis Sting · Practice game",
+      "date": "2026-08-15",
+      "gameId": null,
+      "videoId": "vxoAK4kQqt8"
+    }
+  ]
+}

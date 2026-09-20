@@ -3,6 +3,7 @@ import { teamMap } from '../lib/data';
 import TeamMark from './TeamMark.astro';
 import { gameGalleries } from '../lib/photos';
 import { results } from '../lib/results';
+import { gameVideos, videoUrl } from '../lib/videos';
 import { formatTimestamp } from '../lib/history';
 import { gameDate, gameTime, type Game } from '../lib/schedule';
 interface Props {
@@ -100,6 +101,15 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     {galleries.map((gallery) => (
       <a class="game-photo-link" href={gallery.url}>
         Photos · RainbowMarks ↗
+      </a>
+    ))}
+    {gameVideos(game).map((video) => (
+      <a
+        class="game-photo-link"
+        href={videoUrl(video.videoId)}
+        aria-label={`Watch ${video.title} on YouTube`}
+      >
+        Video · Heinen Sports Network ↗
       </a>
     ))}
   </div>
