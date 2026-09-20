@@ -39,6 +39,61 @@
       "sourcePublishedAt": null,
       "observedAt": "2026-09-20T00:08:55.627Z",
       "finalConfirmedBy": "site-owner"
+    },
+    {
+      "gameId": "2951497",
+      "status": "final",
+      "overtime": true,
+      "awayTeamId": "st-louis-knights",
+      "homeTeamId": "northern-express",
+      "awayScore": 1,
+      "homeScore": 1,
+      "awayShots": 11,
+      "homeShots": 28,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951497?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-20T16:22:07.062Z"
+    },
+    {
+      "gameId": "2951492",
+      "status": "final",
+      "overtime": true,
+      "awayTeamId": "lake-county-vipers",
+      "homeTeamId": "st-louis-sting",
+      "awayScore": 2,
+      "homeScore": 2,
+      "awayShots": 25,
+      "homeShots": 28,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951492?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-20T16:22:07.062Z"
+    },
+    {
+      "gameId": "2951489",
+      "status": "final",
+      "overtime": false,
+      "awayTeamId": "lake-county-vipers",
+      "homeTeamId": "st-louis-sting",
+      "awayScore": 0,
+      "homeScore": 5,
+      "awayShots": 10,
+      "homeShots": 26,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951489?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-20T16:22:07.062Z"
+    },
+    {
+      "gameId": "2951488",
+      "status": "final",
+      "awayTeamId": "st-louis-knights",
+      "homeTeamId": "chicago-blues",
+      "awayScore": 4,
+      "homeScore": 1,
+      "awayShots": 37,
+      "homeShots": 30,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951488?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-20T16:22:26.881Z"
     }
   ]
 }

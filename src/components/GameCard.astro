@@ -17,7 +17,8 @@ const home = teamMap.get(game.homeTeamId)!;
 const away = teamMap.get(game.awayTeamId)!;
 const galleries = gameGalleries(game);
 const result = results.get(game.id);
-const resultLabel = result?.status === 'final' ? 'Final' : 'In progress at last check';
+const resultLabel =
+  result?.status === 'final' ? (result.overtime ? 'Final (OT)' : 'Final') : 'In progress at last check';
 const isKnights = game.homeTeamId === 'st-louis-knights' || game.awayTeamId === 'st-louis-knights';
 const supplemental = game.id.startsWith('crossbar-');
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(

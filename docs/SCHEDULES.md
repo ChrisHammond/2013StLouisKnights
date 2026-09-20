@@ -41,3 +41,7 @@ Crossbar tournament day placeholders are visibly labeled, retain TBD times, and 
 Tests can pass a local HTML file as the importer's first argument in an isolated temporary project. Never import fixtures into production data. Source publication time is null because Crossbar does not supply it; collection and successful-check timestamps are separate.
 
 Results also support an explicitly observed in-progress score. These display the observation time and a final-pending notice, never a live-feed claim. On September 19 at about 7:07 PM CDT, game 2951488 showed Knights 4, Blues 1 (shots 37-30), still In Progress. The separately checked official standings had not yet counted this game. Add a later final observation when the source confirms it.
+
+## September 20 score update
+
+GameSheet confirmed Knights at Express, game 2951497, FINAL (OT) 1–1, shots 11–28. Official league record is 1–1–1, 3 points, third in source order; GF/GA 6/6. All 13 standing rows were refreshed. Also verified Vipers at Sting finals: September 19 0–5 (shots 10–26), September 20 2–2 after OT (shots 25–28). Knights at Blues 4–1 is now officially FINAL, replacing the owner-confirmed display while preserving that earlier observation. New observations retain their collection times in JSON; no source publication timestamps were supplied.

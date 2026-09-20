@@ -6,6 +6,7 @@ const schema = z
   .object({
     gameId: z.string(),
     status: z.enum(['final', 'in-progress']),
+    overtime: z.boolean().optional(),
     awayTeamId: z.string(),
     homeTeamId: z.string(),
     awayScore: count,
