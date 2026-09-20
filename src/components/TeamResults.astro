@@ -1,0 +1,35 @@
+---
+import { games } from '../lib/schedule-data';
+import { results } from '../lib/results';
+import GameCard from './GameCard.astro';
+import type { Team } from '../lib/schema';
+interface Props {
+  team: Team;
+}
+const { team } = Astro.props;
+const previousGames = games
+  .filter((g) => [g.homeTeamId, g.awayTeamId].includes(team.id) && results.get(g.id)?.status === 'final')
+  .reverse();
+---
+
+<section class="next-game-section" aria-labelledby="previous-results-heading">
+  <div class="schedule-section-heading">
+    <div>
+      <span class="eyebrow">COMPLETED GAMES</span>
+      <h2 id="previous-results-heading">Previous results.</h2>
+    </div>
+    <a href={`/schedules/${team.id}/`}>Full schedule →</a>
+  </div>
+  <div class="game-list">
+    {previousGames.map((game) => (
+      <GameCard game={game} teamId={team.id} />
+    ))}
+    {!previousGames.length && (
+      <p class="panel schedule-empty">No verified final results are available for {team.name} yet.</p>
+    )}
+  </div>
+  <p class="schedule-source">
+    Verified finals, newest first. Scores reflect the check time shown on each game; past scheduled dates
+    alone do not confirm a result.
+  </p>
+</section>

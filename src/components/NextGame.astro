@@ -3,34 +3,41 @@ import { games } from '../lib/schedule-data';
 import { nextGame } from '../lib/schedule';
 import GameCard from './GameCard.astro';
 import { results } from '../lib/results';
-const knightsGames = games.filter(
+import { knights } from '../lib/data';
+import type { Team } from '../lib/schema';
+interface Props {
+  team?: Team;
+}
+const { team = knights } = Astro.props;
+const isKnights = team.id === knights.id;
+const teamGames = games.filter(
   (g) =>
-    !g.crossbar?.placeholder &&
-    !results.has(g.id) &&
-    (g.homeTeamId === 'st-louis-knights' || g.awayTeamId === 'st-louis-knights'),
+    !g.crossbar?.placeholder && !results.has(g.id) && (g.homeTeamId === team.id || g.awayTeamId === team.id),
 );
-const next = nextGame(knightsGames);
+const next = nextGame(teamGames);
 ---
 
 <section class="next-game-section" aria-labelledby="next-game-heading" data-next-game>
   <div class="schedule-section-heading">
     <div>
-      <span class="eyebrow">UP NEXT · KNIGHTS</span>
+      <span class="eyebrow">UP NEXT · {team.name}</span>
       <h2 id="next-game-heading">Next scheduled game.</h2>
     </div>
-    <a href="/schedules/st-louis-knights/">Full Knights schedule →</a>
+    <a href={`/schedules/${team.id}/`}>Full schedule →</a>
   </div>
   <div aria-live="polite">
-    {knightsGames.map((game) => (
-      <GameCard game={game} teamId="st-louis-knights" hidden={game.id !== next?.id} />
+    {teamGames.map((game) => (
+      <GameCard game={game} teamId={team.id} hidden={game.id !== next?.id} />
     ))}
     <p class="panel schedule-empty" data-next-empty hidden={!!next}>
-      No upcoming Knights games in the current schedule.
+      No upcoming {team.name} games in the current schedule.
     </p>
   </div>
   <p class="schedule-source">
-    Includes GameSheet and Crossbar games. Tournament placeholders are listed on the full schedule.{' '}
-    <a href="/schedules/st-louis-knights/">Source updates and full schedule →</a>
+    {isKnights
+      ? 'Includes GameSheet and Crossbar games. Tournament placeholders are listed on the full schedule.'
+      : 'CSDHL regular-season games from the saved GameSheet schedule.'}{' '}
+    <a href={`/schedules/${team.id}/`}>Source updates and full schedule →</a>
   </p>
 </section>
 <script>
