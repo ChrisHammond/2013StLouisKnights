@@ -3,6 +3,10 @@ import { games } from '../lib/schedule-data';
 import { results } from '../lib/results';
 import GameCard from './GameCard.astro';
 import type { Team } from '../lib/schema';
+import { teamOutcome } from '../lib/outcome';
+import { gameDate } from '../lib/schedule';
+import { teamMap } from '../lib/data';
+import OutcomeBadge from './OutcomeBadge.astro';
 interface Props {
   team: Team;
 }
@@ -10,6 +14,11 @@ const { team } = Astro.props;
 const previousGames = games
   .filter((g) => [g.homeTeamId, g.awayTeamId].includes(team.id) && results.get(g.id)?.status === 'final')
   .reverse();
+const lastFive = previousGames.slice(0, 5);
+const outcomes = lastFive.map((g) => teamOutcome(results.get(g.id), team.id));
+const recentRecord = ['Win', 'Loss', 'Tie']
+  .map((value) => outcomes.filter((o) => o === value).length)
+  .join('–');
 ---
 
 <section class="next-game-section" aria-labelledby="previous-results-heading">
@@ -20,6 +29,41 @@ const previousGames = games
     </div>
     <a href={`/schedules/${team.id}/`}>Full schedule →</a>
   </div>
+  {lastFive.length > 0 && (
+    <div class="panel recent-form">
+      <h3>Last five games</h3>
+      <p>
+        <strong>{recentRecord}</strong> wins–losses–ties · {lastFive.length} verified{' '}
+        {lastFive.length === 1 ? 'final' : 'finals'} available
+        {lastFive.length < 5 ? ' (fewer than five)' : ''} · Newest first
+      </p>
+      <ol class="form-games">
+        {lastFive.map((game) => {
+          const result = results.get(game.id)!;
+          const opponentId = game.homeTeamId === team.id ? game.awayTeamId : game.homeTeamId;
+          const ours = game.homeTeamId === team.id ? result.homeScore : result.awayScore;
+          const theirs = game.homeTeamId === team.id ? result.awayScore : result.homeScore;
+          return (
+            <li>
+              <a href={result.sourceUrl}>
+                <OutcomeBadge outcome={teamOutcome(result, team.id)!} />
+                <span>
+                  {ours}–{theirs}
+                  {result.overtime ? ' (OT)' : ''} vs.{' '}
+                  {teamMap.get(opponentId)?.name ?? game.crossbar?.opponent}
+                </span>
+                <small>{gameDate(game)}</small>
+              </a>
+            </li>
+          );
+        })}
+      </ol>
+      <p class="schedule-source">
+        Based on verified results stored here; games without confirmed scores are excluded. This may be fewer
+        games than the official league record.
+      </p>
+    </div>
+  )}
   <div class="game-list">
     {previousGames.map((game) => (
       <GameCard game={game} teamId={team.id} />
@@ -33,3 +77,35 @@ const previousGames = games
     alone do not confirm a result.
   </p>
 </section>
+<style>
+  .recent-form {
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  h3 {
+    margin: 0 0 0.5rem;
+  }
+  .form-games {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0;
+    list-style: none;
+  }
+  .form-games li {
+    flex: 1 1 170px;
+  }
+  .form-games a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.8rem;
+    height: 100%;
+  }
+  .form-games small {
+    font-size: 0.8rem;
+  }
+</style>

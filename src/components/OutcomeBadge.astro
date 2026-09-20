@@ -1,0 +1,30 @@
+---
+interface Props {
+  outcome: 'Win' | 'Loss' | 'Tie';
+}
+const { outcome } = Astro.props;
+---
+
+<span class:list={['outcome', outcome.toLowerCase()]}>{outcome}</span>
+<style>
+  .outcome {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    line-height: 1.5;
+  }
+  .win {
+    color: #14532d;
+    background: #dcfce7;
+  }
+  .loss {
+    color: #881337;
+    background: #ffe4e6;
+  }
+  .tie {
+    color: #1e3a8a;
+    background: #dbeafe;
+  }
+</style>
