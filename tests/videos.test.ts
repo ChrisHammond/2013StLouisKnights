@@ -8,6 +8,7 @@ test('videos distinguish two games on the same date', () => {
   assert.equal(gameVideos(games.find((g) => g.id === '2951488')!)[0].videoId, 'lIZEI8XQJZs');
 });
 test('reject duplicate videos and incorrect date mappings', () => {
-  assert.throws(() => validateVideos({ ...data, videos: [data.videos[0], data.videos[0]] }));
-  assert.throws(() => validateVideos({ ...data, videos: [{ ...data.videos[0], date: '2026-09-20' }] }));
+  const video = data.videos.find((v) => v.gameId === '2951469')!;
+  assert.throws(() => validateVideos({ ...data, videos: [video, video] }));
+  assert.throws(() => validateVideos({ ...data, videos: [{ ...video, date: '2026-09-20' }] }));
 });
