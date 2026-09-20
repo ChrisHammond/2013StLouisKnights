@@ -7,10 +7,12 @@ import PhotoLinks from '../../components/PhotoLinks.astro';
 import VideoLinks from '../../components/VideoLinks.astro';
 import { teams, standings, latestRatings, preseason } from '../../lib/data';
 import { formatTimestamp } from '../../lib/history';
+import { teamRecord } from '../../lib/team-record';
 export function getStaticPaths() {
   return teams.map((team) => ({ params: { id: team.id }, props: { team } }));
 }
 const { team } = Astro.props;
+const currentRecord = teamRecord(team.id);
 const row = standings?.rows.find((row) => row.teamId === team.id);
 const rating = latestRatings?.rows.find((row) => row.teamId === team.id);
 ---
@@ -31,13 +33,19 @@ const rating = latestRatings?.rows.find((row) => row.teamId === team.id);
   <div class="profile-stats">
     <div class="panel">
       <span class="eyebrow">LEAGUE RECORD</span>
-      <strong>{row ? `${row.w + row.otw}–${row.l + row.otl}–${row.t}` : '—'}</strong>
-      <p>Wins–losses–ties, including OT</p>
+      <strong>{currentRecord.text}</strong>
+      <p>{currentRecord.note}</p>
     </div>
     <div class="panel">
-      <span class="eyebrow">LEAGUE POINTS</span>
+      <span class="eyebrow">OFFICIAL LEAGUE POINTS</span>
       <strong>{row?.points ?? '—'}</strong>
-      <p>{preseason ? 'Preseason' : `Position ${row?.position ?? '—'} of ${teams.length}`}</p>
+      <p>
+        {currentRecord.pending
+          ? 'Official points and position update pending'
+          : preseason
+            ? 'Preseason'
+            : `Position ${row?.position ?? '—'} of ${teams.length}`}
+      </p>
     </div>
     <div class="panel">
       <span class="eyebrow">MHR RATING</span>

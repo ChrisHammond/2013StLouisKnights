@@ -9,6 +9,8 @@ import VideoLinks from '../components/VideoLinks.astro';
 import TeamLinks from '../components/TeamLinks.astro';
 import { knights, standings, latestRatings, releases, teams, preseason } from '../lib/data';
 import { weeklyChange } from '../lib/history';
+import { teamRecord } from '../lib/team-record';
+const currentRecord = teamRecord(knights.id);
 const record = standings?.rows.find((row) => row.teamId === knights.id);
 const rating = latestRatings?.rows.find((row) => row.teamId === knights.id)?.rating;
 const delta = weeklyChange(releases, knights.id);
@@ -37,13 +39,23 @@ const delta = weeklyChange(releases, knights.id);
     </div>
     <div class="banner-stat">
       <span>League record</span>
-      <strong>{record ? `${record.w + record.otw}–${record.l + record.otl}–${record.t}` : '—'}</strong>
-      <small>Wins–losses–ties · includes OT</small>
+      <strong>{currentRecord.text}</strong>
+      <small>{currentRecord.note}</small>
     </div>
     <div class="banner-stat">
       <span>League position</span>
-      <strong>{preseason ? 'Preseason' : record ? `${record.position} / ${teams.length}` : '—'}</strong>
-      <small>{record?.gp ?? 0} regular-season games</small>
+      <strong>
+        {currentRecord.pending
+          ? 'Pending'
+          : preseason
+            ? 'Preseason'
+            : record
+              ? `${record.position} / ${teams.length}`
+              : '—'}
+      </strong>
+      <small>
+        {currentRecord.gp} regular-season {currentRecord.gp === 1 ? 'game' : 'games'}
+      </small>
     </div>
     <div class="banner-stat">
       <span>MHR rating</span>
