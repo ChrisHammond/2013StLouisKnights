@@ -7,6 +7,7 @@ import { gameVideos, videoUrl } from '../lib/videos';
 import { formatTimestamp } from '../lib/history';
 import { gameDate, gameTime, type Game } from '../lib/schedule';
 import { crossbarUrl } from '../lib/crossbar';
+import { rinkDirections } from '../lib/directions';
 interface Props {
   game: Game;
   teamId?: string;
@@ -21,6 +22,7 @@ const resultLabel =
   result?.status === 'final' ? (result.overtime ? 'Final (OT)' : 'Final') : 'In progress at last check';
 const isKnights = game.homeTeamId === 'st-louis-knights' || game.awayTeamId === 'st-louis-knights';
 const supplemental = game.id.startsWith('crossbar-');
+const directions = rinkDirections(game);
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
   new Date(`${game.date}T12:00:00Z`),
 );
@@ -103,6 +105,13 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     )}
     {game.crossbar?.note && <p class="game-location">{game.crossbar.note}</p>}
     <p class="game-location">{game.venue}</p>
+    {directions && (
+      <p class="game-location">
+        <a href={directions} aria-label={`Directions to ${game.venue} on Google Maps`}>
+          Rink directions ↗
+        </a>
+      </p>
+    )}
     {result && result.awayShots !== null && result.homeShots !== null && (
       <p class="game-location">
         Shots: {away.abbr} {result.awayShots} · {home.abbr} {result.homeShots}

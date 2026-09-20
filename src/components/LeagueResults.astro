@@ -1,0 +1,108 @@
+---
+import { games } from '../lib/schedule-data';
+import { results } from '../lib/results';
+import { teamMap } from '../lib/data';
+import { gameDate } from '../lib/schedule';
+import { formatTimestamp } from '../lib/history';
+import TeamMark from './TeamMark.astro';
+const recent = games
+  .filter((g) => g.kind === 'league' && results.get(g.id)?.status === 'final')
+  .reverse()
+  .slice(0, 6);
+---
+
+<section class="next-game-section" aria-labelledby="league-results-heading">
+  <div class="schedule-section-heading">
+    <div>
+      <span class="eyebrow">AROUND THE CSDHL</span>
+      <h2 id="league-results-heading">Recent league results.</h2>
+    </div>
+    <a href="/schedules/">All league games →</a>
+  </div>
+  <div class="league-scoreboard">
+    {recent.map((game) => {
+      const result = results.get(game.id)!;
+      return (
+        <article
+          class="panel league-score"
+          aria-label={`${gameDate(game)}: ${teamMap.get(game.awayTeamId)!.name} ${result.awayScore}, ${teamMap.get(game.homeTeamId)!.name} ${result.homeScore}`}
+        >
+          <div class="score-meta">
+            <time datetime={game.date}>{gameDate(game)}</time>
+            <strong>{result.overtime ? 'Final (OT)' : 'Final'}</strong>
+          </div>
+          {[
+            [game.awayTeamId, result.awayScore, 'Away'],
+            [game.homeTeamId, result.homeScore, 'Home'],
+          ].map(([id, score, side]) => {
+            const team = teamMap.get(String(id))!;
+            return (
+              <div class:list={['score-team', { 'our-team': team.id === 'st-louis-knights' }]}>
+                <a class="team-with-logo" href={`/teams/${team.id}/`}>
+                  <TeamMark team={team} />
+                  <span>
+                    {team.name}
+                    <small>{side}</small>
+                  </span>
+                </a>
+                <strong>{score}</strong>
+              </div>
+            );
+          })}
+          <div class="score-footer">
+            <a href={result.sourceUrl}>Box score ↗</a>
+            <span>Checked {formatTimestamp(result.observedAt)}</span>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+  {!recent.length && <p class="panel schedule-empty">No verified league finals are available yet.</p>}
+  <p class="schedule-source">
+    Latest six verified CSDHL finals, newest first. GameSheet snapshots; this is not a live score feed.
+  </p>
+</section>
+
+<style>
+  .league-scoreboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1rem;
+  }
+  .league-score {
+    padding: 1rem;
+    min-width: 0;
+  }
+  .score-meta,
+  .score-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .score-meta {
+    margin-bottom: 0.8rem;
+  }
+  .score-team {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0.65rem 0;
+  }
+  .score-team > strong {
+    font-size: 1.5rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .score-team small {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+  }
+  .score-footer {
+    margin-top: 1rem;
+    border-top: 1px solid #ddd;
+    padding-top: 0.7rem;
+  }
+</style>
