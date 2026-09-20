@@ -11,7 +11,7 @@ on:
       source:
         description: Source to refresh
         type: choice
-        options: [both, standings, ratings, schedule]
+        options: [both, standings, ratings, schedule, crossbar]
         default: both
 permissions:
   contents: write
@@ -53,6 +53,11 @@ jobs:
           SCHEDULE_FEED_URL: ${{ secrets.SCHEDULE_FEED_URL }}
           SCHEDULE_FEED_TOKEN: ${{ secrets.SCHEDULE_FEED_TOKEN }}
         run: npm run import:schedule -- --scheduled
+      - name: Refresh Knights Crossbar schedule
+        id: crossbar
+        if: github.event_name == 'workflow_dispatch' && (inputs.source == 'both' || inputs.source == 'schedule' || inputs.source == 'crossbar') || github.event.schedule == '17 12 * * *'
+        continue-on-error: true
+        run: npm run import:crossbar
       - name: Validate retained data and build
         run: |
           npm run validate
@@ -81,7 +86,7 @@ jobs:
             echo "No build hook configured. Ensure Netlify builds repository pushes."
           fi
       - name: Report failed imports after retaining and publishing health state
-        if: steps.standings.outcome == 'failure' || steps.ratings.outcome == 'failure' || steps.schedule.outcome == 'failure'
+        if: steps.standings.outcome == 'failure' || steps.ratings.outcome == 'failure' || steps.schedule.outcome == 'failure' || steps.crossbar.outcome == 'failure'
         run: |
           echo "A source import failed. Last valid data retained; inspect source access and schema."
           exit 1

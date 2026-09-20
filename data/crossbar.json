@@ -1,0 +1,330 @@
+{
+  "snapshots": [
+    {
+      "season": "2026-27",
+      "sourceUrl": "https://www.stlknightshockey.com/team/244514/games",
+      "sourcePublishedAt": null,
+      "collectedAt": "2026-09-20T05:23:12.123Z",
+      "entries": [
+        {
+          "id": "crossbar-2026-08-15-away-sting",
+          "date": "2026-08-15",
+          "startsAt": "2026-08-15T20:50:00.000Z",
+          "opponent": "Sting",
+          "side": "away",
+          "label": "Practice",
+          "venue": "Ice Zone"
+        },
+        {
+          "id": "crossbar-2026-08-16-home-sting",
+          "date": "2026-08-16",
+          "startsAt": "2026-08-16T14:10:00.000Z",
+          "opponent": "Sting",
+          "side": "home",
+          "label": "Practice",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-08-30-home-eagles",
+          "date": "2026-08-30",
+          "startsAt": "2026-08-30T22:30:00.000Z",
+          "opponent": "Eagles",
+          "side": "home",
+          "label": "Practice",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-09-19-away-express",
+          "date": "2026-09-19",
+          "startsAt": "2026-09-19T16:20:00.000Z",
+          "opponent": "Express",
+          "side": "away",
+          "label": "League",
+          "venue": "Oakton Sports Complex"
+        },
+        {
+          "id": "crossbar-2026-09-19-away-blues",
+          "date": "2026-09-19",
+          "startsAt": "2026-09-19T23:00:00.000Z",
+          "opponent": "Blues",
+          "side": "away",
+          "label": "League",
+          "venue": "The Edge Ice Arena"
+        },
+        {
+          "id": "crossbar-2026-09-20-away-express",
+          "date": "2026-09-20",
+          "startsAt": "2026-09-20T14:50:00.000Z",
+          "opponent": "Express",
+          "side": "away",
+          "label": "League",
+          "venue": "Oakton Sports Complex"
+        },
+        {
+          "id": "crossbar-2026-10-03-home-ice-dogs",
+          "date": "2026-10-03",
+          "startsAt": "2026-10-04T01:40:00.000Z",
+          "opponent": "Ice Dogs",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-10-04-home-ice-dogs",
+          "date": "2026-10-04",
+          "startsAt": "2026-10-04T13:20:00.000Z",
+          "opponent": "Ice Dogs",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Shanahan"
+        },
+        {
+          "id": "crossbar-2026-10-10-home-sabres",
+          "date": "2026-10-10",
+          "startsAt": "2026-10-10T14:10:00.000Z",
+          "opponent": "Sabres",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-10-11-home-sabres",
+          "date": "2026-10-11",
+          "startsAt": "2026-10-11T14:20:00.000Z",
+          "opponent": "Sabres",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-10-17-home-falcons",
+          "date": "2026-10-17",
+          "startsAt": "2026-10-17T23:00:00.000Z",
+          "opponent": "Falcons",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-10-18-home-falcons",
+          "date": "2026-10-18",
+          "startsAt": "2026-10-18T16:00:00.000Z",
+          "opponent": "Falcons",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-10-24-away-hawks",
+          "date": "2026-10-24",
+          "startsAt": "2026-10-24T15:20:00.000Z",
+          "opponent": "Hawks",
+          "side": "away",
+          "label": "League",
+          "venue": "Darien Sportsplex"
+        },
+        {
+          "id": "crossbar-2026-10-24-away-blues",
+          "date": "2026-10-24",
+          "startsAt": "2026-10-24T23:00:00.000Z",
+          "opponent": "Blues",
+          "side": "away",
+          "label": "League",
+          "venue": "The Edge Ice Arena"
+        },
+        {
+          "id": "crossbar-2026-10-25-away-hawks",
+          "date": "2026-10-25",
+          "startsAt": "2026-10-25T15:00:00.000Z",
+          "opponent": "Hawks",
+          "side": "away",
+          "label": "League",
+          "venue": "Darien Sportsplex"
+        },
+        {
+          "id": "crossbar-2026-10-31-away-13u-aa-st-louis-eagles",
+          "date": "2026-10-31",
+          "startsAt": "2026-10-31T14:20:00.000Z",
+          "opponent": "13U AA St. Louis Eagles",
+          "side": "away",
+          "label": "League",
+          "venue": "Affton"
+        },
+        {
+          "id": "crossbar-2026-11-01-home-sting-13u-tier-2",
+          "date": "2026-11-01",
+          "startsAt": "2026-11-02T01:20:00.000Z",
+          "opponent": "Sting 13U - Tier 2",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Shanahan"
+        },
+        {
+          "id": "crossbar-2026-11-06-away-ccm-world-invite",
+          "date": "2026-11-06",
+          "startsAt": null,
+          "opponent": "CCM World Invite",
+          "side": "away",
+          "label": "Tournament",
+          "venue": "Chicago"
+        },
+        {
+          "id": "crossbar-2026-11-07-away-ccm-world-invite",
+          "date": "2026-11-07",
+          "startsAt": null,
+          "opponent": "CCM World Invite",
+          "side": "away",
+          "label": "Tournament",
+          "venue": "Chicago"
+        },
+        {
+          "id": "crossbar-2026-11-08-away-ccm-world-invite",
+          "date": "2026-11-08",
+          "startsAt": null,
+          "opponent": "CCM World Invite",
+          "side": "away",
+          "label": "Tournament",
+          "venue": "Chicago"
+        },
+        {
+          "id": "crossbar-2026-11-15-away-eagles-bnc",
+          "date": "2026-11-15",
+          "startsAt": "2026-11-15T14:30:00.000Z",
+          "opponent": "Eagles (BNC)",
+          "side": "away",
+          "label": "Other game",
+          "venue": "Affton Ice Rink"
+        },
+        {
+          "id": "crossbar-2026-11-21-home-chargers",
+          "date": "2026-11-21",
+          "startsAt": "2026-11-21T16:20:00.000Z",
+          "opponent": "Chargers",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-11-22-home-chargers",
+          "date": "2026-11-22",
+          "startsAt": "2026-11-22T16:50:00.000Z",
+          "opponent": "Chargers",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-11-28-home-13u-aa-st-louis-eagles",
+          "date": "2026-11-28",
+          "startsAt": "2026-11-29T02:20:00.000Z",
+          "opponent": "13U AA St. Louis Eagles",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2026-12-11-away-ccm-florida-winter-cup",
+          "date": "2026-12-11",
+          "startsAt": null,
+          "opponent": "CCM Florida Winter Cup",
+          "side": "away",
+          "label": "Tournament",
+          "venue": "Tampa"
+        },
+        {
+          "id": "crossbar-2026-12-12-away-ccm-florida-winter-cup",
+          "date": "2026-12-12",
+          "startsAt": null,
+          "opponent": "CCM Florida Winter Cup",
+          "side": "away",
+          "label": "Tournament",
+          "venue": "Tampa"
+        },
+        {
+          "id": "crossbar-2026-12-13-away-ccm-florida-winter-cup",
+          "date": "2026-12-13",
+          "startsAt": null,
+          "opponent": "CCM Florida Winter Cup",
+          "side": "away",
+          "label": "Tournament",
+          "venue": "Tampa"
+        },
+        {
+          "id": "crossbar-2027-01-03-home-sting-13u-tier-2",
+          "date": "2027-01-03",
+          "startsAt": "2027-01-04T01:20:00.000Z",
+          "opponent": "Sting 13U - Tier 2",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Shanahan"
+        },
+        {
+          "id": "crossbar-2027-01-08-away-wilmette",
+          "date": "2027-01-08",
+          "startsAt": "2027-01-09T01:30:00.000Z",
+          "opponent": "Wilmette",
+          "side": "away",
+          "label": "League",
+          "venue": "Centennial Ice Rinks"
+        },
+        {
+          "id": "crossbar-2027-01-09-away-wilmette",
+          "date": "2027-01-09",
+          "startsAt": "2027-01-09T15:40:00.000Z",
+          "opponent": "Wilmette",
+          "side": "away",
+          "label": "League",
+          "venue": "Centennial Ice Rinks"
+        },
+        {
+          "id": "crossbar-2027-01-09-away-vipers",
+          "date": "2027-01-09",
+          "startsAt": "2027-01-10T00:50:00.000Z",
+          "opponent": "Vipers",
+          "side": "away",
+          "label": "League",
+          "venue": "Top Shelf Ice Arena and Bar & Grill"
+        },
+        {
+          "id": "crossbar-2027-01-10-away-vipers",
+          "date": "2027-01-10",
+          "startsAt": "2027-01-10T16:50:00.000Z",
+          "opponent": "Vipers",
+          "side": "away",
+          "label": "League",
+          "venue": "Top Shelf Ice Arena and Bar & Grill"
+        },
+        {
+          "id": "crossbar-2027-01-23-home-winnetka",
+          "date": "2027-01-23",
+          "startsAt": "2027-01-23T17:30:00.000Z",
+          "opponent": "Winnetka",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Shanahan"
+        },
+        {
+          "id": "crossbar-2027-01-24-home-winnetka",
+          "date": "2027-01-24",
+          "startsAt": "2027-01-24T15:40:00.000Z",
+          "opponent": "Winnetka",
+          "side": "home",
+          "label": "League",
+          "venue": "MUHC Hartwig Kaiman"
+        },
+        {
+          "id": "crossbar-2027-01-29-away-sting",
+          "date": "2027-01-29",
+          "startsAt": "2027-01-30T01:30:00.000Z",
+          "opponent": "Sting",
+          "side": "away",
+          "label": "League",
+          "venue": "St. Peters Rec-Plex South"
+        }
+      ]
+    }
+  ],
+  "lastSuccessfulCheck": "2026-09-20T05:23:12.123Z",
+  "lastAttemptAt": "2026-09-20T05:23:12.123Z",
+  "error": null
+}

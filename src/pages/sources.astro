@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { sources, standings, status } from '../lib/data';
 import { formatTimestamp, formatDate } from '../lib/history';
-import { schedule, scheduleStatus } from '../lib/schedule-data';
+import { schedule, scheduleStatus, crossbar, crossbarStatus } from '../lib/schedule-data';
 ---
 
 <Layout title="Sources and updates">
@@ -34,6 +34,24 @@ import { schedule, scheduleStatus } from '../lib/schedule-data';
         changes from GameSheet; a new snapshot is required to reflect rescheduling or cancellation.
       </p>
       <a href={schedule.sourceUrl}>Official division schedule ↗</a>
+    </section>
+    <section class="panel explainer">
+      <span class="eyebrow">KNIGHTS ADDITIONAL GAMES</span>
+      <h2>Crossbar team schedule</h2>
+      <p>
+        The Knights’ public Crossbar schedule is checked daily. Matching CSDHL games appear once with
+        GameSheet details; additional games and tournament dates are included separately. Tournament
+        placeholders do not become the homepage’s next game.
+      </p>
+      <dl>
+        <dt>Last successful check</dt>
+        <dd>{formatTimestamp(crossbarStatus.lastSuccessfulCheck!)}</dd>
+        <dt>Source publication time</dt>
+        <dd>Not supplied by source</dd>
+        <dt>Update status</dt>
+        <dd>{crossbarStatus.error ?? 'Daily refresh configured'}</dd>
+      </dl>
+      <a href={crossbar.sourceUrl}>Knights Crossbar schedule ↗</a>
     </section>
     <section class="panel explainer">
       <span class="eyebrow">LEAGUE STANDINGS</span>

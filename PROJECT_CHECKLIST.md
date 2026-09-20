@@ -47,6 +47,8 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 
 ## Research
 
+- [x] September 20: imported Knights Crossbar schedule; 24 CSDHL matches deduplicated, 11 additional games/events, daily refresh with failure recovery, source conflict notice, August media mappings, homepage selection excludes tournament placeholders. See `docs/SCHEDULES.md`.
+
 - [x] Added RainbowMarks collection links, a Photos page with three verified August galleries, and explicit postgame gallery mappings. Gallery discovery is curated; see `docs/PHOTOS.md`.
 
 - Existing reference: https://hockey.chrishammond.com/

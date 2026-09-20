@@ -13,7 +13,9 @@ export const gameSchema = z
     status: z.enum(['scheduled', 'cancelled', 'postponed']),
   })
   .strict();
-export type Game = z.infer<typeof gameSchema>;
+export type Game = z.infer<typeof gameSchema> & {
+  crossbar?: { opponent: string; label: string; placeholder: boolean; note?: string };
+};
 export const scheduleSnapshotSchema = z
   .object({
     season: z.literal('2026-27'),

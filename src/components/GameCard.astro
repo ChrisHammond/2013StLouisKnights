@@ -6,6 +6,7 @@ import { results } from '../lib/results';
 import { gameVideos, videoUrl } from '../lib/videos';
 import { formatTimestamp } from '../lib/history';
 import { gameDate, gameTime, type Game } from '../lib/schedule';
+import { crossbarUrl } from '../lib/crossbar';
 interface Props {
   game: Game;
   teamId?: string;
@@ -17,7 +18,8 @@ const away = teamMap.get(game.awayTeamId)!;
 const galleries = gameGalleries(game);
 const result = results.get(game.id);
 const resultLabel = result?.status === 'final' ? 'Final' : 'In progress at last check';
-const isKnights = home.id === 'st-louis-knights' || away.id === 'st-louis-knights';
+const isKnights = game.homeTeamId === 'st-louis-knights' || game.awayTeamId === 'st-louis-knights';
+const supplemental = game.id.startsWith('crossbar-');
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
   new Date(`${game.date}T12:00:00Z`),
 );
@@ -44,8 +46,18 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
   </div>
   <div class="game-matchup">
     <div class="game-meta">
-      <span>{teamId ? (game.homeTeamId === teamId ? 'HOME' : 'AWAY') : 'LEAGUE GAME'}</span>
-      <span>#{game.gameNumber}</span>
+      <span>
+        {game.crossbar?.placeholder
+          ? 'TOURNAMENT DATE'
+          : teamId
+            ? game.homeTeamId === teamId
+              ? 'HOME'
+              : 'AWAY'
+            : supplemental
+              ? 'KNIGHTS GAME'
+              : 'CSDHL GAME'}
+      </span>
+      <span>{supplemental ? `Crossbar · ${game.crossbar!.label}` : `CSDHL · #${game.gameNumber}`}</span>
       {result ? (
         <strong>{resultLabel}</strong>
       ) : (
@@ -53,28 +65,42 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
       )}
     </div>
     <div class="matchup-names">
-      <a
-        class:list={['team-with-logo', { 'our-team': away.id === 'st-louis-knights' }]}
-        href={`/teams/${away.id}/`}
-      >
-        <TeamMark team={away} />
-        <span>
-          {away.name}
-          {result && <strong> · {result.awayScore}</strong>}
-        </span>
-      </a>
-      <span class="versus">at</span>
-      <a
-        class:list={['team-with-logo', { 'our-team': home.id === 'st-louis-knights' }]}
-        href={`/teams/${home.id}/`}
-      >
-        <TeamMark team={home} />
-        <span>
-          {home.name}
-          {result && <strong> · {result.homeScore}</strong>}
-        </span>
-      </a>
+      {supplemental ? (
+        <strong>
+          {game.crossbar!.placeholder
+            ? game.crossbar!.opponent
+            : `St. Louis Knights ${game.homeTeamId === 'st-louis-knights' ? 'vs.' : 'at'} ${game.crossbar!.opponent}`}
+        </strong>
+      ) : (
+        <>
+          <a
+            class:list={['team-with-logo', { 'our-team': away.id === 'st-louis-knights' }]}
+            href={`/teams/${away.id}/`}
+          >
+            <TeamMark team={away} />
+            <span>
+              {away.name}
+              {result && <strong> · {result.awayScore}</strong>}
+            </span>
+          </a>
+          <span class="versus">at</span>
+          <a
+            class:list={['team-with-logo', { 'our-team': home.id === 'st-louis-knights' }]}
+            href={`/teams/${home.id}/`}
+          >
+            <TeamMark team={home} />
+            <span>
+              {home.name}
+              {result && <strong> · {result.homeScore}</strong>}
+            </span>
+          </a>
+        </>
+      )}
     </div>
+    {game.crossbar?.placeholder && (
+      <p class="game-location">Tournament placeholder · individual opponents and game times TBD.</p>
+    )}
+    {game.crossbar?.note && <p class="game-location">{game.crossbar.note}</p>}
     <p class="game-location">{game.venue}</p>
     {result && result.awayShots !== null && result.homeShots !== null && (
       <p class="game-location">
@@ -95,8 +121,14 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     <strong>
       {result ? resultLabel : <time datetime={game.startsAt ?? game.date}>{gameTime(game)}</time>}
     </strong>
-    <a href={result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`}>
-      {result ? 'Box score ↗' : 'Game details ↗'}
+    <a
+      href={
+        supplemental
+          ? crossbarUrl
+          : (result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`)
+      }
+    >
+      {supplemental ? 'Crossbar schedule ↗' : result ? 'Box score ↗' : 'Game details ↗'}
     </a>
     {galleries.map((gallery) => (
       <a class="game-photo-link" href={gallery.url}>

@@ -8,7 +8,7 @@ On September 19, 2026 at 18:00 UTC, GameSheet game 2951469 showed FINAL: visitin
 
 ## Schedule snapshots
 
-The schedule and homepage next-game card use only the latest validated GameSheet snapshot in `data/schedule.json`. Source IDs map to the verified teams. A snapshot contains the entire division, not a partial team replacement. Game IDs stay stable when times or venues change; history retains previous revisions.
+The schedule combines the latest validated GameSheet snapshot in `data/schedule.json` with the Knights Crossbar supplement described below. Official source IDs map to the verified teams. A GameSheet snapshot contains the entire division, not a partial team replacement. Official game IDs stay stable when times or venues change; history retains previous revisions.
 
 To import a verified replacement snapshot:
 
@@ -26,6 +26,18 @@ For automated updates, supply a supported GameSheet export/feed normalized to th
 
 The homepage selects the earliest scheduled future Knights game, skips cancelled/postponed games, and updates every minute and when the page becomes visible. TBD starts remain eligible through their Central calendar date. It stops showing a game at its scheduled start, without claiming that it was played. Empty schedules get a clear empty state. Without JavaScript, the build-time next game is shown and schedule pages show the full season.
 
-Snapshot ages are displayed on all schedule views and the homepage; after 48 hours they show Update overdue. The GameSheet details link remains available to verify last-minute changes.
+Source check times are displayed on schedule views, linked from the homepage. GameSheet snapshots show Update overdue after 48 hours. Source links remain available to verify last-minute changes.
+
+## Crossbar supplement
+
+Run `npm run import:crossbar` to fetch the public Knights team 244514 games page. The daily GitHub workflow runs it at 12:17 UTC, and the manual `crossbar` or `schedule` option also runs it. No credentials are needed. `data/crossbar.json` preserves revisions separately from GameSheet. Unchanged checks advance lastSuccessfulCheck without adding duplicate snapshots. Failed fetches, malformed pages, duplicate events, ambiguous matches, and large unexpected removals retain the last valid snapshot and expose a failure message.
+
+The September 20 capture contains 35 entries: 24 matched CSDHL games and 11 additions (three August practice games, November 1 versus Sting, November 15 at Eagles BNC, and six tournament date placeholders). Crossbar labels November 1 as League, but it is absent from the saved GameSheet division schedule; it is not counted as a CSDHL game. October 17 differs by ten minutes: GameSheet 5:50 PM, Crossbar 6:00 PM. The display retains GameSheet and flags the discrepancy.
+
+Matching uses explicit opponent aliases, Central date, and home/away, with exact start times disambiguating doubleheaders. A single date/opponent match merges despite a time difference; unresolved multiple matches fail rather than duplicate games. GameSheet IDs/details/results/media remain authoritative for matched games. Unknown opponent labels stay literal instead of inventing division membership. Review alias changes and date/home-away changes against both sources before importing; the public page supplies no stable event IDs, so supplement IDs derive from date, side and opponent. Time/venue edits retain IDs; date/opponent edits require reviewing media mappings. Only the latest complete Crossbar revision is displayed, so removed entries disappear without erasing history.
+
+Crossbar tournament day placeholders are visibly labeled, retain TBD times, and are excluded from the homepage next-game choice. When individual tournament games appear, review the adapter to distinguish them from whole-day tournament blocks before publishing. No tournament scores or unknown opponents are inferred. August galleries and replays are explicitly mapped to the three practice games.
+
+Tests can pass a local HTML file as the importer's first argument in an isolated temporary project. Never import fixtures into production data. Source publication time is null because Crossbar does not supply it; collection and successful-check timestamps are separate.
 
 Results also support an explicitly observed in-progress score. These display the observation time and a final-pending notice, never a live-feed claim. On September 19 at about 7:07 PM CDT, game 2951488 showed Knights 4, Blues 1 (shots 37-30), still In Progress. The separately checked official standings had not yet counted this game. Add a later final observation when the source confirms it.

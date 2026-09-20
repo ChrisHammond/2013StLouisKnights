@@ -50,7 +50,9 @@ const mediaGames = [...groups.values()].sort((a, b) => b.date.localeCompare(a.da
       <article class="panel photo-gallery">
         <time datetime={game.date}>{formatDate(game.date)}</time>
         <h2>{game.title}</h2>
-        <p>{game.gameId ? 'CSDHL regular season' : 'Preseason game'}</p>
+        <p>
+          {game.gameId && !game.gameId.startsWith('crossbar-') ? 'CSDHL regular season' : 'Preseason game'}
+        </p>
         {game.photos.map((photo) => (
           <p>
             <a href={photo.url}>Photos · RainbowMarks ↗</a>

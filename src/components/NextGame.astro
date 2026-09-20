@@ -1,11 +1,13 @@
 ---
-import { games, schedule } from '../lib/schedule-data';
+import { games } from '../lib/schedule-data';
 import { nextGame } from '../lib/schedule';
-import { formatTimestamp } from '../lib/history';
 import GameCard from './GameCard.astro';
 import { results } from '../lib/results';
 const knightsGames = games.filter(
-  (g) => !results.has(g.id) && (g.homeTeamId === 'st-louis-knights' || g.awayTeamId === 'st-louis-knights'),
+  (g) =>
+    !g.crossbar?.placeholder &&
+    !results.has(g.id) &&
+    (g.homeTeamId === 'st-louis-knights' || g.awayTeamId === 'st-louis-knights'),
 );
 const next = nextGame(knightsGames);
 ---
@@ -27,10 +29,8 @@ const next = nextGame(knightsGames);
     </p>
   </div>
   <p class="schedule-source">
-    GameSheet snapshot · Collected {formatTimestamp(schedule.collectedAt)} ·{' '}
-    <span data-freshness={schedule.collectedAt} data-max-hours="48">
-      Check the official game link for changes.
-    </span>
+    Includes GameSheet and Crossbar games. Tournament placeholders are listed on the full schedule.{' '}
+    <a href="/schedules/st-louis-knights/">Source updates and full schedule →</a>
   </p>
 </section>
 <script>

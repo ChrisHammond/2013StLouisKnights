@@ -1,6 +1,6 @@
 ---
 import { teams } from '../lib/data';
-import { games, schedule, scheduleStatus } from '../lib/schedule-data';
+import { games, schedule, scheduleStatus, crossbar, crossbarStatus } from '../lib/schedule-data';
 import { formatTimestamp } from '../lib/history';
 import GameCard from './GameCard.astro';
 import type { Team } from '../lib/schema';
@@ -69,13 +69,18 @@ const monthLabel = (month: string) =>
   </div>
   <div class="schedule-summary">
     <p aria-live="polite" data-count>
-      {selectedGames.length} games
+      {selectedGames.length} games / events
     </p>
-    <span>Regular season · Times in Central time</span>
+    <span>CSDHL games + Knights Crossbar schedule · Times in Central time</span>
   </div>
   {scheduleStatus.error && (
     <p class="panel schedule-empty" role="status">
       The latest refresh failed. Showing the last verified schedule.
+    </p>
+  )}
+  {crossbarStatus.error && (
+    <p class="panel schedule-empty" role="status">
+      {crossbarStatus.error}
     </p>
   )}
   {months.map((month) => (
@@ -100,8 +105,13 @@ const monthLabel = (month: string) =>
       Verified snapshot
     </span>
     <br />
-    This is a saved copy of the published league schedule. Automated source refresh is not connected yet. Past
-    dates do not imply completed games or verified scores. Tournament and exhibition games are not included.
+    GameSheet is a saved league snapshot; its automated refresh is not connected yet. Past dates do not imply
+    verified scores.
+    <br />
+    Knights additions: <a href={crossbar.sourceUrl}>Crossbar ↗</a> · Last successful check{' '}
+    {formatTimestamp(crossbarStatus.lastSuccessfulCheck!)}. Checked daily. Matching CSDHL games appear once,
+    using GameSheet details. Crossbar-only games do not count toward CSDHL standings. Tournament dates are
+    placeholders until individual games are published.
   </p>
 </section>
 <script>
@@ -135,8 +145,7 @@ const monthLabel = (month: string) =>
         group.hidden = !group.querySelector('[data-game]:not([hidden])');
       });
       section.querySelector<HTMLElement>('[data-no-games]')!.hidden = count > 0;
-      section.querySelector<HTMLElement>('[data-count]')!.textContent =
-        `${count} ${count === 1 ? 'game' : 'games'}`;
+      section.querySelector<HTMLElement>('[data-count]')!.textContent = `${count} games / events`;
     };
     section
       .querySelectorAll('select:not([data-team-picker])')

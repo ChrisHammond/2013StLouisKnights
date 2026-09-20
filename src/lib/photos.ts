@@ -7,7 +7,10 @@ const gallerySchema = z
   .object({
     title: z.string().min(1),
     date: z.iso.date(),
-    gameId: z.string().regex(/^\d+$/).nullable(),
+    gameId: z
+      .string()
+      .regex(/^(?:\d+|crossbar-[a-z0-9-]+)$/)
+      .nullable(),
     url: z
       .url()
       .refine(
