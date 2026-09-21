@@ -107,6 +107,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951503?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-20T20:43:27.118Z"
+    },
+    {
+      "gameId": "2951521",
+      "status": "final",
+      "awayTeamId": "chicago-hawks",
+      "homeTeamId": "winnetka-warriors",
+      "awayScore": 1,
+      "homeScore": 2,
+      "awayShots": 17,
+      "homeShots": 26,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951521?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-21T00:47:28.554Z"
     }
   ]
 }
