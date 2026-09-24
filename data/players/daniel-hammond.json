@@ -1,0 +1,78 @@
+{
+  "playerId": "daniel-hammond",
+  "season": "2026-27",
+  "sourceUrl": "https://app.hudl.com/instat/hockey/players/2473445/games",
+  "importedAt": "2026-09-24T15:21:37.827Z",
+  "games": [
+    {
+      "key": "2026-09-19|away|chicago blues 13u aa",
+      "date": "2026-09-19",
+      "opponent": "Chicago Blues 13U AA",
+      "venue": "away",
+      "goalsFor": 4,
+      "goalsAgainst": 1,
+      "stats": {
+        "All shifts": 11,
+        "Time on ice": "15:59",
+        "Goals": 1,
+        "First assist": 0,
+        "Second assist": 0,
+        "Assists": 0,
+        "Points": 1,
+        "+/-": 1,
+        "Penalties drawn": 0,
+        "Penalty time": "00:00",
+        "Faceoffs": 0,
+        "Faceoffs won": 0,
+        "Faceoffs won, %": null,
+        "Hits": 1,
+        "Shots": 9,
+        "Shots on goal": 8,
+        "Blocked shots": 1,
+        "Power play shots": 1,
+        "Short-handed shots": 1,
+        "Passes to the slot": null
+      },
+      "source": {
+        "file": "Games - Daniel Hammond, 24-Sep-2026.xlsx",
+        "sha256": "b2908a5ca8d46f7c9e010747f096b5154c3cfb5ea34f0867302195af94ee7353",
+        "asOf": "2026-09-24"
+      }
+    },
+    {
+      "key": "2026-09-19|away|northern express 13u aa",
+      "date": "2026-09-19",
+      "opponent": "Northern Express 13U AA",
+      "venue": "away",
+      "goalsFor": 1,
+      "goalsAgainst": 4,
+      "stats": {
+        "All shifts": 13,
+        "Time on ice": "15:29",
+        "Goals": 0,
+        "First assist": 0,
+        "Second assist": 0,
+        "Assists": 0,
+        "Points": 0,
+        "+/-": 1,
+        "Penalties drawn": 0,
+        "Penalty time": "00:00",
+        "Faceoffs": 0,
+        "Faceoffs won": 0,
+        "Faceoffs won, %": null,
+        "Hits": 2,
+        "Shots": 3,
+        "Shots on goal": 2,
+        "Blocked shots": 1,
+        "Power play shots": 1,
+        "Short-handed shots": 0,
+        "Passes to the slot": null
+      },
+      "source": {
+        "file": "Games - Daniel Hammond, 24-Sep-2026.xlsx",
+        "sha256": "b2908a5ca8d46f7c9e010747f096b5154c3cfb5ea34f0867302195af94ee7353",
+        "asOf": "2026-09-24"
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # 2013 St. Louis Knights · 2026–27
 
-An independent CSDHL 13U season portal built with Astro and TypeScript. Static Netlify hosting, versioned JSON observations, and GitHub Actions. No database, login, analytics, or player information is required.
+An independent CSDHL 13U season portal built with Astro and TypeScript. Static Netlify hosting, versioned JSON observations, and GitHub Actions. No database, login, or analytics is required. Daniel Hammond's player profile uses manually imported Hudl game statistics.
 
 - Live portal: https://hockey.chrishammond.com/
 - Repository: https://github.com/ChrisHammond/2013StLouisKnights
@@ -52,10 +52,12 @@ tests/fixtures/             Synthetic test-only data, never production observati
 
 ## Maintenance
 
+- Daniel's profile and XLSX import instructions are documented in [player statistics](docs/PLAYER-STATS.md). Raw exports stay outside the repository; review normalized game data before publishing.
+
 - Edit identity/source mappings in `data/teams.json`; preserve internal IDs. Verify new memberships against the actual season division before changing the roster. Snapshot imports fail if any team is missing, duplicated, or unknown.
 - Keep historical observations. Correct a release by importing a new observation for the same release date; the display chooses the latest revision without deleting the original.
 - To inspect the populated chart locally, open `/dev-preview/ratings/` while `npm run dev` is running. This synthetic test route produces no production page; `scripts/check-built-site.mjs` checks built HTML for fixture leakage.
-- Use JSON imports from an authorized source. Never put secrets, provider credentials, personal contact details, or player rosters in committed data.
+- Use imports from an authorized source. Never put secrets, provider credentials, personal contact details, or raw player exports in committed data. Player profiles are explicitly curated; do not infer permission to publish other players' information.
 - Check failed GitHub Actions runs. Invalid updates leave the last good snapshot intact and publish a failure state. Public freshness is based on the original observation date, not the deployment date.
 - Standings use regulation W/L and separate OTW/OTL fields. The overview record combines regulation and overtime outcomes and labels this explicitly. Official points and ordering are retained rather than recalculated.
 - Before the next season, create a season archive and explicitly verify new memberships and source IDs. Do not just change the year in existing source URLs.
