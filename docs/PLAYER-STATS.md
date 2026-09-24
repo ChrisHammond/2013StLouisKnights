@@ -1,6 +1,6 @@
 # Player statistics pilot
 
-Daniel Hammond's profile is available at `/players/daniel-hammond/`, linked from Players and the homepage. The profile uses `data/players/daniel-hammond.json`. Only imported games contribute to its totals. No Hudl credentials, playlist tokens, birthdates, or original workbooks are committed.
+Daniel Hammond's profile is available at `/players/daniel-hammond/`, linked from the Players directory in the main navigation. The profile uses `data/players/daniel-hammond.json`. Only imported games contribute to its totals. No Hudl credentials, playlist tokens, birthdates, or original workbooks are committed.
 
 ## Update from Hudl
 
