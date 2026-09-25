@@ -120,6 +120,20 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951521?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-21T00:47:28.554Z"
+    },
+    {
+      "gameId": "2951489",
+      "status": "final",
+      "overtime": false,
+      "awayTeamId": "lake-county-vipers",
+      "homeTeamId": "st-louis-sting",
+      "awayScore": 0,
+      "homeScore": 6,
+      "awayShots": 10,
+      "homeShots": 26,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951489?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-25T18:03:16.729Z"
     }
   ]
 }
