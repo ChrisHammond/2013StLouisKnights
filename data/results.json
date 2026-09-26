@@ -147,6 +147,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951534?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-26T18:02:52.499Z"
+    },
+    {
+      "gameId": "2951562",
+      "status": "final",
+      "awayTeamId": "highland-park-falcons",
+      "homeTeamId": "chicago-hawks",
+      "awayScore": 0,
+      "homeScore": 2,
+      "awayShots": 20,
+      "homeShots": 27,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951562?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-26T22:02:05.373Z"
     }
   ]
 }
