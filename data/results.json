@@ -134,6 +134,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951489?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-25T18:03:16.729Z"
+    },
+    {
+      "gameId": "2951534",
+      "status": "final",
+      "awayTeamId": "wilmette-jr-trevians",
+      "homeTeamId": "st-louis-eagles",
+      "awayScore": 0,
+      "homeScore": 4,
+      "awayShots": 26,
+      "homeShots": 34,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951534?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-26T18:02:52.499Z"
     }
   ]
 }
