@@ -187,6 +187,32 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2955962?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-27T01:19:19.882Z"
+    },
+    {
+      "gameId": "2951594",
+      "awayTeamId": "naperville-sabres",
+      "homeTeamId": "highland-park-falcons",
+      "awayScore": 6,
+      "homeScore": 0,
+      "awayShots": 41,
+      "homeShots": 29,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951594?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-27T18:03:54.864Z"
+    },
+    {
+      "gameId": "2951601",
+      "awayTeamId": "wilmette-jr-trevians",
+      "homeTeamId": "st-louis-eagles",
+      "awayScore": 6,
+      "homeScore": 1,
+      "awayShots": 29,
+      "homeShots": 17,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951601?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-27T18:03:54.864Z"
     }
   ]
 }
