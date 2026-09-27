@@ -37,7 +37,7 @@ const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
     >
       <table class="standings-table">
         <caption class="sr-only">
-          2026–27 CSDHL 13U regular-season standings. W and L exclude overtime results. Official source order.
+          2026–27 CSDHL 13U regular-season standings. W includes overtime wins; L excludes overtime losses. Official source order.
         </caption>
         <thead>
           <tr>
@@ -47,7 +47,7 @@ const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
               <abbr title="Games played">GP</abbr>
             </th>
             <th scope="col">
-              <abbr title="Regulation wins">W</abbr>
+              <abbr title="Wins, including overtime wins">W</abbr>
             </th>
             <th scope="col">
               <abbr title="Regulation losses">L</abbr>

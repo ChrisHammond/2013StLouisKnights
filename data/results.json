@@ -160,6 +160,33 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951562?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-09-26T22:02:05.373Z"
+    },
+    {
+      "gameId": "2951565",
+      "awayTeamId": "vernon-hills-ice-dogs",
+      "homeTeamId": "northern-express",
+      "awayScore": 3,
+      "homeScore": 2,
+      "awayShots": null,
+      "homeShots": null,
+      "overtime": true,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951565?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-27T01:19:19.882Z"
+    },
+    {
+      "gameId": "2955962",
+      "awayTeamId": "wilmette-jr-trevians",
+      "homeTeamId": "st-louis-sting",
+      "awayScore": 2,
+      "homeScore": 4,
+      "awayShots": 27,
+      "homeShots": 30,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2955962?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-27T01:19:19.882Z"
     }
   ]
 }

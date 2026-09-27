@@ -19,7 +19,7 @@ Every snapshot must include **all 13 known team IDs exactly once**. Missing rati
 
 Additional fields: `source: "gamesheet"`, `method: "browser-observation" | "official-export" | "approved-feed"`, `rows`.
 
-Each row: `teamId`, `position`, `gp`, `w`, `l`, `t`, `otw`, `otl`, `points`, `gf`, `ga`. All numbers are nonnegative integers; position begins at 1. W/L exclude overtime results. `gp = w + l + t + otw + otl`. Order must be the official source order, not a locally recalculated sort. See the initial observed snapshot for a complete real example.
+Each row: `teamId`, `position`, `gp`, `w`, `l`, `t`, `otw`, `otl`, `points`, `gf`, `ga`. All numbers are nonnegative integers; position begins at 1. GameSheet W includes OTW, while L excludes OTL: `gp = w + l + t + otl`, with `otw <= w`. This was verified against Ice Dogs–Express on September 26, 2026, the division's first decisive overtime result. Order must be the official source order, not a locally recalculated sort.
 
 ### Ratings
 

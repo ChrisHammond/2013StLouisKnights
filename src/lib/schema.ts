@@ -49,8 +49,8 @@ export const standingRowSchema = z
   })
   .strict()
   .refine(
-    (row) => row.gp === row.w + row.l + row.t + row.otw + row.otl,
-    'Games played must equal W + L + T + OTW + OTL',
+    (row) => row.gp === row.w + row.l + row.t + row.otl && row.otw <= row.w,
+    'Games played must equal W + L + T + OTL; OTW is included in W',
   );
 export const standingsSchema = z
   .object({

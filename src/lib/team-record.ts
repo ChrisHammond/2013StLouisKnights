@@ -26,7 +26,7 @@ export function teamRecord(teamId: string) {
     text: pending
       ? `${w}–${l}–${t}`
       : official
-        ? `${official.w + official.otw}–${official.l + official.otl}–${official.t}`
+        ? `${official.w}–${official.l + official.otl}–${official.t}`
         : '—',
     gp: pending ? finals.length : (official?.gp ?? 0),
     note: pending
