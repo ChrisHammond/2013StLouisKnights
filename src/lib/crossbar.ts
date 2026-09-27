@@ -111,7 +111,7 @@ export function parseCrossbar(html: string, collectedAt: string): CrossbarSnapsh
 export function mergeCrossbar(official: Game[], input: unknown): Game[] {
   const snapshot = crossbarSnapshotSchema.parse(input);
   const merged = official.map((g) => ({ ...g }));
-  const matched = new Set<string>();
+  const matched = new Map<string, string | null>();
   for (const entry of snapshot.entries) {
     const opponentId = aliases[entry.opponent];
     const candidates = official.filter(
@@ -126,8 +126,13 @@ export function mergeCrossbar(official: Game[], input: unknown): Game[] {
     if (candidates.length && !match)
       throw new Error('Ambiguous Crossbar doubleheader; explicit mapping required');
     if (match) {
-      if (matched.has(match.id)) throw new Error('Multiple Crossbar entries match one official game');
-      matched.add(match.id);
+      if (matched.has(match.id)) {
+        // Crossbar may list one game under both club and team aliases.
+        // Only collapse a repeat when both entries specify the same start.
+        if (entry.startsAt && matched.get(match.id) === entry.startsAt) continue;
+        throw new Error('Multiple Crossbar entries match one official game');
+      }
+      matched.set(match.id, entry.startsAt);
       if (match.startsAt !== entry.startsAt) {
         const game = merged.find((g) => g.id === match.id)!;
         game.crossbar = {

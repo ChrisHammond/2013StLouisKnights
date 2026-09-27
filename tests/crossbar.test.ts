@@ -62,6 +62,16 @@ test('ambiguous same-opponent doubleheaders require review rather than duplicate
     mergeCrossbar([...games, { ...game, id: '999', startsAt: '2026-10-18T01:00:00.000Z' }], snapshot),
   );
 });
+test('club and team aliases at the same start merge once; conflicting times still fail', () => {
+  const entry = snapshot.entries.find((e) => e.date === '2027-01-29' && e.opponent === 'Sting')!;
+  assert.ok(entry);
+  const duplicate = { ...entry, id: entry.id + '-13u-tier-2', opponent: 'Sting 13U - Tier 2', venue: 'RecPlex South B' };
+  const input = { ...snapshot, entries: [...snapshot.entries, duplicate] };
+  assert.deepEqual(mergeCrossbar(games, input), mergeCrossbar(games, snapshot));
+  assert.deepEqual(mergeCrossbar(games, { ...input, entries: [duplicate, ...snapshot.entries] }), mergeCrossbar(games, snapshot));
+  assert.throws(() => mergeCrossbar(games, { ...snapshot, entries: [...snapshot.entries, { ...duplicate, startsAt: '2027-01-30T02:30:00.000Z' }] }));
+  assert.throws(() => mergeCrossbar(games, { ...snapshot, entries: [...snapshot.entries, { ...duplicate, startsAt: null }] }));
+});
 test('Crossbar import retries are idempotent; failures retain history and recovery clears error', async () => {
   const directory = await mkdtemp(join(tmpdir(), 'knights-crossbar-test-'));
   try {
