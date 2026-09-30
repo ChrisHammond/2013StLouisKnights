@@ -12,12 +12,6 @@ const url = process.env[`${prefix}_FEED_URL`];
 const now = new Date().toISOString();
 if (scheduled && (now.slice(0, 10) < '2026-08-01' || now.slice(0, 10) > '2027-07-31')) {
   console.log('Outside the configured season. No source request made.');
-} else if (
-  kind === 'ratings' &&
-  (sources.ratings.access !== 'approved' || !sources.ratings.authorizationReference)
-) {
-  if (file) throw new Error('MHR permission is pending; imports are disabled.');
-  console.log('MHR import not enabled: awaiting authorized source. No request made.');
 } else if (scheduled && kind === 'ratings' && !sources.ratings.publicationScheduleVerified) {
   console.log('MHR schedule not verified for this season. No request made.');
 } else if (!file && !url) {

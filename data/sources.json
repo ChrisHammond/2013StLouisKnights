@@ -14,10 +14,9 @@
   },
   "ratings": {
     "sourceUrl": "https://www.myhockeyrankings.com/division-info?d=202&y=2026",
-    "access": "pending",
-    "authorizationReference": null,
+    "access": "enabled",
     "publicationWeekday": 3,
     "publicationScheduleVerified": false,
-    "note": "Weekly ratings await permission for collection, storage, and display plus an approved feed. No ratings have been imported."
+    "note": "Project owner removed the provider-permission prerequisite on September 29, 2026. Import verified published ratings with attribution; publication timing and automated feed still need verification. This records project policy, not provider consent."
   }
 }

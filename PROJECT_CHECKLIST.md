@@ -23,7 +23,7 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 
 ## Known external dependencies
 
-- MHR live collection/storage/display requires an authorized source and consent.
+- MHR imports require verified published data, accurate release dates and source attribution. The owner removed the separate provider-permission prerequisite on September 29, 2026; never bypass access controls or invent history.
 - GameSheet direct HTTP requests encounter Cloudflare verification. Normal browser access verified the source, but unattended snapshots require a supported feed/export. A supported live iframe is included.
 - Eagles club homepage is league-listed but unavailable during verification; the site labels this rather than inventing a replacement.
 

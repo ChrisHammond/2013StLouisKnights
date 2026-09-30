@@ -74,7 +74,7 @@ export const ratingsSchema = z
     sourcePublishedAt: timestamp,
     releaseDate: z.iso.date(),
     category: z.string().min(1),
-    method: z.enum(['authorized-export', 'approved-feed']),
+    method: z.enum(['browser-observation', 'file-import', 'authorized-export', 'approved-feed']),
     rows: z.array(ratingRowSchema).min(1),
   })
   .strict();

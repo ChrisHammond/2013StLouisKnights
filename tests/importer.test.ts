@@ -42,18 +42,14 @@ test('failed import preserves the last valid file; subsequent recovery succeeds'
     await rm(dir, { recursive: true, force: true });
   }
 });
-test('MHR permission gate applies to file imports too', async () => {
+test('ratings imports require no permission record and prevent duplicates', async () => {
   const dir = await setup();
   try {
-    await writeFile(
-      join(dir, 'sources.json'),
-      JSON.stringify({ ratings: { access: 'pending', authorizationReference: null } }),
-    );
-    await assert.rejects(
-      () => importSnapshot('ratings', ratingsFixture('2026-09-23'), dir, new Date('2026-10-30')),
-      /authorization/,
-    );
-    assert.deepEqual(JSON.parse(await readFile(join(dir, 'ratings.json'), 'utf8')), { snapshots: [] });
+    await writeFile(join(dir, 'sources.json'), JSON.stringify({ ratings: { access: 'pending' } }));
+    const snapshot = { ...ratingsFixture('2026-09-23'), method: 'browser-observation' };
+    assert.equal(await importSnapshot('ratings', snapshot, dir, new Date('2026-10-30')), true);
+    assert.equal(await importSnapshot('ratings', snapshot, dir, new Date('2026-10-30')), false);
+    assert.equal(JSON.parse(await readFile(join(dir, 'ratings.json'), 'utf8')).snapshots.length, 1);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

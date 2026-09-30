@@ -21,14 +21,6 @@ async function atomicJSON(path: string, value: unknown) {
 }
 export async function importSnapshot(kind: Kind, input: unknown, directory = 'data', now = new Date()) {
   const teams = validateTeams(await readJSON(join(directory, 'teams.json')));
-  const sources = await readJSON(join(directory, 'sources.json'));
-  if (
-    kind === 'ratings' &&
-    (sources.ratings.access !== 'approved' || !sources.ratings.authorizationReference)
-  )
-    throw new Error(
-      'MHR authorization is pending. Record collection, storage, and display permission before importing.',
-    );
   const snapshot = validateSnapshot(kind, input, teams, now);
   const path = join(directory, `${kind}.json`);
   const store = (await readJSON(path)) as Store<Snapshot>;

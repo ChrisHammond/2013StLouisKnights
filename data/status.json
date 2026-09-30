@@ -9,6 +9,6 @@
     "state": "pending",
     "lastAttemptAt": null,
     "lastSuccessAt": null,
-    "message": "Rating history awaits an authorized data source."
+    "message": "Rating history awaits the first verified published observation."
   }
 }

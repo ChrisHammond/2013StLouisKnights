@@ -23,13 +23,13 @@ Each row: `teamId`, `position`, `gp`, `w`, `l`, `t`, `otw`, `otl`, `points`, `gf
 
 ### Ratings
 
-Additional fields: `source: "myhockeyrankings"`, `method: "authorized-export" | "approved-feed"`, `releaseDate: "YYYY-MM-DD"`, `category`, and `rows`.
+Additional fields: `source: "myhockeyrankings"`, `method: "browser-observation" | "file-import" | "authorized-export" | "approved-feed"`, `releaseDate: "YYYY-MM-DD"`, `category`, and `rows`.
 
 Each row: `teamId`, `rating` (positive number or null), `rank` (positive integer or null). Zero preseason placeholders are **not** valid ratings. Null rating requires null rank. `category` describes the population used for the included ranks. The release date comes from the source; never infer it just from the collection day.
 
 ## Enable approved sources
 
-1. Arrange supported access with the provider. For MHR, keep written permission privately and put a non-secret reference in `sources.ratings.authorizationReference`. Set `access` to `approved` only after permission covers collection, retention, and display.
+1. Verify source identity, season, release date and category. Provider permission is not a project import prerequisite. Never claim provider consent or bypass access controls.
 2. Verify the season's release cadence and set `publicationScheduleVerified` to true. Adjust `.github/workflows/refresh.yml` if Wednesday is no longer correct.
 3. Implement the provider-specific mapping if its export differs from the schema. The existing HTTPS JSON adapter expects the normalized snapshot contract, not arbitrary provider HTML.
 4. Configure GitHub secrets `STANDINGS_FEED_URL` / optional `STANDINGS_FEED_TOKEN`, or `MHR_FEED_URL` / optional `MHR_FEED_TOKEN`.
@@ -47,7 +47,7 @@ npm test
 npm run build
 ```
 
-The MHR permission gate applies to file imports too. File paths are local CLI arguments, never public web upload endpoints. An authorized CSV export must be deliberately mapped to this JSON contract; the portal does not guess CSV columns.
+File imports use the same data validation and duplicate prevention as feed imports. File paths are local CLI arguments, never public web upload endpoints. A verified CSV export must be deliberately mapped to this JSON contract; the portal does not guess CSV columns.
 
 For local feeds, load environment variables in your shell (the CLI does not automatically load `.env`). Keep real secrets outside version control.
 

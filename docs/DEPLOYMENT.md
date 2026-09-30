@@ -43,7 +43,7 @@ Create a main-branch build hook in Netlify, then store its URL as a GitHub Actio
 - Standings: daily at 12:17 UTC during the season.
 - Ratings: Wednesday 20:23 UTC; Thursday 02:23 and 14:23 UTC provide bounded opportunities for a late publication.
 - Season gate: August 2026 through July 2027. Disable or revise the workflow before the next season.
-- Permission, schedule verification, and feed configuration gates prevent unapproved MHR requests.
+- Schedule verification and feed configuration gates prevent premature scheduled MHR requests.
 - Missing configuration produces an explicit skipped import, not a false successful data check.
 
 Scheduled Actions can be delayed; this is not a live scoring system. Public repositories with no activity can have schedules disabled by GitHub—check the Actions tab if updates stop. The official live standings embed remains available.
@@ -52,10 +52,10 @@ Scheduled Actions can be delayed; this is not a live scoring system. Public repo
 
 1. Open the deployed overview, directory, one opponent profile, Knights profile, standings, ratings, and sources pages.
 2. Confirm all 13 current-season team links, regular-season scope, observation time, and preseason messaging.
-3. Confirm ratings remain empty until permission and actual authorized observations exist.
+3. Confirm ratings remain empty until actual verified observations are imported.
 4. Test mobile horizontal table scrolling, team-selection controls, keyboard access, and chart values using isolated development fixtures.
 5. Check GitHub Actions and Netlify deploy results. Confirm the previous Falcons portal is untouched.
 
 ## Remaining external work
 
-Source automation requires supported feeds. MHR also requires permission and season publication timing. These dependencies do not prevent hosting the team directory, verified standings snapshot, supported live embed, and complete ratings interface with an honest pending state.
+Source automation requires supported feeds. MHR also requires verified season publication timing for scheduled imports. These dependencies do not prevent hosting the team directory, verified standings snapshot, supported live embed, and complete ratings interface with an honest pending state.

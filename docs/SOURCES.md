@@ -48,11 +48,11 @@ Club links were matched to the official CSDHL member directory. Homepage links a
 - Terms: https://myhockeyrankings.com/terms.php (sections 6b/6c restrict scraping and redisplaying content without written consent).
 - Contact: https://myhockeyrankings.com/contact-us
 
-Required before activation: written consent or licensing that covers collection, storage, historical retention, and public display of these 13 teams' weekly numeric ratings and any ranks; an approved feed or export; the ranking category; and the 2026–27 release schedule. No outreach was sent on the user's behalf.
+Project policy updated September 29, 2026: the owner removed the blanket requirement to obtain provider permission before importing ratings. Verify source identity, season, numeric ratings, category and publication date; retain attribution and correction history. This project decision is not a statement that MHR granted consent. Do not bypass access controls.
 
-MHR describes a usual Wednesday release cadence, but the specific season timing is not yet verified. Three bounded weekly workflow opportunities are configured provisionally. They remain inactive until both permission and schedule verification are recorded in `data/sources.json`.
+MHR describes a usual Wednesday release cadence, but the specific season timing is not yet verified. Three bounded weekly workflow opportunities are configured provisionally. They remain inactive until schedule verification is recorded in `data/sources.json`.
 
-No backfill is assumed. Historic weeks can only be added from a verified authorized historical source.
+No backfill is assumed. Historic weeks can only be added from a verified historical source.
 
 ## Team logos
 
