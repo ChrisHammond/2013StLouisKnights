@@ -1,11 +1,15 @@
 ---
-import { standings, teamMap, sources, status, preseason } from '../lib/data';
-import { formatTimestamp, freshness } from '../lib/history';
+import { standings, teamMap, sources, status, preseason, latestRatings } from '../lib/data';
+import { formatTimestamp, formatDate, freshness } from '../lib/history';
 import TeamMark from './TeamMark.astro';
 interface Props {
   compact?: boolean;
 }
 const { compact = false } = Astro.props;
+const ratingRows = latestRatings?.rows ?? [];
+const ratingByTeam = new Map(ratingRows.map(row => [row.teamId, row.rating]));
+// Competition ranking: equal ratings share a rank; missing ratings stay unranked.
+const divisionRank = (rating: number) => 1 + ratingRows.filter(row => row.rating !== null && row.rating > rating).length;
 const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
 ---
 
@@ -66,6 +70,8 @@ const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
               <>
                 <th scope="col">GF</th>
                 <th scope="col">GA</th>
+                <th scope="col">MHR rating</th>
+                <th scope="col">Division rating rank</th>
               </>
             )}
           </tr>
@@ -73,6 +79,7 @@ const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
         <tbody>
           {standings.rows.map((row) => {
             const team = teamMap.get(row.teamId)!;
+            const rating = ratingByTeam.get(row.teamId);
             return (
               <tr class:list={{ 'knights-row': team.id === 'st-louis-knights' }}>
                 <td class="position">{row.position}</td>
@@ -96,6 +103,8 @@ const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
                   <>
                     <td>{row.gf}</td>
                     <td>{row.ga}</td>
+                    <td><a href={team.mhrUrl}>{rating == null ? '—' : rating.toFixed(2)}</a></td>
+                    <td>{rating == null ? '—' : divisionRank(rating)}</td>
                   </>
                 )}
               </tr>
@@ -109,6 +118,13 @@ const old = freshness(standings?.observedAt ?? null, 48) === 'stale';
       <h3>Standings are not available yet</h3>
       <p>Visit the official league source for the latest results.</p>
     </div>
+  )}
+  {!compact && (
+    <p class="section-intro">
+      MHR ratings: {latestRatings ? formatDate(latestRatings.releaseDate) : 'Not yet available'} ·{' '}
+      Division rating rank compares the 13 teams here by numeric rating; it is not a national rank.
+      Equal ratings share a rank. <a href="/ratings/">View rating history →</a>
+    </p>
   )}
   <div class="panel-foot">
     <span>
