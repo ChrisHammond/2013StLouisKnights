@@ -65,3 +65,7 @@ On September 18, 2026, the embedded schedules were replaced with native game car
 Team views now filter the snapshot by explicit home/away team IDs. Times were observed in Central time and normalized to UTC using America/Chicago with daylight saving. No club/Crossbar schedule data is used. No scores are inferred from elapsed dates. The initial next game is Knights at Express, September 19 at 11:20 AM CDT, Oakton Sports Complex, GameSheet ID 2951469.
 
 Automated collection remains unconnected. GameSheet HTTP access is challenged, and no supported feed credentials were supplied. A daily workflow can import a supported normalized JSON feed once configured; without it, it skips without advancing freshness. GameSheet documents team-staff calendar subscriptions through Crossbar's official help: https://help.crossbar.org/en/articles/8652540-importing-from-gamesheet-powered-leagues. Arrange a supported feed/export before enabling unattended collection; do not bypass access controls. The UI states that this is a dated snapshot.
+
+## First ratings observation — September 30, 2026
+
+Captured all 13 numeric ratings from the current CSDHL division page. MHR identifies this as Week 1 in its [release announcement](https://myhockeyrankings.com/news?b=4475), dated September 30. Exact publication time is not supplied and remains null, separately from collection time. The division page does not provide ranks; all rank fields remain null. This is the first observation, so there are no weekly deltas or earlier history. Unattended feed configuration remains pending.

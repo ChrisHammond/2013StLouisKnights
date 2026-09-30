@@ -71,7 +71,7 @@ export const ratingsSchema = z
   .object({
     ...common,
     source: z.literal('myhockeyrankings'),
-    sourcePublishedAt: timestamp,
+    sourcePublishedAt: timestamp.nullable(),
     releaseDate: z.iso.date(),
     category: z.string().min(1),
     method: z.enum(['browser-observation', 'file-import', 'authorized-export', 'approved-feed']),

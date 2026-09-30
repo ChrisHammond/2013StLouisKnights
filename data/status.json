@@ -6,9 +6,9 @@
     "message": "Validated source observation saved."
   },
   "ratings": {
-    "state": "pending",
-    "lastAttemptAt": null,
-    "lastSuccessAt": null,
-    "message": "Rating history awaits the first verified published observation."
+    "state": "manual",
+    "lastAttemptAt": "2026-09-30T05:06:20.214Z",
+    "lastSuccessAt": "2026-09-30T05:06:20.214Z",
+    "message": "Source checked; no new revision."
   }
 }

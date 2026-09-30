@@ -11,7 +11,7 @@ Snapshot files use `{ "snapshots": [...] }`. Input to a single import is **one s
 
 ## Common snapshot fields
 
-`season` = `2026-27`, `division` = `csdhl-13u`, a public attribution `sourceUrl`, ISO UTC `observedAt` and `collectedAt`, and `sourcePublishedAt` (nullable only for standings). The collector must stamp collection time when it actually retrieves the data; do not rewrite a source observation time to make it appear fresh. Never include a private feed URL/token in attribution.
+`season` = `2026-27`, `division` = `csdhl-13u`, a public attribution `sourceUrl`, ISO UTC `observedAt` and `collectedAt`, and `sourcePublishedAt` (null when the source does not supply an exact publication timestamp; ratings still require a verified `releaseDate`). The collector must stamp collection time when it actually retrieves the data; do not rewrite a source observation time to make it appear fresh. Never include a private feed URL/token in attribution.
 
 Every snapshot must include **all 13 known team IDs exactly once**. Missing ratings use null; missing standings invalidate the entire snapshot. Unknown fields are rejected, including accidental fixture/demo flags.
 

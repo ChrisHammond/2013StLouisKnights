@@ -11,7 +11,8 @@ const previewData = import.meta.env.DEV ? Astro.props.previewData : undefined;
 const teams = previewData?.teams ?? realTeams;
 const releases = previewData?.releases ?? realReleases;
 const latestRelease = releases.at(-1);
-const ratingsStale = latestRelease ? freshness(latestRelease.sourcePublishedAt, 9 * 24) === 'stale' : false;
+const freshnessDate = latestRelease ? (latestRelease.sourcePublishedAt ?? `${latestRelease.releaseDate}T00:00:00.000Z`) : null;
+const ratingsStale = freshnessDate ? freshness(freshnessDate, 9 * 24) === 'stale' : false;
 ---
 
 <section
@@ -43,7 +44,7 @@ const ratingsStale = latestRelease ? freshness(latestRelease.sourcePublishedAt, 
       Latest captured release: {formatDate(latestRelease.releaseDate)} ·{' '}
       <span
         class:list={['status-text', { warning: ratingsStale }]}
-        data-freshness={latestRelease.sourcePublishedAt}
+        data-freshness={freshnessDate}
         data-max-hours="216"
       >
         {ratingsStale ? 'Update overdue' : 'Captured weekly release'}

@@ -1,3 +1,83 @@
 {
-  "snapshots": []
+  "snapshots": [
+    {
+      "season": "2026-27",
+      "division": "csdhl-13u",
+      "sourceUrl": "https://www.myhockeyrankings.com/division-info?d=202&y=2026",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-09-30T05:06:18.552Z",
+      "collectedAt": "2026-09-30T05:06:18.552Z",
+      "source": "myhockeyrankings",
+      "releaseDate": "2026-09-30",
+      "category": "CSDHL 13U AA (numeric ratings only; ranks not captured)",
+      "method": "browser-observation",
+      "rows": [
+        {
+          "teamId": "northern-express",
+          "rating": 85.35,
+          "rank": null
+        },
+        {
+          "teamId": "vernon-hills-ice-dogs",
+          "rating": 85.27,
+          "rank": null
+        },
+        {
+          "teamId": "naperville-sabres",
+          "rating": 85.19,
+          "rank": null
+        },
+        {
+          "teamId": "st-louis-knights",
+          "rating": 84.23,
+          "rank": null
+        },
+        {
+          "teamId": "wilmette-jr-trevians",
+          "rating": 83.27,
+          "rank": null
+        },
+        {
+          "teamId": "st-louis-sting",
+          "rating": 83.12,
+          "rank": null
+        },
+        {
+          "teamId": "st-louis-eagles",
+          "rating": 82.54,
+          "rank": null
+        },
+        {
+          "teamId": "chicago-hawks",
+          "rating": 82.22,
+          "rank": null
+        },
+        {
+          "teamId": "winnetka-warriors",
+          "rating": 82.15,
+          "rank": null
+        },
+        {
+          "teamId": "chicago-blues",
+          "rating": 81.99,
+          "rank": null
+        },
+        {
+          "teamId": "highland-park-falcons",
+          "rating": 81.3,
+          "rank": null
+        },
+        {
+          "teamId": "lake-county-vipers",
+          "rating": 80.51,
+          "rank": null
+        },
+        {
+          "teamId": "northwest-chargers",
+          "rating": 79.9,
+          "rank": null
+        }
+      ]
+    }
+  ]
 }

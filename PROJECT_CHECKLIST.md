@@ -57,3 +57,5 @@ Preserve the existing Falcons site. No paid resources. No invented production da
 - Standings iframe: https://gamesheetstats.com/seasons/15220/standings
 - Official team contact directory: https://www.csdhl.org/about/major-minor-team-contacts/122504
 - MHR terms: https://myhockeyrankings.com/terms.php
+
+- [x] Imported the first verified MHR release (September 30, 2026), all 13 division ratings. No ranks or historical weeks inferred.

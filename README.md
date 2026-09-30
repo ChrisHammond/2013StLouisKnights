@@ -32,7 +32,7 @@ node scripts/check-built-site.mjs
 - Official regular-season standings captured from the normal GameSheet browser page, preserving order. The initial source showed zero games for every team; this is real preseason source data, not demonstration data.
 - A supported live GameSheet embed on `/standings/` supplements the dated local snapshot.
 - Interactive weekly numeric-rating chart, team selection, keyboard-focusable points, weekly changes, and accessible values table.
-- MHR ratings are **not connected**. Production has no rating values. Verified observations and automated feed configuration remain pending; provider permission is not a project prerequisite.
+- MHR Week 1 ratings (September 30, 2026) are live for all 13 teams from a verified browser observation. Weekly history starts with this release; an unattended feed is not configured.
 - Automatic standings snapshot updates are **not connected**. GameSheet returned HTTP 403 for direct page/API access. The workflow accepts an approved JSON feed; it does not bypass browser verification or scrape undocumented endpoints.
 
 See [source research](docs/SOURCES.md), [data imports](docs/DATA.md), [deployment](docs/DEPLOYMENT.md), and [project checklist](PROJECT_CHECKLIST.md).
