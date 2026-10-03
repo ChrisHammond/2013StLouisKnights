@@ -110,3 +110,17 @@ test('Crossbar import retries are idempotent; failures retain history and recove
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test('supplemental Eagles aliases at one start display once without becoming CSDHL', () => {
+  const base = { date: '2026-11-15', startsAt: '2026-11-15T14:30:00.000Z', side: 'away' as const, venue: 'Affton' };
+  const input = { ...snapshot, entries: [
+    { ...base, id: 'crossbar-eagles-bnc', opponent: 'Eagles (BNC)', label: 'Other game' },
+    { ...base, id: 'crossbar-eagles-aa', opponent: '13U AA St. Louis Eagles', label: 'League' },
+  ] };
+  const merged = mergeCrossbar([], input);
+  assert.equal(merged.length, 1);
+  assert.equal(merged[0].id, 'crossbar-eagles-bnc');
+  assert.equal(merged[0].kind, 'other');
+  input.entries[1].startsAt = '2026-11-15T18:30:00.000Z';
+  assert.equal(mergeCrossbar([], input).length, 2);
+});

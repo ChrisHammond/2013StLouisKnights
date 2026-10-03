@@ -11,6 +11,7 @@ const aliases: Record<string, string> = {
   Hawks: 'chicago-hawks',
   '13U AA St. Louis Eagles': 'st-louis-eagles',
   Eagles: 'st-louis-eagles',
+  'Eagles (BNC)': 'st-louis-eagles',
   'Sting 13U - Tier 2': 'st-louis-sting',
   Sting: 'st-louis-sting',
   Chargers: 'northwest-chargers',
@@ -112,6 +113,7 @@ export function mergeCrossbar(official: Game[], input: unknown): Game[] {
   const snapshot = crossbarSnapshotSchema.parse(input);
   const merged = official.map((g) => ({ ...g }));
   const matched = new Map<string, string | null>();
+  const supplemental = new Set<string>();
   for (const entry of snapshot.entries) {
     const opponentId = aliases[entry.opponent];
     const candidates = official.filter(
@@ -144,6 +146,11 @@ export function mergeCrossbar(official: Game[], input: unknown): Game[] {
       }
       continue;
     }
+    // Same known opponent, side and exact start cannot be two Knights games.
+    // Retain the first source identity so existing media mappings remain stable.
+    const key = opponentId && entry.startsAt ? [opponentId, entry.side, entry.startsAt].join('|') : null;
+    if (key && supplemental.has(key)) continue;
+    if (key) supplemental.add(key);
     // Unmatched Crossbar "League" does not establish CSDHL eligibility.
     const placeholder = entry.label === 'Tournament';
     merged.push({
