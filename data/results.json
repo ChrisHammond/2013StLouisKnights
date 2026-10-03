@@ -252,6 +252,20 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951669?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-03T19:39:28.606Z"
+    },
+    {
+      "gameId": "2951680",
+      "awayTeamId": "northern-express",
+      "homeTeamId": "chicago-hawks",
+      "awayScore": 4,
+      "homeScore": 3,
+      "awayShots": 30,
+      "homeShots": 15,
+      "status": "final",
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951680?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-03T23:55:19.844Z"
     }
   ]
 }
