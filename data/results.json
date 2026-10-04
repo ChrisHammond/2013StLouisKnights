@@ -306,6 +306,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951699?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-04T04:22:48.159Z"
+    },
+    {
+      "gameId": "2951705",
+      "awayTeamId": "vernon-hills-ice-dogs",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 4,
+      "homeScore": 1,
+      "awayShots": 23,
+      "homeShots": 12,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951705?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-04T16:47:48.265Z"
     }
   ]
 }
