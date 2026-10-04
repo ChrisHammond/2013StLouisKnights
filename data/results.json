@@ -266,6 +266,46 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951680?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-03T23:55:19.844Z"
+    },
+    {
+      "gameId": "2951690",
+      "awayTeamId": "northwest-chargers",
+      "homeTeamId": "chicago-blues",
+      "awayScore": 2,
+      "homeScore": 4,
+      "awayShots": null,
+      "homeShots": null,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951690?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-04T04:22:48.159Z"
+    },
+    {
+      "gameId": "2951693",
+      "awayTeamId": "highland-park-falcons",
+      "homeTeamId": "lake-county-vipers",
+      "awayScore": 1,
+      "homeScore": 1,
+      "awayShots": 38,
+      "homeShots": 4,
+      "status": "final",
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951693?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-04T04:22:48.159Z"
+    },
+    {
+      "gameId": "2951699",
+      "awayTeamId": "vernon-hills-ice-dogs",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 3,
+      "homeScore": 2,
+      "awayShots": 23,
+      "homeShots": 18,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951699?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-04T04:22:48.159Z"
     }
   ]
 }
