@@ -319,6 +319,59 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951705?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-04T16:47:48.265Z"
+    },
+    {
+      "gameId": "2951717",
+      "awayTeamId": "lake-county-vipers",
+      "homeTeamId": "northwest-chargers",
+      "awayScore": 1,
+      "homeScore": 2,
+      "awayShots": 21,
+      "homeShots": 28,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951717?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-05T14:31:17.685Z"
+    },
+    {
+      "gameId": "2951727",
+      "awayTeamId": "chicago-blues",
+      "homeTeamId": "highland-park-falcons",
+      "awayScore": 1,
+      "homeScore": 2,
+      "awayShots": 22,
+      "homeShots": 42,
+      "status": "final",
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951727?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-05T14:31:17.685Z"
+    },
+    {
+      "gameId": "2951736",
+      "awayTeamId": "winnetka-warriors",
+      "homeTeamId": "naperville-sabres",
+      "awayScore": 0,
+      "homeScore": 10,
+      "awayShots": 14,
+      "homeShots": 33,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951736?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-05T14:31:17.685Z"
+    },
+    {
+      "gameId": "2951746",
+      "awayTeamId": "wilmette-jr-trevians",
+      "homeTeamId": "northern-express",
+      "awayScore": 3,
+      "homeScore": 5,
+      "awayShots": 15,
+      "homeShots": 31,
+      "status": "final",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951746?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-05T14:31:17.685Z"
     }
   ]
 }
