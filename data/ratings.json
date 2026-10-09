@@ -78,6 +78,85 @@
           "rank": null
         }
       ]
+    },
+    {
+      "season": "2026-27",
+      "division": "csdhl-13u",
+      "sourceUrl": "https://www.myhockeyrankings.com/division-info?d=202&y=2026",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-09T23:44:26.003Z",
+      "collectedAt": "2026-10-09T23:44:26.003Z",
+      "source": "myhockeyrankings",
+      "releaseDate": "2026-10-07",
+      "category": "CSDHL 13U AA (numeric ratings only; ranks not captured)",
+      "method": "browser-observation",
+      "rows": [
+        {
+          "teamId": "naperville-sabres",
+          "rating": 84.51,
+          "rank": null
+        },
+        {
+          "teamId": "northern-express",
+          "rating": 84.13,
+          "rank": null
+        },
+        {
+          "teamId": "vernon-hills-ice-dogs",
+          "rating": 83.99,
+          "rank": null
+        },
+        {
+          "teamId": "st-louis-sting",
+          "rating": 82.99,
+          "rank": null
+        },
+        {
+          "teamId": "st-louis-knights",
+          "rating": 82.67,
+          "rank": null
+        },
+        {
+          "teamId": "wilmette-jr-trevians",
+          "rating": 81.97,
+          "rank": null
+        },
+        {
+          "teamId": "st-louis-eagles",
+          "rating": 81.64,
+          "rank": null
+        },
+        {
+          "teamId": "chicago-hawks",
+          "rating": 81.57,
+          "rank": null
+        },
+        {
+          "teamId": "lake-county-vipers",
+          "rating": 81.2,
+          "rank": null
+        },
+        {
+          "teamId": "chicago-blues",
+          "rating": 81.1,
+          "rank": null
+        },
+        {
+          "teamId": "highland-park-falcons",
+          "rating": 80.76,
+          "rank": null
+        },
+        {
+          "teamId": "northwest-chargers",
+          "rating": 80.01,
+          "rank": null
+        },
+        {
+          "teamId": "winnetka-warriors",
+          "rating": 79.81,
+          "rank": null
+        }
+      ]
     }
   ]
 }
