@@ -1,5 +1,11 @@
 # Native schedule maintenance
 
+## October 10 full schedule check
+
+All 156 regular-season games were checked in the public GameSheet season view, using September 1 through March 31 as the date range. The new snapshot preserves prior revisions and all team/game identities. Completed games show scores in the compact source view; their previously captured start times are retained. No score differed from the saved final observations.
+
+Six upcoming games changed: Sting at Ice Dogs on October 24 now starts at 8:10 PM; Falcons at Ice Dogs moved to January 11 at 8:30 PM; Wilmette at Ice Dogs on January 30 now starts at 5:10 PM; Ice Dogs at Falcons moved to November 11 at 6:10 PM; Winnetka at Wilmette moved to December 5 at 2:40 PM at Centennial Ice Rink Main Rink; Falcons at Blues moved to January 21 at 7 PM at Edge Ice Arena West Rink. All times are America/Chicago. Knights dates and times were unchanged.
+
 ## Verified results
 
 `data/results.json` stores game-specific final box-score observations independently from the full schedule snapshot. This avoids claiming that all 156 schedule entries were refreshed when only one result was checked. Each observation must match the scheduled home/away teams and official box-score URL. Add a later dated observation for a correction; preserve the previous one. The latest observation per game is displayed, and finals are excluded from the next-game card. Builds validate scores, mappings, timestamps, and duplicate observations. Results are currently collected manually, not automatically.

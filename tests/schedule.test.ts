@@ -23,7 +23,10 @@ test('schedule import retries deduplicate, failed imports retain games, and reco
   try {
     await mkdir(join(directory, 'data'));
     await writeFile(join(directory, 'data/teams.json'), JSON.stringify(teams));
-    await writeFile(join(directory, 'data/schedule.json'), JSON.stringify(schedule));
+    await writeFile(
+      join(directory, 'data/schedule.json'),
+      JSON.stringify({ ...schedule, snapshots: [snapshot] }),
+    );
     const input = join(directory, 'input.json');
     const run = () =>
       spawnSync(
@@ -43,7 +46,7 @@ test('schedule import retries deduplicate, failed imports retain games, and reco
     await writeFile(input, JSON.stringify({ ...snapshot, games: [{ ...games[0], homeTeamId: 'bad-id' }] }));
     assert.equal(run().status, 1);
     saved = JSON.parse(await readFile(join(directory, 'data/schedule.json'), 'utf8'));
-    assert.deepEqual(saved.snapshots, schedule.snapshots);
+    assert.deepEqual(saved.snapshots, [snapshot]);
     assert.ok(saved.error);
     await writeFile(input, JSON.stringify(snapshot));
     assert.equal(run().status, 0);
