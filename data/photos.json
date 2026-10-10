@@ -1,8 +1,14 @@
 {
   "collectionUrl": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights",
   "photographer": "RainbowMarks Photography",
-  "verifiedAt": "2026-10-05",
+  "verifiedAt": "2026-10-10",
   "galleries": [
+    {
+      "title": "Knights vs. Naperville Sabres",
+      "date": "2026-10-10",
+      "gameId": "2951763",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/October/Vs-Naperville-Sabres-10-10-2026"
+    },
     {
       "title": "Knights vs. Vernon Hills Ice Dogs",
       "date": "2026-10-04",
