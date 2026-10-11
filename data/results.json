@@ -385,6 +385,20 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951763?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-10T17:58:18.095Z"
+    },
+    {
+      "gameId": "2951786",
+      "status": "final",
+      "awayTeamId": "naperville-sabres",
+      "homeTeamId": "st-louis-eagles",
+      "awayScore": 3,
+      "homeScore": 2,
+      "awayShots": 40,
+      "homeShots": 20,
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951786?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-11T06:00:59.520Z"
     }
   ]
 }
