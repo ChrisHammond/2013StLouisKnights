@@ -399,6 +399,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951786?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-11T06:00:59.520Z"
+    },
+    {
+      "gameId": "2951791",
+      "status": "final",
+      "awayTeamId": "naperville-sabres",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 4,
+      "homeScore": 1,
+      "awayShots": 31,
+      "homeShots": 21,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951791?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-11T18:03:23.695Z"
     }
   ]
 }
