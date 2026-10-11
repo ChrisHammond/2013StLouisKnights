@@ -412,6 +412,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951791?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-11T18:03:23.695Z"
+    },
+    {
+      "gameId": "2951805",
+      "status": "final",
+      "awayTeamId": "chicago-blues",
+      "homeTeamId": "st-louis-eagles",
+      "awayScore": 2,
+      "homeScore": 5,
+      "awayShots": 20,
+      "homeShots": 27,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951805?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-11T21:01:03.448Z"
     }
   ]
 }
