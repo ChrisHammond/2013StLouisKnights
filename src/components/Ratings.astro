@@ -33,8 +33,7 @@ const ratingsStale = freshnessDate ? freshness(freshnessDate, 9 * 24) === 'stale
     <span class="badge">Numeric rating</span>
   </div>
   <p class="section-intro">
-    Compare each team's rating over the season. Higher ratings indicate stronger results; rank is a separate
-    position within a named category.
+    Compare each team's rating over the season. Higher ratings indicate stronger results.
   </p>
   {status.ratings.state === 'error' && (
     <p class="notice warning">The latest rating update failed. Previously captured releases are retained.</p>
@@ -105,7 +104,6 @@ const ratingsStale = freshnessDate ? freshness(freshnessDate, 9 * 24) === 'stale
             <th scope="col">Team</th>
             <th scope="col">Rating</th>
             <th scope="col">Weekly Δ</th>
-            <th scope="col">Rank</th>
             <th scope="col">Category</th>
           </tr>
         </thead>
@@ -134,7 +132,7 @@ const ratingsStale = freshnessDate ? freshness(freshnessDate, 9 * 24) === 'stale
                 <td>{release.releaseDate}</td>
                 <td>{teams.find((team) => team.id === row.teamId)?.name}</td>
                 <td>{row.rating ?? 'Unrated'}</td>
-                <td>{release.category}</td>
+                <td>{release.category.replace(' (numeric ratings only; ranks not captured)', '')}</td>
               </tr>
             )),
           )}
@@ -233,7 +231,8 @@ const ratingsStale = freshnessDate ? freshness(freshnessDate, 9 * 24) === 'stale
               }),
             );
             segment.forEach((point) => {
-              const description = `${name} · ${formatDate(point.date)} · Rating ${point.value.toFixed(2)} · Weekly change ${point.delta === null ? 'unavailable' : (point.delta > 0 ? '+' : '') + point.delta.toFixed(2)} · Rank ${point.rank ?? 'unavailable'} (${point.category})`;
+              const category = point.category.replace(' (numeric ratings only; ranks not captured)', '');
+              const description = `${name} · ${formatDate(point.date)} · Rating ${point.value.toFixed(2)} · Weekly change ${point.delta === null ? 'unavailable' : (point.delta > 0 ? '+' : '') + point.delta.toFixed(2)} · ${category}`;
               const dot = svgNode('circle', {
                 cx: point.x,
                 cy: point.y,
@@ -276,8 +275,7 @@ const ratingsStale = freshnessDate ? freshness(freshnessDate, 9 * 24) === 'stale
               teams.find((team) => team.id === row.teamId)!.name,
               row.rating?.toFixed(2) ?? 'Unrated',
               delta === null ? '—' : `${delta > 0 ? '+' : ''}${delta.toFixed(2)}`,
-              row.rank === null ? '—' : String(row.rank),
-              release.category,
+              release.category.replace(' (numeric ratings only; ranks not captured)', ''),
             ].forEach((value) => {
               const td = document.createElement('td');
               td.textContent = value;
