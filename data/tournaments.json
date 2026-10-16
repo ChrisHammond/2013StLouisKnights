@@ -1,0 +1,36 @@
+{
+  "season": "2026-27",
+  "sourceUrl": "https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba/schedules?division=996",
+  "sourcePublishedAt": null,
+  "collectedAt": "2026-10-16T21:46:43.053Z",
+  "label": "CCM World Invite · 2013 Ribcor",
+  "games": [
+    {
+      "id": "ccm-world-2026-5",
+      "gameNumber": "5",
+      "date": "2026-11-06",
+      "startsAt": "2026-11-06T15:30:00.000Z",
+      "opponent": "Alabama Thunder",
+      "side": "away",
+      "venue": "Oakton"
+    },
+    {
+      "id": "ccm-world-2026-17",
+      "gameNumber": "17",
+      "date": "2026-11-06",
+      "startsAt": "2026-11-06T21:30:00.000Z",
+      "opponent": "Santa Clarita Flyers",
+      "side": "home",
+      "venue": "Edge John"
+    },
+    {
+      "id": "ccm-world-2026-28",
+      "gameNumber": "28",
+      "date": "2026-11-07",
+      "startsAt": "2026-11-07T15:30:00.000Z",
+      "opponent": "St. Jude Knights",
+      "side": "away",
+      "venue": "Elk Grove / West"
+    }
+  ]
+}

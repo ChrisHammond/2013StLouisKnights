@@ -1,5 +1,11 @@
 # Native schedule maintenance
 
+## CCM World Invite Chicago · 2013 Ribcor
+
+`data/tournaments.json` records the Knights' three confirmed November 6–7, 2026 pool games from the public 200x85/Regystra division 996 schedule and Knights team page. Home/visitor columns were verified independently on both views. Times use America/Chicago (CST after November 1). Source publication time is unavailable and remains null; collection time is recorded separately.
+
+`mergeTournament` adds these as tournament games, replacing matching CCM whole-day Crossbar placeholders only on dates with confirmed fixtures. Sunday November 8 remains a placeholder: bracket games depend on results and must not be assigned to the Knights prematurely. These games never enter CSDHL standings. Each card links to the official tournament schedule; rink addresses were verified in the tournament venue directory. Preserve source game numbers and IDs when checking schedule changes, and keep prior observations in Git history. Refresh from the public division/team pages during tournament updates; do not send these IDs to GameSheet.
+
 ## October 10 full schedule check
 
 All 156 regular-season games were checked in the public GameSheet season view, using September 1 through March 31 as the date range. The new snapshot preserves prior revisions and all team/game identities. Completed games show scores in the compact source view; their previously captured start times are retained. No score differed from the saved final observations.

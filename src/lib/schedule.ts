@@ -14,6 +14,7 @@ export const gameSchema = z
   })
   .strict();
 export type Game = z.infer<typeof gameSchema> & {
+  tournament?: { opponent: string; label: string; sourceUrl: string };
   crossbar?: { opponent: string; label: string; placeholder: boolean; note?: string };
 };
 export const scheduleSnapshotSchema = z

@@ -50,7 +50,7 @@ const recentRecord = ['Win', 'Loss', 'Tie']
                 <span>
                   {ours}–{theirs}
                   {result.overtime ? ' (OT)' : ''} vs.{' '}
-                  {teamMap.get(opponentId)?.name ?? game.crossbar?.opponent}
+                  {teamMap.get(opponentId)?.name ?? game.tournament?.opponent ?? game.crossbar?.opponent}
                 </span>
                 <small>{gameDate(game)}</small>
               </a>

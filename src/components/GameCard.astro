@@ -24,7 +24,8 @@ const outcome = teamOutcome(result, teamId);
 const resultLabel =
   result?.status === 'final' ? (result.overtime ? 'Final (OT)' : 'Final') : 'In progress at last check';
 const isKnights = game.homeTeamId === 'st-louis-knights' || game.awayTeamId === 'st-louis-knights';
-const supplemental = game.id.startsWith('crossbar-');
+const supplemental = !!game.tournament || game.id.startsWith('crossbar-');
+const opponent = game.tournament?.opponent ?? game.crossbar?.opponent;
 const directions = rinkDirections(game);
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
   new Date(`${game.date}T12:00:00Z`),
@@ -64,7 +65,13 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
               ? 'KNIGHTS GAME'
               : 'CSDHL GAME'}
       </span>
-      <span>{supplemental ? `Crossbar · ${game.crossbar!.label}` : `CSDHL · #${game.gameNumber}`}</span>
+      <span>
+        {game.tournament
+          ? `${game.tournament.label} · #${game.gameNumber}`
+          : supplemental
+            ? `Crossbar · ${game.crossbar!.label}`
+            : `CSDHL · #${game.gameNumber}`}
+      </span>
       {result ? (
         <strong>{resultLabel}</strong>
       ) : (
@@ -74,9 +81,9 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     <div class="matchup-names">
       {supplemental ? (
         <strong>
-          {game.crossbar!.placeholder
-            ? game.crossbar!.opponent
-            : `St. Louis Knights ${game.homeTeamId === 'st-louis-knights' ? 'vs.' : 'at'} ${game.crossbar!.opponent}`}
+          {game.crossbar?.placeholder
+            ? opponent
+            : `St. Louis Knights ${game.homeTeamId === 'st-louis-knights' ? 'vs.' : 'at'} ${opponent}`}
         </strong>
       ) : (
         <>
@@ -137,12 +144,20 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     </strong>
     <a
       href={
-        supplemental
-          ? crossbarUrl
-          : (result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`)
+        game.tournament
+          ? game.tournament.sourceUrl
+          : supplemental
+            ? crossbarUrl
+            : (result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`)
       }
     >
-      {supplemental ? 'Crossbar schedule ↗' : result ? 'Box score ↗' : 'Game details ↗'}
+      {game.tournament
+        ? 'Tournament schedule ↗'
+        : supplemental
+          ? 'Crossbar schedule ↗'
+          : result
+            ? 'Box score ↗'
+            : 'Game details ↗'}
     </a>
     {galleries.map((gallery) => (
       <a class="game-photo-link" href={gallery.url}>

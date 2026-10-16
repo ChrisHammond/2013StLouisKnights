@@ -1,6 +1,6 @@
 ---
 import { teams } from '../lib/data';
-import { games, schedule, scheduleStatus, crossbar, crossbarStatus } from '../lib/schedule-data';
+import { games, schedule, scheduleStatus, crossbar, crossbarStatus, tournament } from '../lib/schedule-data';
 import { formatTimestamp } from '../lib/history';
 import GameCard from './GameCard.astro';
 import type { Team } from '../lib/schema';
@@ -71,7 +71,7 @@ const monthLabel = (month: string) =>
     <p aria-live="polite" data-count>
       {selectedGames.length} games / events
     </p>
-    <span>CSDHL games + Knights Crossbar schedule · Times in Central time</span>
+    <span>CSDHL games + Knights Crossbar and tournament schedules · Times in Central time</span>
   </div>
   {scheduleStatus.error && (
     <p class="panel schedule-empty" role="status">
@@ -112,6 +112,10 @@ const monthLabel = (month: string) =>
     {formatTimestamp(crossbarStatus.lastSuccessfulCheck!)}. Checked daily. Matching CSDHL games appear once,
     using GameSheet details. Crossbar-only games do not count toward CSDHL standings. Tournament dates are
     placeholders until individual games are published.
+    <br />
+    <a href={tournament.sourceUrl}>{tournament.label} ↗</a> · Checked{' '}
+    {formatTimestamp(tournament.collectedAt)}. Three confirmed pool games are listed. Additional bracket games
+    depend on results and are not assigned yet.
   </p>
 </section>
 <script>
