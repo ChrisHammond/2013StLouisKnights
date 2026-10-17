@@ -1,0 +1,122 @@
+{
+  "review_date": "2026-10-17",
+  "scope": "Targeted comparison, not all shifts of all seven games. Sequential frame review of 24 clips: eight Chicago shot clips, four Chicago shifts, four October 11 Naperville shot clips, three Naperville shifts, five October 4 Vernon Hills (2-3) shifts. Approximately 18:33 of clip runtime, including overlaps. Long shifts screened at 3-5 second intervals and selected decisions at 0.5-2 second intervals; not a continuous-motion audit of every frame.",
+  "identity": "Knights red in Chicago, white in the reviewed home games; use visible #11 where readable. Hudl tags guide selection but do not prove every player or touch in a clip is Daniel.",
+  "timing": "Period ranges are Hudl playlist labels, not scoreboard countdown times. Within-clip offsets are approximate; some downloads lose initial decodable frames.",
+  "findings": [
+    {
+      "id": "C8",
+      "file": "chicago-shot-08",
+      "game": "Chicago Blues | Sept. 20",
+      "range": "3rd period, 11:22-11:32",
+      "title": "Keep: move into a shooting lane",
+      "kind": "Keep building",
+      "confidence": "High: #11 readable",
+      "observation": "In red #11, you move inward from the near-side point, receive the puck and release from a more central position. Your feet help change where the shot comes from.",
+      "action": "Get ready while the puck is traveling. Move into available space, then decide whether the lane is clear. Do not move inward automatically if it removes defensive cover.",
+      "question": "What changed about the shooting angle between the start and your release?",
+      "start": 0,
+      "end": 10,
+      "poster": 4.5,
+      "published_excerpt_original_offset": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": "C7",
+      "file": "chicago-shot-07",
+      "game": "Chicago Blues | Sept. 20",
+      "range": "3rd period, 04:10-04:22",
+      "title": "Keep: carry your feet through the release",
+      "kind": "Keep building",
+      "confidence": "High: #11 readable",
+      "observation": "In red #11, you carry the puck up the near side, advance into the offensive zone and release while a defender reaches toward you. This is a useful example of shooting out of motion.",
+      "action": "Practice receiving or carrying with moving feet, then releasing without an extra stationary setup. The coach should decide when joining this far is appropriate.",
+      "question": "Where was the defender approaching from, and where was your support?",
+      "start": 0,
+      "end": 12,
+      "poster": 4,
+      "published_excerpt_original_offset": [
+        0,
+        12
+      ]
+    },
+    {
+      "id": "N3",
+      "file": "nap-shot-03",
+      "game": "Naperville | Oct. 11",
+      "range": "2nd period, 06:45-06:55",
+      "title": "Work on: create the lane before the windup",
+      "kind": "Practice opportunity",
+      "confidence": "High: white #11 readable",
+      "observation": "In white #11, you receive near the left wall at the blue line and set up a shot from close to that wall. A defender is approaching from inside. Compared with Chicago C8, there is less inward movement before the release.",
+      "action": "Test a small lateral adjustment or a quick return pass when the lane is covered. If the lane is already clear, release promptly. The video does not prove the shot was blocked or that another option would have succeeded.",
+      "question": "Pause as the pass arrives: shoot now, change angle, or return it? Explain your choice before watching.",
+      "start": 0,
+      "end": 10,
+      "poster": 3.5,
+      "published_excerpt_original_offset": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": "C2",
+      "file": "chicago-shift-02",
+      "game": "Chicago Blues | Sept. 20",
+      "range": "1st period, 11:39-13:36",
+      "title": "Keep: use a simple outlet and support again",
+      "kind": "Keep building",
+      "confidence": "High within the highlighted sequence: #11 readable",
+      "observation": "About 8-16 seconds into this listed clip, red #11 controls the puck in the neutral zone, moves it toward the near-side teammate, and remains available behind the developing play. This is a useful first-play reference.",
+      "action": "Repeat this in a receive-pass-support drill. Choose the available teammate rather than forcing a long play. This sequence does not establish an overall passing-success rate.",
+      "question": "After your pass, where could you move so your teammate still has help?",
+      "start": 8,
+      "end": 17,
+      "poster": 14,
+      "published_excerpt_original_offset": [
+        8,
+        17
+      ]
+    },
+    {
+      "id": "V5",
+      "file": "vernon-shift-05",
+      "game": "Vernon Hills, 2-3 loss | Oct. 4",
+      "range": "3rd period, 00:10-01:17",
+      "title": "Review: recover inside and keep seeing threats",
+      "kind": "Coach discussion",
+      "confidence": "Moderate: #11 readable around +35s; other assignments unclear",
+      "observation": "Around 34-38 seconds into this clip, white #11 retreats inside the defensive blue line as play comes down the near side. The sequence then develops into play around the net. The wide view does not reliably show every head check or establish who owns each opponent.",
+      "action": "Use the clip to rehearse a scan for the middle and back-side threat as the puck changes sides. Ask the coach who owns the corner and who protects the net. This is a positioning discussion, not a confirmed missed assignment.",
+      "question": "Who is your player or space here, and who would take over if you went toward the puck?",
+      "start": 33,
+      "end": 50,
+      "poster": 35,
+      "published_excerpt_original_offset": [
+        33,
+        50
+      ]
+    },
+    {
+      "id": "N2",
+      "file": "nap-shift-03",
+      "game": "Naperville | Oct. 11",
+      "range": "2nd period, 13:28-14:48",
+      "title": "Review: plan the next play before pressure arrives",
+      "kind": "Coach discussion",
+      "confidence": "Moderate: #11 readable late in the clip; not continuously trackable",
+      "observation": "This longer sequence includes repeated changes of possession and pressure near the boards. White #11 is readable late in the clip, around 60-66 seconds. Some earlier touches cannot be assigned confidently from the wide camera.",
+      "action": "Pause the late sequence before the puck arrives and name a direct pass, an indirect option and a safe pressure-relief option. Grade the options with the coach; do not label an unclear touch as Daniel's turnover.",
+      "question": "What is your first option? What changes if that lane closes?",
+      "start": 59,
+      "end": 70,
+      "poster": 63,
+      "published_excerpt_original_offset": [
+        59,
+        70
+      ]
+    }
+  ]
+}
