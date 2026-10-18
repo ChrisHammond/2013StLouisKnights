@@ -503,6 +503,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951879?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-18T02:01:07.035Z"
+    },
+    {
+      "gameId": "2951901",
+      "status": "final",
+      "awayTeamId": "highland-park-falcons",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 6,
+      "homeScore": 3,
+      "awayShots": 29,
+      "homeShots": 14,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951901?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-18T18:00:55.859Z"
     }
   ]
 }
