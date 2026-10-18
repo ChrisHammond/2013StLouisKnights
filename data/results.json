@@ -464,6 +464,45 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951840?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-17T18:01:23.215Z"
+    },
+    {
+      "gameId": "2951864",
+      "status": "final",
+      "awayTeamId": "naperville-sabres",
+      "homeTeamId": "chicago-hawks",
+      "awayScore": 4,
+      "homeScore": 2,
+      "awayShots": 32,
+      "homeShots": 23,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951864?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-18T02:01:07.035Z"
+    },
+    {
+      "gameId": "2951877",
+      "status": "final",
+      "awayTeamId": "highland-park-falcons",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 1,
+      "homeScore": 2,
+      "awayShots": 28,
+      "homeShots": 19,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951877?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-18T02:01:07.035Z"
+    },
+    {
+      "gameId": "2951879",
+      "status": "final",
+      "awayTeamId": "lake-county-vipers",
+      "homeTeamId": "northern-express",
+      "awayScore": 0,
+      "homeScore": 6,
+      "awayShots": 13,
+      "homeShots": 52,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951879?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-18T02:01:07.035Z"
     }
   ]
 }
