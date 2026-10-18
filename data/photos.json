@@ -1,8 +1,14 @@
 {
   "collectionUrl": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights",
   "photographer": "RainbowMarks Photography",
-  "verifiedAt": "2026-10-14",
+  "verifiedAt": "2026-10-17",
   "galleries": [
+    {
+      "title": "Knights vs. Highland Park Falcons",
+      "date": "2026-10-17",
+      "gameId": "2951877",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/October/Vs-Highland-Park-Falcons-10-17-2026"
+    },
     {
       "title": "Knights vs. Naperville Sabres",
       "date": "2026-10-11",
