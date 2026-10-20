@@ -118,5 +118,105 @@
         70
       ]
     }
+  ],
+  "recap_updates": [
+    {
+      "review_date": "2026-10-20",
+      "source_message_ids": [
+        "1a159df1100e6f4b",
+        "1a157e568c2d3179"
+      ],
+      "hudl_match_ids": [
+        "2274314",
+        "2274320"
+      ],
+      "coach_feedback": "Pending, per parent. No coach input incorporated.",
+      "new_video_review": "Not performed for this recap update; six existing graded film cards retained as prior baseline.",
+      "plan_changes": [
+        "Retain point-lane practice; no evidence to replace it from five new attempts.",
+        "Review new assist as an ungraded positive candidate.",
+        "Separate power-play and even-strength tracking.",
+        "Do not change coverage assignments without coach input."
+      ],
+      "new_games": [
+        {
+          "email_id": "1a159df1100e6f4b",
+          "date": "2026-10-17",
+          "pdf_date": "2026-10-18",
+          "opponent": "Highland Park Falcons",
+          "team_result": "W 2-1",
+          "ice_time": "15:40",
+          "shifts": 14,
+          "goals": 0,
+          "assists_recorded": 0,
+          "plus_minus": 0,
+          "shots": 2,
+          "shots_on_goal": 1,
+          "penalty_minutes": 0,
+          "instat_index": 124,
+          "corsi_for": 11,
+          "corsi_against": 17,
+          "individual_xg": 0.02,
+          "team_xg_on_ice": 1.14,
+          "opponent_xg_on_ice": 0.92,
+          "blocked_shots": 0,
+          "power_play_time": "00:46",
+          "short_handed_time": "02:32",
+          "power_play_shots": 0,
+          "power_play_shots_on_goal": 0,
+          "source_pdf": "1a159df1100e6f4b.pdf",
+          "video_links": [
+            "https://sellers.instatscout.com/7-33219294-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274314%26playlist_type%3Dfull_match&n=Full+game",
+            "https://sellers.instatscout.com/7-33219294-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274314%26playlist_type%3Dmatch_clear_time&n=Game+ice+time",
+            "https://sellers.instatscout.com/7-33219294-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274314%26playlist_type%3Dmatch_goals%26player_id%3D2473445&n=Game+goals",
+            "https://sellers.instatscout.com/7-33219294-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274314%26playlist_type%3Dmatch_player_clear_time%26player_id%3D2473445&n=Player%27s+shifts",
+            "https://sellers.instatscout.com/7-33219294-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274314%26playlist_type%3Dshots%26player_id%3D2473445&n=Shots%3A+2",
+            "https://sellers.instatscout.com/7-33219294-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274314%26playlist_type%3Dshots_on_goal%26player_id%3D2473445&n=Shots+on+goal%3A+1"
+          ],
+          "shot_on_goal_pct": 50.0,
+          "corsi_share_pct": 39.3,
+          "date_note": "Game date matched by opponent/result against portal schedule and results; Hudl labels both games 18.10.2026."
+        },
+        {
+          "email_id": "1a157e568c2d3179",
+          "date": "2026-10-18",
+          "pdf_date": "2026-10-18",
+          "opponent": "Highland Park Falcons",
+          "team_result": "L 3-6",
+          "ice_time": "20:19",
+          "shifts": 14,
+          "goals": 0,
+          "assists_recorded": 1,
+          "plus_minus": 0,
+          "shots": 3,
+          "shots_on_goal": 2,
+          "penalty_minutes": 0,
+          "instat_index": 109,
+          "corsi_for": 3,
+          "corsi_against": 18,
+          "individual_xg": 0.04,
+          "team_xg_on_ice": 1.12,
+          "opponent_xg_on_ice": 1.64,
+          "blocked_shots": 1,
+          "power_play_time": "05:12",
+          "short_handed_time": "03:34",
+          "power_play_shots": 3,
+          "power_play_shots_on_goal": 2,
+          "source_pdf": "1a157e568c2d3179.pdf",
+          "video_links": [
+            "https://sellers.instatscout.com/7-33210260-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274320%26playlist_type%3Dfull_match&n=Full+game",
+            "https://sellers.instatscout.com/7-33210260-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274320%26playlist_type%3Dmatch_clear_time&n=Game+ice+time",
+            "https://sellers.instatscout.com/7-33210260-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274320%26playlist_type%3Dmatch_goals%26player_id%3D2473445&n=Game+goals",
+            "https://sellers.instatscout.com/7-33210260-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274320%26playlist_type%3Dmatch_player_clear_time%26player_id%3D2473445&n=Player%27s+shifts",
+            "https://sellers.instatscout.com/7-33210260-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274320%26playlist_type%3Dshots%26player_id%3D2473445&n=Shots%3A+3",
+            "https://sellers.instatscout.com/7-33210260-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274320%26playlist_type%3Dassists%26player_id%3D2473445&n=Assists%3A+1",
+            "https://sellers.instatscout.com/7-33210260-1-0-782152?u=https%3A%2F%2Fnew.instatscout.com%2Fen%2Fexternal_playlists%2Fview%2F%3Frequest%3Dexternal_playlist%26sport_kind%3Dhockey%26match_id%3D2274320%26playlist_type%3Dshots_on_goal%26player_id%3D2473445&n=Shots+on+goal%3A+2"
+          ],
+          "shot_on_goal_pct": 66.7,
+          "corsi_share_pct": 14.3,
+          "date_note": "Game date matched by opponent/result against portal schedule and results; Hudl labels both games 18.10.2026."
+        }
+      ]
+    }
   ]
 }
