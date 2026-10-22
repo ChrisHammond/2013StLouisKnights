@@ -218,5 +218,22 @@
         }
       ]
     }
-  ]
+  ],
+  "coach_feedback": {
+    "shared_by_parent_on": "2026-10-22",
+    "source": "Coach message supplied by Chris in this chat; not independently retrieved.",
+    "verbatim": "Hey Chris, sorry for the delay.  There are some accuracy\u2019s with the call outs and little details. For example, getting your skates up ice and being ready at the point for a quick release.  After watching Daniel in several games, I think his focus areas need to center around being more physical and trying to get more pucks at the net.  He has a great shot and I\u2019d like to see him getting more attempts in games. There are also times he gets caught puck watching and it would help to have his head on a \u201cswivel\u201d and scan the ice more to look for threats and open players.",
+    "priorities": [
+      "Physical engagement",
+      "More puck-at-net attempts; coach says Daniel has a great shot",
+      "Head on a swivel: scan threats and open players"
+    ],
+    "supporting_details": [
+      "Skates up ice and ready at the point",
+      "Quick release"
+    ],
+    "coach_supplied_numeric_targets": null,
+    "new_video_review": false,
+    "plan_change": "Replaces shot-preparation-only emphasis with three coach-led priorities; prior recap assessments retained as history. Drills and tracking are proposed adaptations, not verbatim coach prescriptions."
+  }
 }
