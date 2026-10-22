@@ -235,5 +235,18 @@
     "coach_supplied_numeric_targets": null,
     "new_video_review": false,
     "plan_change": "Replaces shot-preparation-only emphasis with three coach-led priorities; prior recap assessments retained as history. Drills and tracking are proposed adaptations, not verbatim coach prescriptions."
+  },
+  "starting_plan_reset": {
+    "date": "2026-10-22",
+    "basis": "Parent confirms Daniel has not viewed or begun the earlier plan.",
+    "before_practice_clips": [
+      "C8",
+      "N3",
+      "V5"
+    ],
+    "practice": "Use existing coach-run drills for ready feet, scanning and engagement; one cue at a time.",
+    "weekend": "Three Chicago games; engagement, shooting readiness and scanning are successive main reminders while retaining all three habits.",
+    "new_video_findings": false,
+    "baseline": "First game is the starting point; no completion or improvement assumed."
   }
 }
