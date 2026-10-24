@@ -568,6 +568,34 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2955963?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-24T17:53:31.465Z"
+    },
+    {
+      "gameId": "2951962",
+      "status": "final",
+      "awayTeamId": "st-louis-eagles",
+      "homeTeamId": "winnetka-warriors",
+      "awayScore": 5,
+      "homeScore": 6,
+      "awayShots": 0,
+      "homeShots": 0,
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951962?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-24T21:00:57.191Z"
+    },
+    {
+      "gameId": "2951964",
+      "status": "final",
+      "awayTeamId": "highland-park-falcons",
+      "homeTeamId": "northwest-chargers",
+      "awayScore": 2,
+      "homeScore": 2,
+      "awayShots": 37,
+      "homeShots": 20,
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951964?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-24T21:00:57.191Z"
     }
   ]
 }
