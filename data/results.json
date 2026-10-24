@@ -542,6 +542,32 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951926?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-21T15:23:44.355Z"
+    },
+    {
+      "gameId": "2951948",
+      "status": "final",
+      "awayTeamId": "st-louis-knights",
+      "homeTeamId": "chicago-hawks",
+      "awayScore": 4,
+      "homeScore": 2,
+      "awayShots": 21,
+      "homeShots": 30,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951948?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-24T17:53:31.465Z"
+    },
+    {
+      "gameId": "2955963",
+      "status": "final",
+      "awayTeamId": "winnetka-warriors",
+      "homeTeamId": "st-louis-sting",
+      "awayScore": 3,
+      "homeScore": 6,
+      "awayShots": 0,
+      "homeShots": 0,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2955963?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-24T17:53:31.465Z"
     }
   ]
 }
