@@ -636,6 +636,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951989?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-25T02:44:16.669Z"
+    },
+    {
+      "gameId": "2951991",
+      "status": "final",
+      "awayTeamId": "st-louis-sting",
+      "homeTeamId": "vernon-hills-ice-dogs",
+      "awayScore": 3,
+      "homeScore": 6,
+      "awayShots": 38,
+      "homeShots": 35,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951991?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-25T06:00:47.995Z"
     }
   ]
 }
