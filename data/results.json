@@ -649,6 +649,48 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2951991?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-25T06:00:47.995Z"
+    },
+    {
+      "gameId": "2952000",
+      "status": "final",
+      "awayTeamId": "st-louis-sting",
+      "homeTeamId": "northwest-chargers",
+      "awayScore": 7,
+      "homeScore": 3,
+      "awayShots": 54,
+      "homeShots": 17,
+      "overtime": false,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952000?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-25T18:01:08.834Z"
+    },
+    {
+      "gameId": "2952001",
+      "status": "final",
+      "awayTeamId": "st-louis-knights",
+      "homeTeamId": "chicago-hawks",
+      "awayScore": 4,
+      "homeScore": 2,
+      "awayShots": 15,
+      "homeShots": 25,
+      "overtime": false,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952001?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-25T18:01:08.834Z"
+    },
+    {
+      "gameId": "2952007",
+      "status": "final",
+      "awayTeamId": "st-louis-eagles",
+      "homeTeamId": "highland-park-falcons",
+      "awayScore": 4,
+      "homeScore": 3,
+      "awayShots": 39,
+      "homeShots": 34,
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952007?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-25T18:01:08.834Z"
     }
   ]
 }
