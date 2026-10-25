@@ -691,6 +691,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952007?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-25T18:01:08.834Z"
+    },
+    {
+      "gameId": "2952019",
+      "status": "final",
+      "awayTeamId": "winnetka-warriors",
+      "homeTeamId": "vernon-hills-ice-dogs",
+      "awayScore": 1,
+      "homeScore": 7,
+      "awayShots": 17,
+      "homeShots": 45,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952019?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-25T21:00:31.448Z"
     }
   ]
 }
