@@ -1,8 +1,14 @@
 {
   "collectionUrl": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights",
   "photographer": "RainbowMarks Photography",
-  "verifiedAt": "2026-10-24",
+  "verifiedAt": "2026-10-25",
   "galleries": [
+    {
+      "title": "Knights vs. Chicago Hawks",
+      "date": "2026-10-25",
+      "gameId": "2952001",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/October/Vs-Chicago-Hawks-10-25-2026"
+    },
     {
       "title": "Knights vs. Chicago Blues",
       "date": "2026-10-24",
