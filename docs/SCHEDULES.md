@@ -61,3 +61,7 @@ GameSheet confirmed Knights at Express, game 2951497, FINAL (OT) 1–1, shots 11
 September 20 afternoon check: game 2951503, Chargers at Sabres, officially FINAL 3–6; shots 29–31. Refreshed all 13 official standing rows: Sabres fourth, Vipers fifth, Chargers twelfth; Knights remain third. Hawks at Winnetka remains scheduled for 5:40 PM CDT, with no score published at this check.
 
 September 20 evening check: game 2951521, Hawks at Winnetka, officially FINAL 1–2; shots 17–26. Refreshed all 13 official standings in source order: Winnetka fifth, Hawks eleventh; Knights remain third at 1–1–1. All seven published opening-weekend league scores are now represented.
+
+## CCM opponent MHR values
+
+Tournament game cards display verified opponent ratings and ranks from data/tournament-ratings.json. Observations preserve season, source team identity, category (USA 13U - All), edition date, collection time and attribution. New editions append observations; never replace history or substitute another age group. October 21 ratings for Alabama Thunder and Santa Clarita Flyers were verified from the public indexed MHR listing. St. Jude remains unavailable because its 2013 team identity could not be verified. These national ranks are separate from official CSDHL standings. Recheck tournament opponents alongside weekly MHR maintenance before the event.

@@ -10,6 +10,7 @@ import { crossbarUrl } from '../lib/crossbar';
 import { rinkDirections } from '../lib/directions';
 import { teamOutcome } from '../lib/outcome';
 import OutcomeBadge from './OutcomeBadge.astro';
+import { tournamentRating } from '../lib/tournament-ratings';
 interface Props {
   game: Game;
   teamId?: string;
@@ -26,6 +27,7 @@ const resultLabel =
 const isKnights = game.homeTeamId === 'st-louis-knights' || game.awayTeamId === 'st-louis-knights';
 const supplemental = !!game.tournament || game.id.startsWith('crossbar-');
 const opponent = game.tournament?.opponent ?? game.crossbar?.opponent;
+const opponentRating = game.tournament ? tournamentRating(game.tournament.opponent) : undefined;
 const directions = rinkDirections(game);
 const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC' }).format(
   new Date(`${game.date}T12:00:00Z`),
@@ -116,6 +118,14 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     )}
     {game.crossbar?.note && <p class="game-location">{game.crossbar.note}</p>}
     <p class="game-location">{game.venue}</p>
+    {opponentRating && (
+      <p class="game-location">
+        <a href={opponentRating.sourceUrl}>Opponent MHR ↗</a>{' '}
+        {opponentRating.rating !== null
+          ? `${opponentRating.rating.toFixed(2)}${opponentRating.rank !== null ? ` · #${opponentRating.rank}` : ''} · ${opponentRating.category} · ${opponentRating.releaseDate}`
+          : 'Unavailable · team match pending'}
+      </p>
+    )}
     {directions && (
       <p class="game-location">
         <a href={directions} aria-label={`Directions to ${game.venue} on Google Maps`}>
