@@ -35,6 +35,30 @@
       "rating": null,
       "rank": null,
       "note": "No verified 2013 opponent identity in accessible MHR source. Other ages and girls teams must not be substituted."
+    },
+    {
+      "season": "2026-27",
+      "category": "USA 13U - All",
+      "releaseDate": "2026-10-28",
+      "collectedAt": "2026-10-28T06:02:26.052Z",
+      "sourceUrl": "https://www.myhockeyrankings.com/rank?v=125&view=alphabetic&y=2026",
+      "opponent": "Alabama Thunder",
+      "sourceTeam": "Alabama Thunder 13U AA (AL)",
+      "rating": 76.25,
+      "rank": 268,
+      "note": "October 28 edition verified on public MHR USA 13U All alphabetical listing; release announcement https://www.myhockeyrankings.com/news?b=4491."
+    },
+    {
+      "season": "2026-27",
+      "category": "USA 13U - All",
+      "releaseDate": "2026-10-28",
+      "collectedAt": "2026-10-28T06:02:26.052Z",
+      "sourceUrl": "https://www.myhockeyrankings.com/rank?v=125&view=alphabetic&y=2026",
+      "opponent": "Santa Clarita Flyers",
+      "sourceTeam": "Santa Clarita Flyers 13U A (CA)",
+      "rating": 78.86,
+      "rank": 214,
+      "note": "October 28 edition verified on public MHR USA 13U All alphabetical listing; release announcement https://www.myhockeyrankings.com/news?b=4491."
     }
   ]
 }

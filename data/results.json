@@ -704,6 +704,20 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952019?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-10-25T21:00:31.448Z"
+    },
+    {
+      "gameId": "2952024",
+      "status": "final",
+      "awayTeamId": "chicago-blues",
+      "homeTeamId": "northern-express",
+      "awayScore": 4,
+      "homeScore": 5,
+      "awayShots": 12,
+      "homeShots": 28,
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952024?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-10-28T06:02:26.052Z"
     }
   ]
 }

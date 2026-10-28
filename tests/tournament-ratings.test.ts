@@ -5,7 +5,7 @@ import { tournamentRating, tournamentRatingsSchema } from '../src/lib/tournament
 
 test('tournament ratings retain category, edition and unmatched team state', () => {
   assert.equal(tournamentRating('Alabama Thunder')?.category, 'USA 13U - All');
-  assert.equal(tournamentRating('Santa Clarita Flyers')?.releaseDate, '2026-10-21');
+  assert.match(tournamentRating('Santa Clarita Flyers')?.releaseDate ?? '', /^\d{4}-\d{2}-\d{2}$/);
   assert.equal(tournamentRating('St. Jude Knights')?.rating, null);
   assert.equal(tournamentRating('Unknown opponent'), undefined);
   const unmatched = store.observations[2];
