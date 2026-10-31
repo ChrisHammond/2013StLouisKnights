@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-25",
+  "verifiedAt": "2026-10-31",
   "videos": [
     {
       "title": "Knights vs. Chicago Hawks",
@@ -126,6 +126,12 @@
       "date": "2026-08-15",
       "gameId": "crossbar-2026-08-15-away-sting",
       "videoId": "vxoAK4kQqt8"
+    },
+    {
+      "title": "STL Knights vs STL Eagles 10-31-26",
+      "date": "2026-10-31",
+      "gameId": "2952060",
+      "videoId": "63hJqn3prdM"
     }
   ]
 }
