@@ -6877,6 +6877,187 @@
           "ga": 22
         }
       ]
+    },
+    {
+      "season": "2026-27",
+      "division": "csdhl-13u",
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/standings?filter%5Bdivision%5D=81589&filter%5Btype%5D=regular_season",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-01T21:01:28.211Z",
+      "collectedAt": "2026-11-01T21:01:28.211Z",
+      "source": "gamesheet",
+      "method": "browser-observation",
+      "rows": [
+        {
+          "teamId": "northern-express",
+          "position": 1,
+          "gp": 11,
+          "w": 9,
+          "l": 0,
+          "t": 1,
+          "otw": 3,
+          "otl": 1,
+          "points": 20,
+          "gf": 47,
+          "ga": 23
+        },
+        {
+          "teamId": "naperville-sabres",
+          "position": 2,
+          "gp": 10,
+          "w": 9,
+          "l": 0,
+          "t": 0,
+          "otw": 1,
+          "otl": 1,
+          "points": 19,
+          "gf": 54,
+          "ga": 16
+        },
+        {
+          "teamId": "st-louis-eagles",
+          "position": 3,
+          "gp": 10,
+          "w": 6,
+          "l": 2,
+          "t": 0,
+          "otw": 1,
+          "otl": 2,
+          "points": 14,
+          "gf": 40,
+          "ga": 31
+        },
+        {
+          "teamId": "vernon-hills-ice-dogs",
+          "position": 4,
+          "gp": 8,
+          "w": 6,
+          "l": 2,
+          "t": 0,
+          "otw": 1,
+          "otl": 0,
+          "points": 12,
+          "gf": 32,
+          "ga": 13
+        },
+        {
+          "teamId": "st-louis-sting",
+          "position": 5,
+          "gp": 7,
+          "w": 5,
+          "l": 1,
+          "t": 1,
+          "otw": 0,
+          "otl": 0,
+          "points": 11,
+          "gf": 30,
+          "ga": 17
+        },
+        {
+          "teamId": "st-louis-knights",
+          "position": 6,
+          "gp": 13,
+          "w": 4,
+          "l": 8,
+          "t": 1,
+          "otw": 0,
+          "otl": 0,
+          "points": 9,
+          "gf": 28,
+          "ga": 44
+        },
+        {
+          "teamId": "chicago-blues",
+          "position": 7,
+          "gp": 9,
+          "w": 3,
+          "l": 4,
+          "t": 0,
+          "otw": 0,
+          "otl": 2,
+          "points": 8,
+          "gf": 20,
+          "ga": 32
+        },
+        {
+          "teamId": "chicago-hawks",
+          "position": 8,
+          "gp": 9,
+          "w": 3,
+          "l": 5,
+          "t": 0,
+          "otw": 0,
+          "otl": 1,
+          "points": 7,
+          "gf": 19,
+          "ga": 27
+        },
+        {
+          "teamId": "northwest-chargers",
+          "position": 9,
+          "gp": 8,
+          "w": 3,
+          "l": 4,
+          "t": 1,
+          "otw": 0,
+          "otl": 0,
+          "points": 7,
+          "gf": 20,
+          "ga": 30
+        },
+        {
+          "teamId": "highland-park-falcons",
+          "position": 10,
+          "gp": 10,
+          "w": 2,
+          "l": 5,
+          "t": 2,
+          "otw": 1,
+          "otl": 1,
+          "points": 7,
+          "gf": 17,
+          "ga": 29
+        },
+        {
+          "teamId": "winnetka-warriors",
+          "position": 11,
+          "gp": 9,
+          "w": 3,
+          "l": 6,
+          "t": 0,
+          "otw": 1,
+          "otl": 0,
+          "points": 6,
+          "gf": 24,
+          "ga": 45
+        },
+        {
+          "teamId": "wilmette-jr-trevians",
+          "position": 12,
+          "gp": 8,
+          "w": 2,
+          "l": 6,
+          "t": 0,
+          "otw": 0,
+          "otl": 0,
+          "points": 4,
+          "gf": 17,
+          "ga": 23
+        },
+        {
+          "teamId": "lake-county-vipers",
+          "position": 13,
+          "gp": 6,
+          "w": 0,
+          "l": 4,
+          "t": 2,
+          "otw": 0,
+          "otl": 0,
+          "points": 2,
+          "gf": 4,
+          "ga": 22
+        }
+      ]
     }
   ]
 }

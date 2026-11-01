@@ -770,6 +770,45 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952094?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-01T18:02:50.895Z"
+    },
+    {
+      "gameId": "2952098",
+      "status": "final",
+      "awayTeamId": "wilmette-jr-trevians",
+      "homeTeamId": "highland-park-falcons",
+      "awayScore": 3,
+      "homeScore": 1,
+      "awayShots": 25,
+      "homeShots": 26,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952098?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-01T21:01:28.211Z"
+    },
+    {
+      "gameId": "2952111",
+      "status": "final",
+      "awayTeamId": "winnetka-warriors",
+      "homeTeamId": "chicago-hawks",
+      "awayScore": 2,
+      "homeScore": 3,
+      "awayShots": 23,
+      "homeShots": 34,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952111?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-01T21:01:28.211Z"
+    },
+    {
+      "gameId": "2952117",
+      "status": "final",
+      "awayTeamId": "chicago-blues",
+      "homeTeamId": "vernon-hills-ice-dogs",
+      "awayScore": 0,
+      "homeScore": 7,
+      "awayShots": 15,
+      "homeShots": 51,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952117?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-01T21:01:28.211Z"
     }
   ]
 }
