@@ -9,6 +9,14 @@ test('verified first final maps visitor/home scores correctly', () => {
   assert.equal(result.awayScore, 1);
   assert.equal(result.homeScore, 4);
 });
+test('MO Hockey final uses its matching non-CSDHL game and source', () => {
+  const result = results.get('crossbar-2026-11-01-home-sting-13u-tier-2')!;
+  assert.equal(result.awayScore, 4);
+  assert.equal(result.homeScore, 1);
+  assert.equal(result.homeTeamId, 'st-louis-knights');
+  assert.throws(() => validateResults({ observations: [{ ...result,
+    sourceUrl: result.sourceUrl.replace('2026-11-01', '2026-10-31') }] }));
+});
 test('reject duplicate observations, mismatched teams, negative scores and wrong box-score URLs', () => {
   const result = data.observations[0];
   assert.throws(() => validateResults({ observations: [result, result] }));

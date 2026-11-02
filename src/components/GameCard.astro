@@ -142,7 +142,7 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
       <p class="game-location">
         {result.finalConfirmedBy
           ? 'GameSheet score · Final confirmed by site owner'
-          : 'GameSheet snapshot · Checked'}{' '}
+          : `${supplemental ? 'MO Hockey' : 'GameSheet'} snapshot · Checked`}{' '}
         {formatTimestamp(result.observedAt)}
         {result.status === 'in-progress' && ' · Not a live feed; final pending.'}
       </p>
@@ -154,14 +154,14 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     </strong>
     <a
       href={
-        game.tournament
+        result ? result.sourceUrl : game.tournament
           ? game.tournament.sourceUrl
           : supplemental
             ? crossbarUrl
             : (result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`)
       }
     >
-      {game.tournament
+      {result && supplemental ? 'MO Hockey result ↗' : game.tournament
         ? 'Tournament schedule ↗'
         : supplemental
           ? 'Crossbar schedule ↗'

@@ -30,7 +30,10 @@ export function validateResults(input: unknown) {
     const key = `${result.gameId}/${result.observedAt}`;
     if (!game || game.homeTeamId !== result.homeTeamId || game.awayTeamId !== result.awayTeamId)
       throw new Error('Result participants must match the scheduled game');
-    if (result.sourceUrl !== `https://gamesheetstats.com/seasons/15220/games/${game.id}?tab=box-score`)
+    const moHockeySource = game.id === 'crossbar-2026-11-01-home-sting-13u-tier-2'
+      ? 'https://www.mohockeyyd.org/division/31114/scoreboard?date=2026-11-01&subseason_id=6128'
+      : null;
+    if (result.sourceUrl !== (moHockeySource ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}?tab=box-score`))
       throw new Error('Result must reference its official box score');
     if (seen.has(key)) throw new Error('Duplicate result observation');
     seen.add(key);
