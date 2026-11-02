@@ -158,7 +158,7 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
           ? game.tournament.sourceUrl
           : supplemental
             ? crossbarUrl
-            : (result?.sourceUrl ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}`)
+            : `https://gamesheetstats.com/seasons/15220/games/${game.id}`
       }
     >
       {result && supplemental ? 'MO Hockey result ↗' : game.tournament
