@@ -822,6 +822,19 @@
       "sourceUrl": "https://www.mohockeyyd.org/division/31114/scoreboard?date=2026-11-01&subseason_id=6128",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-02T16:15:54.710Z"
+    },
+    {
+      "gameId": "2952132",
+      "status": "final",
+      "awayTeamId": "northern-express",
+      "homeTeamId": "lake-county-vipers",
+      "awayScore": 5,
+      "homeScore": 0,
+      "awayShots": 47,
+      "homeShots": 10,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952132?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-04T06:16:51.264Z"
     }
   ]
 }
