@@ -34,10 +34,16 @@ export const tournamentSchema = z
 export function mergeTournament(games: Game[], input: unknown): Game[] {
   const s = tournamentSchema.parse(input);
   const dates = new Set(s.games.map((g) => g.date));
-  // Replace whole-day Crossbar blocks only on dates with confirmed fixtures.
-  const retained = games.filter(
-    (g) => !(g.crossbar?.placeholder && dates.has(g.date) && /CCM|World/i.test(g.crossbar.opponent)),
-  );
+  // Replace date blocks and Crossbar copies of confirmed tournament fixtures.
+  const retained = games.filter((game) => {
+    if (!game.crossbar?.placeholder) return true;
+    if (dates.has(game.date) && /CCM|World/i.test(game.crossbar.opponent)) return false;
+    return !s.games.some((fixture) =>
+      fixture.startsAt === game.startsAt &&
+      fixture.opponent.toLowerCase() === game.crossbar?.opponent.toLowerCase() &&
+      (fixture.side === 'home' ? game.homeTeamId : game.awayTeamId) === 'st-louis-knights',
+    );
+  });
   const additions: Game[] = s.games.map((g) => ({
     id: g.id,
     gameNumber: g.gameNumber,
