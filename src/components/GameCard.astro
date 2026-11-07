@@ -142,7 +142,7 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
       <p class="game-location">
         {result.finalConfirmedBy
           ? 'GameSheet score · Final confirmed by site owner'
-          : `${supplemental ? 'MO Hockey' : 'GameSheet'} snapshot · Checked`}{' '}
+          : `${game.tournament ? '200x85' : supplemental ? 'MO Hockey' : 'GameSheet'} snapshot · Checked`}{' '}
         {formatTimestamp(result.observedAt)}
         {result.status === 'in-progress' && ' · Not a live feed; final pending.'}
       </p>
@@ -154,20 +154,26 @@ const month = new Intl.DateTimeFormat('en-US', { month: 'short', timeZone: 'UTC'
     </strong>
     <a
       href={
-        result ? result.sourceUrl : game.tournament
-          ? game.tournament.sourceUrl
-          : supplemental
-            ? crossbarUrl
-            : `https://gamesheetstats.com/seasons/15220/games/${game.id}`
+        result
+          ? result.sourceUrl
+          : game.tournament
+            ? game.tournament.sourceUrl
+            : supplemental
+              ? crossbarUrl
+              : `https://gamesheetstats.com/seasons/15220/games/${game.id}`
       }
     >
-      {result && supplemental ? 'MO Hockey result ↗' : game.tournament
-        ? 'Tournament schedule ↗'
-        : supplemental
-          ? 'Crossbar schedule ↗'
-          : result
-            ? 'Box score ↗'
-            : 'Game details ↗'}
+      {result && game.tournament
+        ? 'Official tournament result ↗'
+        : result && supplemental
+          ? 'MO Hockey result ↗'
+          : game.tournament
+            ? 'Tournament schedule ↗'
+            : supplemental
+              ? 'Crossbar schedule ↗'
+              : result
+                ? 'Box score ↗'
+                : 'Game details ↗'}
     </a>
     {galleries.map((gallery) => (
       <a class="game-photo-link" href={gallery.url}>

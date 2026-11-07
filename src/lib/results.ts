@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import data from '../../data/results.json';
 import { games } from './schedule-data';
+const tournamentResultsSource =
+  'https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba/teams/9c6bb9c7-6cd7-4c89-aa89-2389e369497a';
 const count = z.number().int().nonnegative();
 const schema = z
   .object({
@@ -30,11 +32,17 @@ export function validateResults(input: unknown) {
     const key = `${result.gameId}/${result.observedAt}`;
     if (!game || game.homeTeamId !== result.homeTeamId || game.awayTeamId !== result.awayTeamId)
       throw new Error('Result participants must match the scheduled game');
-    const moHockeySource = game.id === 'crossbar-2026-11-01-home-sting-13u-tier-2'
-      ? 'https://www.mohockeyyd.org/division/31114/scoreboard?date=2026-11-01&subseason_id=6128'
-      : null;
-    if (result.sourceUrl !== (moHockeySource ?? `https://gamesheetstats.com/seasons/15220/games/${game.id}?tab=box-score`))
-      throw new Error('Result must reference its official box score');
+    const moHockeySource =
+      game.id === 'crossbar-2026-11-01-home-sting-13u-tier-2'
+        ? 'https://www.mohockeyyd.org/division/31114/scoreboard?date=2026-11-01&subseason_id=6128'
+        : null;
+    if (
+      result.sourceUrl !==
+      (moHockeySource ??
+        (game.tournament ? tournamentResultsSource : null) ??
+        `https://gamesheetstats.com/seasons/15220/games/${game.id}?tab=box-score`)
+    )
+      throw new Error('Result must reference its official results source');
     if (seen.has(key)) throw new Error('Duplicate result observation');
     seen.add(key);
     if (

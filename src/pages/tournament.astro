@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { results } from '../lib/results';
 import tournament from '../../data/tournaments.json';
 import { tournamentRating } from '../lib/tournament-ratings';
 const base = 'https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba';
@@ -165,6 +166,7 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
     <div class="tournament-games">
       {tournament.games.map((game) => {
         const rating = tournamentRating(game.opponent);
+        const result = results.get(game.id);
         return (
           <article class="panel tournament-game">
             <span class="eyebrow">
@@ -183,6 +185,13 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
             <p>
               {game.venue} · Knights {game.side === 'home' ? 'home' : 'visitor'}
             </p>
+            {result?.status === 'final' && (
+              <p>
+                Final · Knights {game.side === 'home' ? result.homeScore : result.awayScore}–
+                {game.side === 'home' ? result.awayScore : result.homeScore}{' '}
+                <a href={result.sourceUrl}>Official result ↗</a>
+              </p>
+            )}
             <a href="#rinks">Rink directions ↓</a>
             {rating?.rating != null && (
               <p class="rating-note">
