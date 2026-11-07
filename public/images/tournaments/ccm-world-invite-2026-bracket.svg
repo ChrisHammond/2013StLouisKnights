@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 868" role="img" aria-labelledby="title desc">
+  <title id="title">2026 CCM World Invite Chicago championship bracket</title>
+  <desc id="desc">2013 Ribcor bracket with officially assigned teams and placeholders for games awaiting assignments. St. Louis Knights play Peoria Jr Mustangs in Game 37.</desc>
+  <rect width="1536" height="868" fill="#edf1f4"/>
+  <path d="M0 0H1536V102H0Z" fill="#14171b"/>
+  <path d="M0 102H1536V109H0Z" fill="#b81528"/>
+  <g font-family="Arial, sans-serif">
+    <text x="36" y="48" fill="#fff" font-size="37" font-weight="700">ST. LOUIS KNIGHTS · ROAD TO THE CHAMPIONSHIP</text>
+    <text x="36" y="81" fill="#e2e6eb" font-size="22">2026 CCM WORLD INVITE CHICAGO · 2013 RIBCOR · NOVEMBER 6–8</text>
+    <path d="M446 192H471V270H446M471 231H496" fill="none" stroke="#59626d" stroke-width="3"/>
+    <path d="M446 348H471V426H446M471 387H496" fill="none" stroke="#59626d" stroke-width="3"/>
+    <path d="M446 504H471V582H446M471 543H496" fill="none" stroke="#59626d" stroke-width="3"/>
+    <path d="M446 660H471V738H446M471 699H496" fill="none" stroke="#59626d" stroke-width="3"/>
+    <path d="M801 231H826V387H801M826 309H851" fill="none" stroke="#59626d" stroke-width="3"/>
+    <path d="M801 543H826V699H801M826 621H851" fill="none" stroke="#59626d" stroke-width="3"/>
+    <path d="M1156 309H1181V621H1156M1181 465H1206" fill="none" stroke="#59626d" stroke-width="3"/>
+    <text x="36" y="143" fill="#20252b" font-size="19" font-weight="700">FIRST ROUND</text>
+    <rect x="36" y="162" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="48" y="187" fill="#171b20" font-size="17" font-weight="700">G45 · A1 vs D4</text>
+    <text x="48" y="210" fill="#171b20" font-size="16">Sat 6:30 PM · Edge John</text>
+    <rect x="36" y="240" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="48" y="265" fill="#171b20" font-size="17" font-weight="700">G38 · Leafs Prospects vs Chicago Blues</text>
+    <text x="48" y="288" fill="#171b20" font-size="16">Sat 3:30 PM · Oakton</text>
+    <rect x="36" y="318" width="410" height="62" rx="8" fill="#a61425" stroke="#7b1020" stroke-width="2"/>
+    <text x="48" y="343" fill="#fff" font-size="17" font-weight="700">G37 · St. Louis Knights vs Peoria Jr Mustangs</text>
+    <text x="48" y="366" fill="#fff" font-size="16">Sat 3:30 PM · Elk Grove / West</text>
+    <rect x="36" y="396" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="48" y="421" fill="#171b20" font-size="17" font-weight="700">G46 · D2 vs A3</text>
+    <text x="48" y="444" fill="#171b20" font-size="16">Sat 8 PM · Elk Grove / West</text>
+    <rect x="36" y="474" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="48" y="499" fill="#171b20" font-size="17" font-weight="700">G41 · St. Louis Sting vs Alabama Thunder</text>
+    <text x="48" y="522" fill="#171b20" font-size="16">Sat 5 PM · Oakton</text>
+    <rect x="36" y="552" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="48" y="577" fill="#171b20" font-size="17" font-weight="700">G48 · A2 vs D3</text>
+    <text x="48" y="600" fill="#171b20" font-size="16">Sat 8 PM · Edge John</text>
+    <rect x="36" y="630" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="48" y="655" fill="#171b20" font-size="17" font-weight="700">G47 · D1 vs A4</text>
+    <text x="48" y="678" fill="#171b20" font-size="16">Sat 8 PM · Oakton</text>
+    <rect x="36" y="708" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="48" y="733" fill="#171b20" font-size="17" font-weight="700">G40 · St. Jude Knights vs St. Louis Eagles</text>
+    <text x="48" y="756" fill="#171b20" font-size="16">Sat 5 PM · Elk Grove / West</text>
+    <text x="496" y="143" fill="#20252b" font-size="19" font-weight="700">QUARTERFINALS</text>
+    <rect x="496" y="201" width="305" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="508" y="226" fill="#171b20" font-size="16" font-weight="700">G49 · Winner G45 vs winner G38</text>
+    <text x="508" y="249" fill="#171b20" font-size="16">Sun 7:10 AM · Edge East</text>
+    <rect x="496" y="357" width="305" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="508" y="382" fill="#171b20" font-size="16" font-weight="700">G50 · Winner G37 vs winner G46</text>
+    <text x="508" y="405" fill="#171b20" font-size="16">Sun 7:20 AM · Elk Grove / West</text>
+    <rect x="496" y="513" width="305" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="508" y="538" fill="#171b20" font-size="16" font-weight="700">G51 · Winner G41 vs winner G48</text>
+    <text x="508" y="561" fill="#171b20" font-size="16">Sun 7:20 AM · Oakton</text>
+    <rect x="496" y="669" width="305" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="508" y="694" fill="#171b20" font-size="16" font-weight="700">G52 · Winner G47 vs winner G40</text>
+    <text x="508" y="717" fill="#171b20" font-size="16">Sun 7:20 AM · Edge John</text>
+    <text x="851" y="143" fill="#20252b" font-size="19" font-weight="700">SEMIFINALS</text>
+    <rect x="851" y="279" width="305" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="863" y="304" fill="#171b20" font-size="16" font-weight="700">G57 · Winner G49 vs winner G50</text>
+    <text x="863" y="327" fill="#171b20" font-size="16">Sun 10:50 AM · Elk Grove / West</text>
+    <rect x="851" y="591" width="305" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="863" y="616" fill="#171b20" font-size="16" font-weight="700">G58 · Winner G51 vs winner G52</text>
+    <text x="863" y="639" fill="#171b20" font-size="16">Sun 10:50 AM · Oakton</text>
+    <text x="1206" y="143" fill="#20252b" font-size="19" font-weight="700">CHAMPIONSHIP</text>
+    <rect x="1206" y="435" width="294" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
+    <text x="1218" y="460" fill="#171b20" font-size="16" font-weight="700">G59 · Winner G57 vs winner G58</text>
+    <text x="1218" y="483" fill="#171b20" font-size="16">Sun 2:30 PM · Oakton</text>
+    <rect x="36" y="790" width="1464" height="58" rx="8" fill="#14171b"/>
+    <text x="52" y="813" fill="#fff" font-size="16" font-weight="700">CONSOLATION · G39 Dearborn Mustangs vs Hoffman Ice Hawks · G42 Santa Clarita Flyers vs Macomb Mavericks Blue</text>
+    <text x="52" y="835" fill="#e2e6eb" font-size="15">All times Central. Seed and winner labels indicate slots awaiting official team assignments.</text>
+  </g>
+</svg>
