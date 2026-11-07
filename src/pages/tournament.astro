@@ -3,6 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import tournament from '../../data/tournaments.json';
 import { tournamentRating } from '../lib/tournament-ratings';
 const base = 'https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba';
+const officialLinks = [
+  ['Schedule', 'schedules?division=996'],
+  ['Standings', 'standings?division=996'],
+  ['Teams', 'teams'],
+  ['Venues', 'venues'],
+  ['Announcements', 'announcements?division=996'],
+];
 const finishes = [
   [
     '1st',
@@ -135,6 +142,11 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
       <small>November 8 · Oakton</small>
     </div>
   </section>
+  <nav class="tournament-jumps" aria-label="Official tournament links">
+    {officialLinks.map(([label, path]) => (
+      <a href={`${base}/${path}`}>{label} ↗</a>
+    ))}
+  </nav>
   <nav class="tournament-jumps" aria-label="Tournament sections">
     <a href="#pool-games">Knights games</a>
     <a href="#bracket">Bracket</a>
@@ -337,11 +349,9 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
   <section class="tournament-section tournament-sources">
     <h2>Official tournament links</h2>
     <div class="tournament-jumps">
-      <a href={`${base}/schedules?division=996`}>Schedule ↗</a>
-      <a href={`${base}/standings?division=996`}>Standings ↗</a>
-      <a href={`${base}/teams`}>Teams ↗</a>
-      <a href={`${base}/venues`}>Venues ↗</a>
-      <a href={`${base}/announcements?division=996`}>Announcements ↗</a>
+      {officialLinks.map(([label, path]) => (
+        <a href={`${base}/${path}`}>{label} ↗</a>
+      ))}
     </div>
     <p class="schedule-source">
       Schedule and rink details verified against 200x85 / Regystra on November 4, 2026. Bracket graphic is a
