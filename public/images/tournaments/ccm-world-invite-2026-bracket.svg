@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 868" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 928" role="img" aria-labelledby="title desc">
   <title id="title">2026 CCM World Invite Chicago championship bracket</title>
   <desc id="desc">2013 Ribcor bracket with officially assigned teams and placeholders for games awaiting assignments. St. Louis Knights play Peoria Jr Mustangs in Game 37.</desc>
-  <rect width="1536" height="868" fill="#edf1f4"/>
+  <rect width="1536" height="928" fill="#edf1f4"/>
   <path d="M0 0H1536V102H0Z" fill="#14171b"/>
   <path d="M0 102H1536V109H0Z" fill="#b81528"/>
   <g font-family="Arial, sans-serif">
@@ -63,8 +63,10 @@
     <rect x="1206" y="435" width="294" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
     <text x="1218" y="460" fill="#171b20" font-size="16" font-weight="700">G59 · Winner G57 vs winner G58</text>
     <text x="1218" y="483" fill="#171b20" font-size="16">Sun 2:30 PM · Oakton</text>
-    <rect x="36" y="790" width="1464" height="58" rx="8" fill="#14171b"/>
-    <text x="52" y="813" fill="#fff" font-size="16" font-weight="700">CONSOLATION · G39 Dearborn Mustangs vs Hoffman Ice Hawks · G42 Santa Clarita Flyers vs Macomb Mavericks Blue</text>
-    <text x="52" y="835" fill="#e2e6eb" font-size="15">All times Central. Seed and winner labels indicate slots awaiting official team assignments.</text>
+    <rect x="36" y="790" width="1464" height="44" rx="8" fill="#fff" stroke="#64707b"/>
+    <text x="52" y="818" fill="#171b20" font-size="17" font-weight="700">KNIGHTS POOL FINALS · 9–2 vs Alabama Thunder · 7–3 vs Santa Clarita Flyers · 4–2 vs St. Jude Knights · 3–0 overall</text>
+    <rect x="36" y="850" width="1464" height="58" rx="8" fill="#14171b"/>
+    <text x="52" y="873" fill="#fff" font-size="16" font-weight="700">CONSOLATION · G39 Dearborn Mustangs vs Hoffman Ice Hawks · G42 Santa Clarita Flyers vs Macomb Mavericks Blue</text>
+    <text x="52" y="895" fill="#e2e6eb" font-size="15">All times Central. Seed and winner labels indicate slots awaiting official team assignments.</text>
   </g>
 </svg>
