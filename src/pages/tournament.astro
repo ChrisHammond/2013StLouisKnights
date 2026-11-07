@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { results } from '../lib/results';
-import tournament from '../../data/tournaments.json';
+import { tournament } from '../lib/schedule-data';
 import { tournamentRating } from '../lib/tournament-ratings';
 const base = 'https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba';
 const officialLinks = [
@@ -162,7 +162,7 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
   </p>
   <section id="pool-games" class="tournament-section">
     <span class="eyebrow">FRIDAY & SATURDAY</span>
-    <h2>The Knights’ pool schedule</h2>
+    <h2>The Knights’ tournament schedule</h2>
     <div class="tournament-games">
       {tournament.games.map((game) => {
         const rating = tournamentRating(game.opponent);
@@ -170,7 +170,8 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
         return (
           <article class="panel tournament-game">
             <span class="eyebrow">
-              {game.date === '2026-11-06' ? 'FRI · NOV 6' : 'SAT · NOV 7'} · GAME {game.gameNumber}
+              {game.date === '2026-11-06' ? 'FRI · NOV 6' : 'SAT · NOV 7'} ·{' '}
+              {game.bracketUrl ? 'BRACKET' : 'POOL'} GAME {game.gameNumber}
             </span>
             <h3>
               {new Intl.DateTimeFormat('en-US', {
@@ -192,6 +193,7 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
                 <a href={result.sourceUrl}>Official result ↗</a>
               </p>
             )}
+            {game.bracketUrl && <a href={game.bracketUrl}>Official bracket game ↗</a>}
             <a href="#rinks">Rink directions ↓</a>
             {rating?.rating != null && (
               <p class="rating-note">
@@ -210,6 +212,16 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.png';
     </p>
   </section>
   <section id="bracket" class="tournament-section">
+    {tournament.games
+      .filter((game) => game.bracketUrl)
+      .map((game) => (
+        <p class="schedule-source">
+          Confirmed bracket matchup ·{' '}
+          <a href={game.bracketUrl}>
+            Game {game.gameNumber} vs. {game.opponent} ↗
+          </a>
+        </p>
+      ))}
     <div class="tournament-section-heading">
       <div>
         <span class="eyebrow">16 TEAMS · ONE CHAMPION</span>

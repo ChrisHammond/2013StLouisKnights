@@ -18,6 +18,7 @@ export const tournamentSchema = z
             opponent: z.string().min(1),
             side: z.enum(['home', 'away']),
             venue: z.string().min(1),
+            bracketUrl: z.url().optional(),
           })
           .strict(),
       )
@@ -38,10 +39,11 @@ export function mergeTournament(games: Game[], input: unknown): Game[] {
   const retained = games.filter((game) => {
     if (!game.crossbar?.placeholder) return true;
     if (dates.has(game.date) && /CCM|World/i.test(game.crossbar.opponent)) return false;
-    return !s.games.some((fixture) =>
-      fixture.startsAt === game.startsAt &&
-      fixture.opponent.toLowerCase() === game.crossbar?.opponent.toLowerCase() &&
-      (fixture.side === 'home' ? game.homeTeamId : game.awayTeamId) === 'st-louis-knights',
+    return !s.games.some(
+      (fixture) =>
+        fixture.startsAt === game.startsAt &&
+        fixture.opponent.toLowerCase() === game.crossbar?.opponent.toLowerCase() &&
+        (fixture.side === 'home' ? game.homeTeamId : game.awayTeamId) === 'st-louis-knights',
     );
   });
   const additions: Game[] = s.games.map((g) => ({
@@ -54,7 +56,7 @@ export function mergeTournament(games: Game[], input: unknown): Game[] {
     status: 'scheduled',
     homeTeamId: g.side === 'home' ? 'st-louis-knights' : 'tournament-opponent',
     awayTeamId: g.side === 'away' ? 'st-louis-knights' : 'tournament-opponent',
-    tournament: { opponent: g.opponent, label: s.label, sourceUrl: s.sourceUrl },
+    tournament: { opponent: g.opponent, label: s.label, sourceUrl: g.bracketUrl ?? s.sourceUrl },
   }));
   return sortGames([...retained, ...additions]);
 }

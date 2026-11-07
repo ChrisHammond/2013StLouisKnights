@@ -5,7 +5,7 @@ import { mergeTournament, tournamentSchema } from '../src/lib/tournaments';
 import { centralInstant, type Game } from '../src/lib/schedule';
 test('Chicago tournament times use Central standard time and preserve home/visitor assignment', () => {
   const games = mergeTournament([], store);
-  assert.equal(games.length, 3);
+  assert.equal(games.length, store.games.length);
   assert.equal(games[0].startsAt, centralInstant('2026-11-06', 9, 30));
   assert.equal(games[0].awayTeamId, 'st-louis-knights');
   assert.equal(games[1].homeTeamId, 'st-louis-knights');
@@ -29,7 +29,7 @@ test('confirmed games replace matching day blocks but retain an unassigned Sunda
       }) as Game,
   );
   const games = mergeTournament(blocks, store);
-  assert.equal(games.length, 4);
+  assert.equal(games.length, store.games.length + 1);
   assert.equal(games.filter((g) => g.crossbar?.placeholder).length, 1);
   assert.equal(games.find((g) => g.crossbar?.placeholder)?.date, '2026-11-08');
   const invalid = structuredClone(store);
