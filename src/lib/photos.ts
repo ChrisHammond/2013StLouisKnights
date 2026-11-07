@@ -9,7 +9,7 @@ const gallerySchema = z
     date: z.iso.date(),
     gameId: z
       .string()
-      .regex(/^(?:\d+|crossbar-[a-z0-9-]+)$/)
+      .regex(/^(?:\d+|(?:crossbar|ccm-world)-[a-z0-9-]+)$/)
       .nullable(),
     url: z
       .url()

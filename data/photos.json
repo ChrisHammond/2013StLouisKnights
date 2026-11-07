@@ -1,8 +1,14 @@
 {
   "collectionUrl": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights",
   "photographer": "RainbowMarks Photography",
-  "verifiedAt": "2026-11-01",
+  "verifiedAt": "2026-11-07",
   "galleries": [
+    {
+      "title": "Knights vs. St. Jude Knights",
+      "date": "2026-11-07",
+      "gameId": "ccm-world-2026-28",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/CCM-World-Invite/Vs-St-Jude-Knights-11-7-2026"
+    },
     {
       "title": "Knights vs. St. Louis Sting",
       "date": "2026-11-01",

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { photos } from '../lib/photos';
 import { results } from '../lib/results';
 import { tournament } from '../lib/schedule-data';
 import { tournamentRating } from '../lib/tournament-ratings';
@@ -167,6 +168,7 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.svg';
       {tournament.games.map((game) => {
         const rating = tournamentRating(game.opponent);
         const result = results.get(game.id);
+        const galleries = photos.galleries.filter((gallery) => gallery.gameId === game.id);
         return (
           <article class="panel tournament-game">
             <span class="eyebrow">
@@ -195,6 +197,11 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.svg';
             )}
             {game.bracketUrl && <a href={game.bracketUrl}>Official bracket game ↗</a>}
             <a href="#rinks">Rink directions ↓</a>
+            {galleries.map((gallery) => (
+              <p>
+                <a href={gallery.url}>Photos · RainbowMarks ↗</a>
+              </p>
+            ))}
             {rating?.rating != null && (
               <p class="rating-note">
                 MHR {rating.rating.toFixed(2)} · #{rating.rank}
