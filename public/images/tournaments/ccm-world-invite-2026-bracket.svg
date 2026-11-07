@@ -16,7 +16,7 @@
     <path d="M1156 309H1181V621H1156M1181 465H1206" fill="none" stroke="#59626d" stroke-width="3"/>
     <text x="36" y="143" fill="#20252b" font-size="19" font-weight="700">FIRST ROUND</text>
     <rect x="36" y="162" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
-    <text x="48" y="187" fill="#171b20" font-size="17" font-weight="700">G45 · Tri-State Spartans vs D4</text>
+    <text x="48" y="187" fill="#171b20" font-size="17" font-weight="700">G45 · Tri-State Spartans vs Arizona Titans</text>
     <text x="48" y="210" fill="#171b20" font-size="16">Sat 6:30 PM · Edge John</text>
     <rect x="36" y="240" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
     <text x="48" y="265" fill="#171b20" font-size="17" font-weight="700">G38 · Leafs Prospects vs Chicago Blues</text>
@@ -25,16 +25,16 @@
     <text x="48" y="343" fill="#fff" font-size="17" font-weight="700">G37 · St. Louis Knights vs Peoria Jr Mustangs</text>
     <text x="48" y="366" fill="#fff" font-size="16">Sat 3:30 PM · Elk Grove / West</text>
     <rect x="36" y="396" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
-    <text x="48" y="421" fill="#171b20" font-size="17" font-weight="700">G46 · D2 vs Northwest Chargers</text>
+    <text x="48" y="421" fill="#171b20" font-size="17" font-weight="700">G46 · Winnetka Warriors vs Northwest Chargers</text>
     <text x="48" y="444" fill="#171b20" font-size="16">Sat 8 PM · Elk Grove / West</text>
     <rect x="36" y="474" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
     <text x="48" y="499" fill="#171b20" font-size="17" font-weight="700">G41 · St. Louis Sting vs Alabama Thunder</text>
     <text x="48" y="522" fill="#171b20" font-size="16">Sat 5 PM · Oakton</text>
     <rect x="36" y="552" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
-    <text x="48" y="577" fill="#171b20" font-size="17" font-weight="700">G48 · HB Detroit Gold vs D3</text>
+    <text x="48" y="577" fill="#171b20" font-size="17" font-weight="700">G48 · HB Detroit Gold vs Lake County Vipers</text>
     <text x="48" y="600" fill="#171b20" font-size="16">Sat 8 PM · Edge John</text>
     <rect x="36" y="630" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
-    <text x="48" y="655" fill="#171b20" font-size="17" font-weight="700">G47 · D1 vs Chicago Hawks</text>
+    <text x="48" y="655" fill="#171b20" font-size="17" font-weight="700">G47 · Wilmette Jr Trevians vs Chicago Hawks</text>
     <text x="48" y="678" fill="#171b20" font-size="16">Sat 8 PM · Oakton</text>
     <rect x="36" y="708" width="410" height="62" rx="8" fill="#fff" stroke="#64707b" stroke-width="2"/>
     <text x="48" y="733" fill="#171b20" font-size="17" font-weight="700">G40 · St. Jude Knights vs St. Louis Eagles</text>
@@ -67,6 +67,6 @@
     <text x="52" y="818" fill="#171b20" font-size="17" font-weight="700">KNIGHTS POOL FINALS · 9–2 vs Alabama Thunder · 7–3 vs Santa Clarita Flyers · 4–2 vs St. Jude Knights · 3–0 overall</text>
     <rect x="36" y="850" width="1464" height="58" rx="8" fill="#14171b"/>
     <text x="52" y="873" fill="#fff" font-size="16" font-weight="700">CONSOLATION · G39 Dearborn Mustangs vs Hoffman Ice Hawks · G42 Santa Clarita Flyers vs Macomb Mavericks Blue</text>
-    <text x="52" y="895" fill="#e2e6eb" font-size="15">POOL A/D CONSOLATION · Highland Park Falcons vs D5 at Oakton · Cincinnati Jr Cyclones vs D6 at Elk Grove / West · Sat 6:30 PM Central</text>
+    <text x="52" y="895" fill="#e2e6eb" font-size="15">POOL A/D CONSOLATION · Highland Park Falcons vs Kirkwood Stars at Oakton · Cincinnati Jr Cyclones vs Irish Rovers at Elk Grove / West · Sat 6:30 PM Central</text>
   </g>
 </svg>
