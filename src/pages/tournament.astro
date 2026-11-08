@@ -162,7 +162,7 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.svg';
     results and final seeds.
   </p>
   <section id="pool-games" class="tournament-section">
-    <span class="eyebrow">FRIDAY & SATURDAY</span>
+    <span class="eyebrow">NOVEMBER 6–8</span>
     <h2>The Knights’ tournament schedule</h2>
     <div class="tournament-games">
       {tournament.games.map((game) => {
@@ -172,8 +172,16 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.svg';
         return (
           <article class="panel tournament-game">
             <span class="eyebrow">
-              {game.date === '2026-11-06' ? 'FRI · NOV 6' : 'SAT · NOV 7'} ·{' '}
-              {game.bracketUrl ? 'BRACKET' : 'POOL'} GAME {game.gameNumber}
+              {new Intl.DateTimeFormat('en-US', {
+                timeZone: 'America/Chicago',
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+              })
+                .format(new Date(game.startsAt))
+                .toUpperCase()
+                .replace(',', ' ·')}{' '}
+              · {game.bracketUrl ? 'BRACKET' : 'POOL'} GAME {game.gameNumber}
             </span>
             <h3>
               {new Intl.DateTimeFormat('en-US', {
@@ -213,10 +221,7 @@ const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.svg';
         );
       })}
     </div>
-    <p>
-      Pool B also includes Chicago Blues and Dearborn Mustangs. The Knights are scheduled against the three
-      opponents above during pool play.
-    </p>
+    <p>The Knights finished pool play 3–0 before advancing to the championship bracket.</p>
   </section>
   <section id="bracket" class="tournament-section">
     {tournament.games

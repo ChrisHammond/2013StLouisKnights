@@ -41,6 +41,16 @@
       "side": "home",
       "venue": "Elk Grove / West",
       "bracketUrl": "https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba/games/9122c724-6774-465b-9151-8839aee6a615/show"
+    },
+    {
+      "id": "ccm-world-2026-50",
+      "gameNumber": "50",
+      "date": "2026-11-08",
+      "startsAt": "2026-11-08T13:20:00.000Z",
+      "opponent": "Winnetka Warriors",
+      "side": "home",
+      "venue": "Elk Grove / West",
+      "bracketUrl": "https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba/games/7d5945df-4418-4ec6-b393-fd8b7d1ca8f5/show"
     }
   ]
 }

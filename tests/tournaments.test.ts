@@ -28,10 +28,14 @@ test('confirmed games replace matching day blocks but retain an unassigned Sunda
         crossbar: { opponent: 'CCM World Invite', label: 'Tournament', placeholder: true },
       }) as Game,
   );
-  const games = mergeTournament(blocks, store);
-  assert.equal(games.length, store.games.length + 1);
+  const saturdaySchedule = { ...store, games: store.games.filter((game) => game.date < '2026-11-08') };
+  const games = mergeTournament(blocks, saturdaySchedule);
+  assert.equal(games.length, saturdaySchedule.games.length + 1);
   assert.equal(games.filter((g) => g.crossbar?.placeholder).length, 1);
   assert.equal(games.find((g) => g.crossbar?.placeholder)?.date, '2026-11-08');
+  const fullSchedule = mergeTournament(blocks, store);
+  assert.equal(fullSchedule.filter((game) => game.date === '2026-11-08').length, 1);
+  assert.equal(fullSchedule.find((game) => game.date === '2026-11-08')?.id, 'ccm-world-2026-50');
   const invalid = structuredClone(store);
   invalid.games[0].startsAt = '2026-11-07T15:00:00.000Z';
   assert.throws(() => tournamentSchema.parse(invalid));
