@@ -887,6 +887,19 @@
       "sourceUrl": "https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba/teams/9c6bb9c7-6cd7-4c89-aa89-2389e369497a",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-08T00:50:39.256Z"
+    },
+    {
+      "gameId": "ccm-world-2026-50",
+      "status": "final",
+      "awayTeamId": "tournament-opponent",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 3,
+      "homeScore": 2,
+      "awayShots": null,
+      "homeShots": null,
+      "sourceUrl": "https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba/teams/9c6bb9c7-6cd7-4c89-aa89-2389e369497a",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-08T20:14:11.353Z"
     }
   ]
 }
