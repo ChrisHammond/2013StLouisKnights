@@ -1,496 +1,59 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { photos } from '../lib/photos';
-import { results } from '../lib/results';
-import { tournament } from '../lib/schedule-data';
-import { tournamentRating } from '../lib/tournament-ratings';
-const base = 'https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba';
-const officialLinks = [
-  ['Schedule', 'schedules?division=996'],
-  ['Standings', 'standings?division=996'],
-  ['Teams', 'teams'],
-  ['Venues', 'venues'],
-  ['Announcements', 'announcements?division=996'],
-];
-const finishes = [
-  [
-    '1st',
-    'C4',
-    '37',
-    '3:30 PM',
-    'Elk Grove / West',
-    'G50 · 7:20 AM · Elk Grove / West',
-    'G54 · 8:30 AM · Oakton',
-    'G57 · Elk Grove / West',
-  ],
-  [
-    '2nd',
-    'C3',
-    '40',
-    '5 PM',
-    'Elk Grove / West',
-    'G52 · 7:20 AM · Edge John',
-    'G56 · 9:40 AM · Oakton',
-    'G58 · Oakton',
-  ],
-  [
-    '3rd',
-    'C2',
-    '38',
-    '3:30 PM',
-    'Oakton',
-    'G49 · 7:10 AM · Edge / East',
-    'G53 · 8:30 AM · Elk Grove / West',
-    'G57 · Elk Grove / West',
-  ],
-  [
-    '4th',
-    'C1',
-    '41',
-    '5 PM',
-    'Oakton',
-    'G51 · 7:20 AM · Oakton',
-    'G55 · 9:40 AM · Elk Grove / West',
-    'G58 · Oakton',
-  ],
-  ['5th', 'C5', '42', '5 PM', 'Edge John', '', '', ''],
-  ['6th', 'C6', '39', '3:30 PM', 'Edge John', '', '', ''],
-];
-const pools = [
-  [
-    'A',
-    [
-      'Northwest Chargers',
-      'Highland Park Falcons',
-      'Chicago Hawks',
-      'Cincinnati Jr Cyclones',
-      'Tri-State Spartans',
-      'HB Detroit Gold',
-    ],
-  ],
-  [
-    'B',
-    [
-      'Chicago Blues',
-      'St. Louis Knights',
-      'St. Jude Knights',
-      'Dearborn Mustangs',
-      'Alabama Thunder',
-      'Santa Clarita Flyers',
-    ],
-  ],
-  [
-    'C',
-    [
-      'Leafs Prospects',
-      'Peoria Jr Mustangs',
-      'St Louis Sting',
-      'St Louis Eagles',
-      'Hoffman Ice Hawks',
-      'Macomb Mavericks Blue',
-    ],
-  ],
-  [
-    'D',
-    [
-      'Lake County Vipers',
-      'Winnetka Warriors',
-      'Wilmette Jr Trevians',
-      'Arizona Titans',
-      'Irish Rovers',
-      'Kirkwood Stars',
-    ],
-  ],
-] as const;
-const venues = [
-  ['Oakton', 'Oakton Ice Arena', '2800 Oakton St, Park Ridge, IL 60068'],
-  ['Edge John', 'Edge John Street', '545 John Street, Bensenville, IL 60106'],
-  ['Elk Grove / West', 'Elk Grove Ice Arena', '610 Meacham Rd, Elk Grove Village, IL 60007'],
-  ['Edge / East', 'Edge Jefferson Street', '735 East Jefferson Street, Bensenville, IL'],
-];
-const bracket = '/images/tournaments/ccm-world-invite-2026-bracket.svg';
+
+const eventUrl = 'https://my.200x85.com/events/53e87131-b326-4c73-a4e9-e0a17d7a40a2';
+const organizerUrl = 'https://200x85.com/ccm-florida-winter-cup/';
 ---
 
 <Layout
-  title="Tournament · CCM World Invite"
-  description="St. Louis Knights at the 2026 CCM World Invite Chicago: pool schedule, championship bracket, Pool B finish paths and rink directions."
+  title="Tournament · CCM Florida Winter Cup"
+  description="Follow the 2013 St. Louis Knights at the CCM Florida Winter Cup in Clearwater, December 11–13, 2026."
 >
   <div class="page-heading">
     <div>
-      <span class="eyebrow">TOURNAMENT CENTRAL · NOVEMBER 6–8, 2026</span>
-      <h1>Chicago. Here we go.</h1>
-      <p>2026 CCM World Invite Chicago · 2013 Ribcor division</p>
+      <span class="eyebrow">TOURNAMENT CENTRAL · DECEMBER 11–13, 2026</span>
+      <h1>CCM Florida Winter Cup</h1>
+      <p>Clearwater, Florida · 2013 age group</p>
     </div>
-    <span class="season-chip">POOL B</span>
+    <span class="season-chip">UPCOMING</span>
   </div>
-  <section class="knights-banner tournament-hero" aria-label="Tournament overview">
+
+  <section class="knights-banner" aria-label="Tournament overview">
     <div class="banner-identity">
       <img src="/knights-logo.png" width="100" height="116" alt="St. Louis Knights crest" />
       <div>
         <span class="eyebrow">ST. LOUIS KNIGHTS</span>
-        <h2>Road to the championship</h2>
-        <p>Three pool games. Then the path depends on our Pool B finish.</p>
-        <a href={`${base}/schedules?division=996`}>Official schedule ↗</a>
+        <h2>Next stop: Clearwater</h2>
+        <p>Friday, December 11 through Sunday, December 13.</p>
+        <a href={eventUrl}>Official Clearwater event ↗</a>
       </div>
     </div>
-    <div class="banner-stat">
-      <span>Division</span>
-      <strong>2013 Ribcor</strong>
-      <small>24 teams · 4 pools</small>
-    </div>
-    <div class="banner-stat">
-      <span>Championship</span>
-      <strong>Sun · 2:30 PM</strong>
-      <small>November 8 · Oakton</small>
-    </div>
   </section>
-  <nav class="tournament-jumps" aria-label="Official tournament links">
-    {officialLinks.map(([label, path]) => (
-      <a href={`${base}/${path}`}>{label} ↗</a>
-    ))}
-  </nav>
-  <nav class="tournament-jumps" aria-label="Tournament sections">
-    <a href="#pool-games">Knights games</a>
-    <a href="#bracket">Bracket</a>
-    <a href="#finish">Finish scenarios</a>
-    <a href="#pools">Pools</a>
-    <a href="#rinks">Rinks</a>
-  </nav>
-  <p class="schedule-source">
-    Schedule verified November 4, 2026. All times are Chicago local (Central Standard Time). This is a saved
-    schedule, not live scoring; check <a href={`${base}/standings?division=996`}>official standings ↗</a> for
-    results and final seeds.
-  </p>
-  <section id="pool-games" class="tournament-section">
-    <span class="eyebrow">NOVEMBER 6–8</span>
-    <h2>The Knights’ tournament schedule</h2>
-    <div class="tournament-games">
-      {tournament.games.map((game) => {
-        const rating = tournamentRating(game.opponent);
-        const result = results.get(game.id);
-        const galleries = photos.galleries.filter((gallery) => gallery.gameId === game.id);
-        return (
-          <article class="panel tournament-game">
-            <span class="eyebrow">
-              {new Intl.DateTimeFormat('en-US', {
-                timeZone: 'America/Chicago',
-                weekday: 'short',
-                month: 'short',
-                day: 'numeric',
-              })
-                .format(new Date(game.startsAt))
-                .toUpperCase()
-                .replace(',', ' ·')}{' '}
-              · {game.bracketUrl ? 'BRACKET' : 'POOL'} GAME {game.gameNumber}
-            </span>
-            <h3>
-              {new Intl.DateTimeFormat('en-US', {
-                timeZone: 'America/Chicago',
-                hour: 'numeric',
-                minute: '2-digit',
-              }).format(new Date(game.startsAt))}
-            </h3>
-            <p class="opponent">
-              {game.side === 'away' ? 'at' : 'vs.'} {game.opponent}
-            </p>
-            <p>
-              {game.venue} · Knights {game.side === 'home' ? 'home' : 'visitor'}
-            </p>
-            {result?.status === 'final' && (
-              <p>
-                Final · Knights {game.side === 'home' ? result.homeScore : result.awayScore}–
-                {game.side === 'home' ? result.awayScore : result.homeScore}{' '}
-                <a href={result.sourceUrl}>Official result ↗</a>
-              </p>
-            )}
-            {game.bracketUrl && <a href={game.bracketUrl}>Official bracket game ↗</a>}
-            <a href="#rinks">Rink directions ↓</a>
-            {galleries.map((gallery) => (
-              <p>
-                <a href={gallery.url}>Photos · RainbowMarks ↗</a>
-              </p>
-            ))}
-            {rating?.rating != null && (
-              <p class="rating-note">
-                MHR {rating.rating.toFixed(2)} · #{rating.rank}
-                <br />
-                <a href={rating.sourceUrl}>USA 13U All · {rating.releaseDate} edition ↗</a>
-              </p>
-            )}
-          </article>
-        );
-      })}
-    </div>
-    <p>The Knights finished pool play 3–0 before advancing to the championship bracket.</p>
-  </section>
-  <section id="bracket" class="tournament-section">
-    {tournament.games
-      .filter((game) => game.bracketUrl)
-      .map((game) => (
-        <p class="schedule-source">
-          Confirmed bracket matchup ·{' '}
-          <a href={game.bracketUrl}>
-            Game {game.gameNumber} vs. {game.opponent} ↗
-          </a>
-        </p>
-      ))}
-    <div class="tournament-section-heading">
-      <div>
-        <span class="eyebrow">16 TEAMS · ONE CHAMPION</span>
-        <h2>The championship bracket</h2>
-      </div>
-      <a href={bracket} target="_blank" rel="noopener">
-        Open full-size graphic ↗
-      </a>
-    </div>
-    <a
-      href={bracket}
-      target="_blank"
-      rel="noopener"
-      aria-label="Open the Knights tournament bracket at full size"
-    >
-      <img
-        class="bracket-image"
-        src={bracket}
-        width="1536"
-        height="928"
-        alt="16-team championship bracket with confirmed team assignments and pending seed slots. The Knights went 3–0 in pool play and face Peoria Jr Mustangs in Game 37."
-        loading="lazy"
-      />
-    </a>
+
+  <section class="panel tournament-panel" aria-labelledby="florida-schedule">
+    <span class="eyebrow">GAMES &amp; RINKS</span>
+    <h2 id="florida-schedule">Knights schedule</h2>
     <p>
-      A–D identify the pools; the number is the final placing within that pool. The red card marks the
-      confirmed St. Louis first-round game. Winners advance along the bracket lines.
+      Game times, opponents, and rink assignments are pending the official schedule. Times will be listed in
+      Eastern time.
     </p>
+    <a href={organizerUrl}>Tournament details from 200x85 ↗</a>
   </section>
-  <section id="finish" class="tournament-section">
-    <span class="eyebrow">WHERE DO WE GO NEXT?</span>
-    <h2>Pool B finish → Saturday matchup</h2>
+
+  <section class="panel tournament-panel" id="bracket" aria-labelledby="past-tournaments">
+    <span class="eyebrow">PAST TOURNAMENT · NOVEMBER 6–8, 2026</span>
+    <h2 id="past-tournaments">CCM World Invite Chicago</h2>
+    <p>Revisit the Knights’ game results, photos, and the completed 2013 Ribcor championship bracket.</p>
+    <a href="/tournament/chicago/">Open the Chicago tournament page →</a>
     <p>
-      First through fourth enter the championship bracket. Fifth and sixth play a Saturday consolation game
-      against the same-place Pool C team.
-    </p>
-    <div class="table-scroll">
-      <table>
-        <caption>Saturday, November 7 · Knights seed scenarios</caption>
-        <thead>
-          <tr>
-            <th scope="col">B finish</th>
-            <th scope="col">Opponent</th>
-            <th scope="col">Game</th>
-            <th scope="col">Time</th>
-            <th scope="col">Rink</th>
-          </tr>
-        </thead>
-        <tbody>
-          {finishes.map(([finish, opponent, game, time, rink]) => (
-            <tr>
-              <th scope="row">{finish}</th>
-              <td>
-                Pool {opponent[0]} · {opponent.slice(1)}
-                {Number(opponent.slice(1)) === 1
-                  ? 'st'
-                  : Number(opponent.slice(1)) === 2
-                    ? 'nd'
-                    : Number(opponent.slice(1)) === 3
-                      ? 'rd'
-                      : 'th'}
-              </td>
-              <td>
-                G{game}
-                {Number(game) === 42 || Number(game) === 39 ? ' · Consolation' : ''}
-              </td>
-              <td>{time}</td>
-              <td>{rink}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    <h3 class="sunday-heading">Sunday, November 8 · after a top-four finish</h3>
-    <div class="table-scroll">
-      <table>
-        <caption>Sunday paths depend on Saturday’s result; these are potential games.</caption>
-        <thead>
-          <tr>
-            <th scope="col">B finish</th>
-            <th scope="col">Saturday win → Quarterfinal</th>
-            <th scope="col">Saturday loss → Consolation</th>
-            <th scope="col">Quarterfinal win → Semifinal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {finishes.slice(0, 4).map((row) => (
-            <tr>
-              <th scope="row">{row[0]}</th>
-              <td>{row[5]}</td>
-              <td>{row[6]}</td>
-              <td>{row[7]} · 10:50 AM</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    <p>
-      Semifinal winners meet in <strong>G59 · Sunday 2:30 PM · Oakton</strong>. No further game is listed for
-      quarterfinal losers or after the fifth- and sixth-place Saturday consolation games.
-    </p>
-  </section>
-  <section id="pools" class="tournament-section">
-    <span class="eyebrow">THE FIELD</span>
-    <h2>Four pools. Twenty-four teams.</h2>
-    <p>Team lists below are pool membership, not seeded standings.</p>
-    <div class="tournament-pools">
-      {pools.map(([pool, teams]) => (
-        <article class:list={['panel', 'pool-panel', { 'our-pool': pool === 'B' }]}>
-          <h3>
-            Pool {pool}
-            {pool === 'B' ? ' · Knights' : ''}
-          </h3>
-          <ul>
-            {teams.map((team) => (
-              <li>{team === 'St. Louis Knights' ? <strong>{team}</strong> : team}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
-    </div>
-    <a href={`${base}/standings?division=996`}>View official pool standings ↗</a>
-  </section>
-  <section id="rinks" class="tournament-section">
-    <span class="eyebrow">GET TO THE GAME</span>
-    <h2>Rinks & directions</h2>
-    <p>
-      Pool games use Oakton, Edge John and Elk Grove / West. Edge / East is a possible Sunday quarterfinal
-      location. Edge John and Edge Jefferson are separate addresses.
-    </p>
-    <div class="tournament-pools">
-      {venues.map(([label, name, address]) => (
-        <article class="panel pool-panel">
-          <h3>{label}</h3>
-          <p>{name}</p>
-          <p>{address}</p>
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ' ' + address)}`}
-          >
-            Get directions ↗
-          </a>
-        </article>
-      ))}
-    </div>
-  </section>
-  <section class="tournament-section tournament-sources">
-    <h2>Official tournament links</h2>
-    <div class="tournament-jumps">
-      {officialLinks.map(([label, path]) => (
-        <a href={`${base}/${path}`}>{label} ↗</a>
-      ))}
-    </div>
-    <p class="schedule-source">
-      Schedule and rink details verified against 200x85 / Regystra on November 4, 2026. Bracket graphic is a
-      Knights-themed guide to the published schedule. Opponent ratings are dated editions from the portal’s
-      saved MHR observations. Official tournament updates take precedence.
+      <a href="/tournament/chicago/#bracket">Jump to the Chicago bracket →</a>
     </p>
   </section>
 </Layout>
+
 <style>
-  .tournament-section {
-    margin-top: 2.5rem;
-    scroll-margin-top: 2rem;
-  }
-  .tournament-section h2 {
-    margin-bottom: 0.8rem;
-  }
-  .tournament-section > p {
-    margin: 1rem 0;
-  }
-  .tournament-jumps {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-  .tournament-games {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 1.3rem 0;
-  }
-  .tournament-game,
-  .pool-panel {
-    padding: 1.4rem;
-  }
-  .tournament-game h3 {
-    font-size: 1.8rem;
-    margin: 0.7rem 0;
-  }
-  .tournament-game p {
-    margin: 0.6rem 0;
-  }
-  .opponent {
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-  .rating-note {
-    font-size: 0.85rem;
-    border-top: 1px solid var(--line);
-    padding-top: 0.8rem;
-  }
-  .bracket-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-  }
-  .tournament-section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-  .tournament-pools {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
-  }
-  .pool-panel ul {
-    padding-left: 1.2rem;
-    line-height: 1.9;
-  }
-  .pool-panel p {
-    margin: 0.7rem 0;
-  }
-  .our-pool {
-    border-top: 3px solid #b42029;
-  }
-  .sunday-heading {
-    margin: 1.6rem 0 0.8rem;
-  }
-  caption {
-    text-align: left;
-    padding: 0.8rem 0;
-    font-size: 0.9rem;
-  }
-  .tournament-hero {
-    flex-wrap: wrap;
-  }
-  .tournament-sources {
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--line);
-  }
-  @media (max-width: 750px) {
-    .tournament-games,
-    .tournament-pools {
-      grid-template-columns: 1fr;
-    }
-    .tournament-hero .banner-identity {
-      min-width: 0;
-    }
-    .tournament-hero h2 {
-      font-size: 1.4rem;
-    }
+  .tournament-panel {
+    padding: 1.5rem;
+    margin-block: 1.5rem;
   }
 </style>
