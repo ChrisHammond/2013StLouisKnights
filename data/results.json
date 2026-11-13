@@ -900,6 +900,19 @@
       "sourceUrl": "https://my.200x85.com/tournaments/1a0a158e-5bf4-4e1e-93a9-01bb7e7963ba/teams/9c6bb9c7-6cd7-4c89-aa89-2389e369497a",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-08T20:14:11.353Z"
+    },
+    {
+      "gameId": "2952249",
+      "status": "final",
+      "awayTeamId": "vernon-hills-ice-dogs",
+      "homeTeamId": "highland-park-falcons",
+      "awayScore": 3,
+      "homeScore": 1,
+      "awayShots": 22,
+      "homeShots": 29,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952249?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-13T14:39:41.289Z"
     }
   ]
 }
