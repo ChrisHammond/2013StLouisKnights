@@ -1,6 +1,42 @@
 {
-  "verifiedAt": "2026-10-31",
+  "verifiedAt": "2026-11-13",
   "videos": [
+    {
+      "title": "Knights vs. St. Louis Sting · BNC Qualifier · Part 1",
+      "date": "2026-11-01",
+      "gameId": "crossbar-2026-11-01-home-sting-13u-tier-2",
+      "videoId": "FzXGf1OMIx8"
+    },
+    {
+      "title": "Knights vs. Alabama Thunder · Part 1",
+      "date": "2026-11-06",
+      "gameId": "ccm-world-2026-5",
+      "videoId": "3T3l-I33omg"
+    },
+    {
+      "title": "Knights vs. Alabama Thunder · Part 2",
+      "date": "2026-11-06",
+      "gameId": "ccm-world-2026-5",
+      "videoId": "_Y5XwveNGO8"
+    },
+    {
+      "title": "Knights vs. St. Jude Knights · CCM",
+      "date": "2026-11-07",
+      "gameId": "ccm-world-2026-28",
+      "videoId": "QYOc341On9k"
+    },
+    {
+      "title": "Knights vs. Peoria Jr Mustangs · CCM playoffs",
+      "date": "2026-11-07",
+      "gameId": "ccm-world-2026-37",
+      "videoId": "ayMblV6kves"
+    },
+    {
+      "title": "Knights vs. Winnetka Warriors · CCM quarterfinal",
+      "date": "2026-11-08",
+      "gameId": "ccm-world-2026-50",
+      "videoId": "1e5_2g45260"
+    },
     {
       "title": "Knights vs. Chicago Hawks",
       "date": "2026-10-25",

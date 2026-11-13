@@ -14,7 +14,7 @@ export function validateVideos(input: unknown) {
             date: z.iso.date(),
             gameId: z
               .string()
-              .regex(/^(?:\d+|crossbar-[a-z0-9-]+)$/)
+              .regex(/^(?:\d+|(?:crossbar|ccm-world)-[a-z0-9-]+)$/)
               .nullable(),
             videoId: z.string().regex(/^[A-Za-z0-9_-]{11}$/),
           })
