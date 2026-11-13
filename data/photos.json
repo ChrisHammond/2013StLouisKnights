@@ -1,8 +1,32 @@
 {
   "collectionUrl": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights",
   "photographer": "RainbowMarks Photography",
-  "verifiedAt": "2026-11-07",
+  "verifiedAt": "2026-11-13",
   "galleries": [
+    {
+      "title": "Knights vs. Santa Clarita Flyers",
+      "date": "2026-11-06",
+      "gameId": "ccm-world-2026-17",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/CCM-World-Invite/Vs-Santa-Clarita-Flyers-11-6-2026"
+    },
+    {
+      "title": "Knights vs. Alabama Thunder",
+      "date": "2026-11-06",
+      "gameId": "ccm-world-2026-5",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/CCM-World-Invite/Vs-Alabama-Thunder-11-6-2026"
+    },
+    {
+      "title": "Knights vs. Peoria Jr Mustangs",
+      "date": "2026-11-07",
+      "gameId": "ccm-world-2026-37",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/CCM-World-Invite/Vs-Peoria-Jr-Mustangs"
+    },
+    {
+      "title": "Knights vs. Winnetka Warriors",
+      "date": "2026-11-08",
+      "gameId": "ccm-world-2026-50",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/CCM-World-Invite/Vs-Winnetka-Warrios-11-8-2026"
+    },
     {
       "title": "Knights vs. St. Jude Knights",
       "date": "2026-11-07",
