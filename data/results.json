@@ -913,6 +913,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952249?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-13T14:39:41.289Z"
+    },
+    {
+      "gameId": "2952149",
+      "status": "final",
+      "awayTeamId": "wilmette-jr-trevians",
+      "homeTeamId": "northwest-chargers",
+      "awayScore": 5,
+      "homeScore": 2,
+      "awayShots": 35,
+      "homeShots": 13,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952149?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-14T12:00:36.112Z"
     }
   ]
 }
