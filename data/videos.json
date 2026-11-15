@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-11-13",
+  "verifiedAt": "2026-11-15",
   "videos": [
     {
       "title": "Knights vs. St. Louis Sting · BNC Qualifier · Part 1",
@@ -168,6 +168,12 @@
       "date": "2026-10-31",
       "gameId": "2952060",
       "videoId": "63hJqn3prdM"
+    },
+    {
+      "title": "STL Knights vs STL Eagles BNC Qualifier 11-15-26",
+      "date": "2026-11-15",
+      "gameId": "crossbar-2026-11-15-away-13u-aa-st-louis-eagles",
+      "videoId": "Ed3y3xvKDjg"
     }
   ]
 }
