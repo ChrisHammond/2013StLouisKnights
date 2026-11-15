@@ -991,6 +991,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952202?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-15T12:01:31.306Z"
+    },
+    {
+      "gameId": "2952221",
+      "status": "final",
+      "awayTeamId": "lake-county-vipers",
+      "homeTeamId": "highland-park-falcons",
+      "awayScore": 3,
+      "homeScore": 6,
+      "awayShots": 40,
+      "homeShots": 25,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952221?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-15T19:01:05.554Z"
     }
   ]
 }
