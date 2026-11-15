@@ -1004,6 +1004,32 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952221?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-15T19:01:05.554Z"
+    },
+    {
+      "gameId": "2952218",
+      "status": "final",
+      "awayTeamId": "chicago-hawks",
+      "homeTeamId": "st-louis-sting",
+      "awayScore": 1,
+      "homeScore": 2,
+      "awayShots": 24,
+      "homeShots": 57,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952218?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-15T20:02:28.500Z"
+    },
+    {
+      "gameId": "2952230",
+      "status": "final",
+      "awayTeamId": "wilmette-jr-trevians",
+      "homeTeamId": "naperville-sabres",
+      "awayScore": 0,
+      "homeScore": 5,
+      "awayShots": 34,
+      "homeShots": 22,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952230?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-15T20:02:28.500Z"
     }
   ]
 }
