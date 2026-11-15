@@ -1030,6 +1030,19 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952230?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-15T20:02:28.500Z"
+    },
+    {
+      "gameId": "2952237",
+      "status": "final",
+      "awayTeamId": "northern-express",
+      "homeTeamId": "vernon-hills-ice-dogs",
+      "awayScore": 3,
+      "homeScore": 2,
+      "awayShots": 33,
+      "homeShots": 21,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952237?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-15T21:00:40.655Z"
     }
   ]
 }
