@@ -1043,6 +1043,71 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952237?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-15T21:00:40.655Z"
+    },
+    {
+      "gameId": "2952282",
+      "status": "final",
+      "awayTeamId": "northwest-chargers",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 1,
+      "homeScore": 3,
+      "awayShots": 20,
+      "homeShots": 26,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952282?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-22T15:07:22.341Z"
+    },
+    {
+      "gameId": "2952261",
+      "status": "final",
+      "awayTeamId": "chicago-blues",
+      "homeTeamId": "chicago-hawks",
+      "awayScore": 2,
+      "homeScore": 4,
+      "awayShots": 19,
+      "homeShots": 36,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952261?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-22T15:07:22.341Z"
+    },
+    {
+      "gameId": "2952312",
+      "status": "final",
+      "awayTeamId": "chicago-hawks",
+      "homeTeamId": "chicago-blues",
+      "awayScore": 6,
+      "homeScore": 1,
+      "awayShots": 22,
+      "homeShots": 16,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952312?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-22T15:07:22.341Z"
+    },
+    {
+      "gameId": "2952314",
+      "status": "final",
+      "awayTeamId": "northwest-chargers",
+      "homeTeamId": "st-louis-sting",
+      "awayScore": 3,
+      "homeScore": 6,
+      "awayShots": 21,
+      "homeShots": 43,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952314?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-22T15:07:22.341Z"
+    },
+    {
+      "gameId": "2952315",
+      "status": "final",
+      "awayTeamId": "naperville-sabres",
+      "homeTeamId": "wilmette-jr-trevians",
+      "awayScore": 4,
+      "homeScore": 1,
+      "awayShots": null,
+      "homeShots": null,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952315?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-22T15:07:22.341Z"
     }
   ]
 }
