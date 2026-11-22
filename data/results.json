@@ -1108,6 +1108,20 @@
       "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952315?tab=box-score",
       "sourcePublishedAt": null,
       "observedAt": "2026-11-22T15:07:22.341Z"
+    },
+    {
+      "gameId": "2952339",
+      "status": "final",
+      "awayTeamId": "northwest-chargers",
+      "homeTeamId": "st-louis-knights",
+      "awayScore": 4,
+      "homeScore": 5,
+      "awayShots": 24,
+      "homeShots": 25,
+      "overtime": true,
+      "sourceUrl": "https://gamesheetstats.com/seasons/15220/games/2952339?tab=box-score",
+      "sourcePublishedAt": null,
+      "observedAt": "2026-11-22T19:01:40.965Z"
     }
   ]
 }
