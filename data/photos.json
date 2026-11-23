@@ -1,7 +1,7 @@
 {
   "collectionUrl": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights",
   "photographer": "RainbowMarks Photography",
-  "verifiedAt": "2026-11-20",
+  "verifiedAt": "2026-11-23",
   "galleries": [
     {
       "title": "Knights vs. Santa Clarita Flyers",
@@ -140,6 +140,18 @@
       "date": "2026-11-15",
       "gameId": "crossbar-2026-11-15-away-13u-aa-st-louis-eagles",
       "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/Vs-St-Louis-Eagles-11-15-2026"
+    },
+    {
+      "title": "Knights vs. Northwest Chargers",
+      "date": "2026-11-21",
+      "gameId": "2952282",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/Vs-Northwest-Chargers-11-21-2026"
+    },
+    {
+      "title": "Knights vs. Northwest Chargers",
+      "date": "2026-11-22",
+      "gameId": "2952339",
+      "url": "https://photos.rainbowmarks.com/2026/Hockey/2013-St-Louis-Knights/November/Vs-Northwest-Chargers-11-22-2026"
     }
   ]
 }

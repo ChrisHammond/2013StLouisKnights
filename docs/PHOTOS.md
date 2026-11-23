@@ -7,3 +7,5 @@ To add a published gallery, append its title, game date, exact public URL, and G
 Run `npm test` and `npm run build`, then commit and push. Validation rejects duplicate URLs and mappings to a different date or a game without the Knights. Schedule cards display explicitly matched galleries after the scheduled start; cancelled and postponed games are excluded. A published gallery is required; links are never invented.
 
 The index is curated, not automatically discovered. Add newly published gallery URLs to the JSON to show them individually. The collection link always leads to RainbowMarks, where newer galleries can be found immediately. An approved SmugMug feed could automate discovery later. Photos remain hosted by RainbowMarks and are not copied into this project.
+
+The November directory loads its gallery list dynamically. An HTTP 200 response without a gallery link in the initial HTML does not establish that the gallery is absent. Use the rendered browser gallery list and verify its dated opponent link before recording a missing-media check.
